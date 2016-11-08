@@ -1,0 +1,392 @@
+﻿@model hypster.ViewModels.GetPlayerViewModel
+@{
+    ViewBag.Title = "New player for Tumblr";
+    ViewBag.Desc = "get new player for Tumblr code";
+}
+<script type="text/javascript" src="/scripts/jscolor/jscolor.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var margin_left = 0;
+        var cont_width = 1024;
+
+        if ($(window).width() > 1024) {
+            margin_left = $(window).width() - 1024 - 44;
+            cont_width = 1024 + 30 + (margin_left / 2) - 15;
+        } else {
+            margin_left = 0;
+            cont_width = 1024;
+        }
+
+
+        $("#listenSlide1").css("float", "left");
+        $("#listenSlide1").css("width", cont_width + "px");
+
+        $("#listenSlide2").css("float", "right");
+        $("#listenSlide2").css("width", cont_width + "px");
+
+        $("#listenSlide3").css("float", "left");
+        $("#listenSlide3").css("width", cont_width + "px");
+
+
+        //init player settings and sample
+        refreshPlayer();
+        //-------------------------------
+    });
+
+</script>
+
+
+
+
+
+
+<div class="boxContLeft boxContRightTop">
+    <div id="listenSlide1" class="slideLeft" style=" min-height:95px; ">
+        
+
+                <div class="NPFT_Head" >
+                    
+                        <div class="ffHeader">Tumblr Playlist</div>
+
+                        <div class="NPFT_TopAd">
+                            <div id="TopAdd1_s9128"></div>
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    document.getElementById("TopAdd1_s9128").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                                });
+                            </script>
+                        </div>
+
+                </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="boxContRight">
+<div id="listenSlide2" class="slideRight" style=" min-height:595px; ">
+    
+    <div class="NPFT_ContHolder">
+
+
+
+                <div class="GetCodeBtn"><h2>Get Code</h2></div>
+                <div class="MoreSkinsBtn" onclick="window.location='/create/player';"><h2>More Skins</h2></div>
+
+
+
+
+
+    
+                <div id="CPL_Tab2">
+        
+                    
+                    <div style=" float:left; width:98%; height:15px; line-height:13px; padding:1%; margin-bottom:13px; background-color:#FCF088; color:#232323; font-size:17px; border-radius:3px;">
+                        Hypster Player is in Beta mode. Please submit your comments <a href='/hypster/Contact_Us' style=" color:#000000; font-weight:bold;">HERE</a>.
+                    </div>
+
+
+                
+                    <div id="SampleSettingsHolder">
+
+                    
+                            <div class="HeaderCompText">
+                                Player Settings:
+                            </div>
+
+
+
+               
+
+                            <div class="SettingItm">
+                                Playlist: 
+                                <select id="hypPlayer_Playlist_ID" name="hypPlayer_PlaylistID" onchange="refreshPlayer();"> 
+                                    @foreach (var item in Model.playlists_list)
+                                    {
+                                        <option value="@item.id">@item.name</option>
+                                    }
+                                </select>
+                            </div>
+        
+
+                            <div class="SettingItm">
+                                Autostart: <input type="checkbox" checked="checked" id="hypPlayer_Autostart" name="hypPlayer_Autostart" onclick="refreshPlayer()" />
+                            </div>
+        
+
+                            <div class="SettingItm">
+                                Shuffle Playback: <input type="checkbox" checked="checked" id="hypPlayer_ShufflePlayback" name="hypPlayer_ShufflePlayback" onclick="refreshPlayer()" />
+                            </div>
+
+
+                            <div class="SettingItm">
+                                Main Back Color:&nbsp;
+                                <input id="hf_MainBackColor" name="hf_MainBackColor" class="color" onchange="refreshPlayer()" style=" width:52px; height:23px; border:none; border-radius:2px;" value="000000" />
+                            </div>
+
+
+                            <div class="SettingItm">
+                                Border Color:&nbsp;
+                                <input id="hf_BorderColor" name="hf_BorderColor" class="color" onchange="refreshPlayer()" style=" width:52px; height:23px; border:none; border-radius:2px;" value="454545" />
+                            </div>
+
+
+                            <div class="SettingItm">
+                                Display Controls on Player: <input type="checkbox" checked="checked" id="hypPlayer_DisplayControlsOnPlayer" name="hypPlayer_DisplayControlsOnPlayer" onclick="refreshPlayer()" />
+                            </div>
+
+                            <div class="SettingItm">
+                                Hide Player Window: <input type="checkbox" id="hypPlayer_HidePlayerWindow" name="hypPlayer_HidePlayerWindow" onclick="refreshPlayer()" />
+                                <br /><span style=" color:#FCF088; font-size:11px;">YouTube requires to have video window visible, otherwise certain songs may be disabled.</span>
+                            </div>
+
+                            <div class="SettingItm">
+                                Save Playback State: <input type="checkbox" checked="checked" id="hypPlayer_SavePlaybackState" name="hypPlayer_SavePlaybackState" onclick="refreshPlayer()" />
+                            </div>
+
+                    </div>
+        
+
+
+
+                    <div id="SampleContHolder" style=" min-height:500px; text-align:center;">
+                            
+                            <h2>Player Preview</h2>
+
+                            <div style="width:100%; height:30px;">
+
+                                    <div class="hypPlayerAddCons" ></div>
+
+                                    <br/>Please Note: Skipped songs are due to content owner's lack of meeting YouTube Terms and Conditions. <br /><br />
+
+
+                                    <div style=" float:left; margin-left:150px;">
+                                    <script id="HypPlayerScript" 
+                                    type="text/javascript" 
+                                    src="http://@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]/a/player7.js"  
+                                    hypHostName="@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]" 
+                                    hypUserID="@Model.curr_user.id" 
+                                    hypPlaylistID="0" 
+                                    hypPlayerControls="1" 
+                                    hypAutostart="0" 
+                                    hypPlayerSort="" 
+                                    hypMainBackColor="#000000" 
+                                    hypBorderBack="#454545" 
+                                    hypVisibility="visible"
+                                    hypSaveState="1" >
+                                    <!-- Hypster Player --></script>
+                                    </div>
+
+                           </div>
+
+                    </div>
+
+
+
+
+        
+
+
+                    <div id="SampleCodeHolder">
+                
+
+
+                            <div class="HeaderCompText">
+                                Player Code:
+                                <br /><span style=" color:#FCF088; font-size:11px;">User may paste Hypster player anywhere within "&lt;body&gt;" and "&lt;/body&gt;" tags.</span>
+                            </div>
+
+
+
+                            <textarea id="PlayerCodeArea">
+                            </textarea>
+
+
+
+
+
+                            <div class="HeaderCompText">
+                                Separate Player Controls Code:
+                                <br /><span style=" color:#FCF088; font-size:11px;">User may paste Hypster player controls anywhere within "&lt;body&gt;" and "&lt;/body&gt;" tags.</span>
+                            </div>
+                
+
+                            <textarea id="PlayerControlsCodeArea">
+                                <div class="hypPlayerAddCons"></div>
+                            </textarea>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide3" class="slideLeft" style=" min-height:95px; ">
+        
+            
+            <div class="NPFT_BHead">
+                    
+                <div class="NPFT_BottomAd">
+                    <div id="TopAdd1_d8d2362fgki"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("TopAdd1_d8d2362fgki").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                        });
+                    </script>
+                </div>
+
+                <div class="NPFT_GoOnTop" onclick="$(document).scrollTop(0);">
+                    Go On Top
+                </div>
+
+            </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    
+    var isLoaded = false;
+    function refreshPlayer() {
+        var sample_code = "";
+
+
+        //-----------------------------------------------------------------------------------------------
+        var hypPlayerControls_var = "0";
+        if (document.getElementById("hypPlayer_DisplayControlsOnPlayer").checked == true)
+            hypPlayerControls_var = "1";
+       
+
+        var hypAutostart_var = "1";
+        if (document.getElementById("hypPlayer_Autostart").checked == false)
+            hypAutostart_var = "0";
+
+        var hypPlayerSort_var = "";
+        if (document.getElementById("hypPlayer_ShufflePlayback").checked == true)
+            hypPlayerSort_var = "rand";
+
+        var separatePlayback_var = true;
+        
+
+        var HidePlayerWindow_var = "visible";
+        if (document.getElementById("hypPlayer_HidePlayerWindow").checked == true)
+            HidePlayerWindow_var = "hidden";
+
+        var Playlist_ID_var = "";
+        var object = document.getElementById("hypPlayer_Playlist_ID");
+        Playlist_ID_var = object[object.selectedIndex].value;
+
+
+        var hypPlayerSavePlaybackState_var = "0";
+        if (document.getElementById("hypPlayer_SavePlaybackState").checked == true)
+            hypPlayerSavePlaybackState_var = "1";
+        //-----------------------------------------------------------------------------------------------
+
+
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        var tag_script = $('#HypPlayerScript');
+        $(tag_script).attr("src", "http://@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]/a/player7.js");
+        $(tag_script).attr("hypHostName", "@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]");
+        $(tag_script).attr("hypUserID", "@Model.curr_user.id");
+        $(tag_script).attr("hypPlaylistID", Playlist_ID_var);
+        $(tag_script).attr("hypPlayerControls", hypPlayerControls_var);
+        $(tag_script).attr("hypAutostart", hypAutostart_var);
+        $(tag_script).attr("hypPlayerSort", hypPlayerSort_var);
+        $(tag_script).attr("hypMainBackColor", "#" + $("#hf_MainBackColor").val());
+        $(tag_script).attr("hypBorderBack", "#" + $("#hf_BorderColor").val());
+        $(tag_script).attr("hypVisibility", HidePlayerWindow_var);
+        $(tag_script).attr("hypSaveState", hypPlayerSavePlaybackState_var);
+        //-----------------------------------------------------------------------------------------------
+
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        if (separatePlayback_var == false)
+            $(".hypPlayerAddCons").css("display", "none");
+        else
+            $(".hypPlayerAddCons").css("display", "block");
+        //-----------------------------------------------------------------------------------------------
+
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        if(isLoaded == true)
+            InitPlayer();
+        //-----------------------------------------------------------------------------------------------
+
+
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        $("#PlayerCodeArea").val("");
+        $("#PlayerControlsCodeArea").val("");
+
+        if(separatePlayback_var == true)
+            $("#PlayerControlsCodeArea").val("<div class=\"hypPlayerAddCons\"></div>");
+
+        $("#PlayerCodeArea").val($("#PlayerCodeArea").val() + "<" + "script id=\"HypPlayerScript\" type=\"text/javascript\" src=\"http://@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]/a/player7.js\"  hypHostName=\"@System.Configuration.ConfigurationManager.AppSettings["hypsterHostName"]\" hypUserID=\"@Model.curr_user.id\" hypPlaylistID=\"" + Playlist_ID_var + "\" hypPlayerControls=\"" + hypPlayerControls_var + "\" hypAutostart=\"" + hypAutostart_var + "\" hypPlayerSort=\"" + hypPlayerSort_var + "\" hypMainBackColor=\"#" + $("#hf_MainBackColor").val() + "\" hypBorderBack=\"#" + $("#hf_BorderColor").val() + "\" hypVisibility=\"" + HidePlayerWindow_var + "\"  hypSaveState=\"" + hypPlayerSavePlaybackState_var + "\"  " + ">" + "<" + "!-- Hypster Player --" + ">" + "<" + "/script" + ">");
+        //-----------------------------------------------------------------------------------------------
+
+
+
+        isLoaded = true;
+    }
+
+</script>
+

@@ -1,0 +1,82 @@
+﻿@model hypster.ViewModels.createViewModel
+@{
+    ViewBag.Title = "Create Free Playlist | Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "Create free playlists, and listen commercial free music. Music for tumblr ";
+    ViewBag.ActivePage = "create";
+}
+
+
+
+<script type="text/javascript">
+    active_menu = ".mCreate";
+    $(".mCreate").css("background-color", "#191919");
+
+    $(document).ready(function () {
+        RenderCreateIndex();
+    });
+    $(window).resize(function () {
+        RenderCreateIndex();
+    });
+</script>
+
+
+
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight" style=" min-height:420px;">
+
+
+
+
+            <div id="CreateSection1" onclick="window.location='/create/player';" title="Create player for Tumblr or Blogger">
+                <div class="secImgs">
+                    <img id="CreateSection1_img" alt="" src="/imgs/create/create_player_icon.png" />
+                </div>
+                <div class="secText">Create Player</div>
+            </div>
+
+
+
+            <div id="CreateSection2" onclick="window.location='/create/playlist';" title="Create Playlist">
+                <div class="secImgs">
+                    <img id="CreateSection2_img" alt="" src="/imgs/create/create_playlist_icon.png" />
+                </div>
+                <div class="secText">Create Playlist</div>
+            </div>
+
+
+
+            <div id="CreateSection3" onclick="window.location='/create/station';" title="Create Radio Station" >
+                <div class="secImgs">
+                    <img id="CreateSection3_img" alt="" src="/imgs/create/create_station_icon.png" />
+                </div>
+                <div class="secText">Create Station</div>
+            </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide2" class="slideLeft">
+        
+            @Html.Action("PopularVideos", "popular")
+
+    </div>
+</div>

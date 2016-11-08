@@ -1,0 +1,294 @@
+﻿@model hypster.ViewModels.GetPlayerViewModel
+@{
+    ViewBag.Title = "Hypster - Classic player";
+    ViewBag.Desc = "";
+    Layout = null;
+}
+
+
+
+<link rel="stylesheet" href="/scripts/color_picker/css/colorpicker.css" type="text/css" />
+<script type="text/javascript" src="/scripts/color_picker/js/colorpicker.js"></script>
+<script type="text/javascript" src="/scripts/color_picker/js/eye.js"></script>
+<script type="text/javascript" src="/scripts/color_picker/js/utils.js"></script>
+
+
+<script type="text/javascript">
+    var Player_Size_Width = 370;
+    var Player_Size_Height = 450;
+</script>
+
+
+
+
+
+<div style=" float:left; width:1024px; margin:15px 0 15px 15px;" >
+
+
+    <div style=" float:left; width:100%; height:40px; overflow:hidden; background-color:#232323; border-radius:2px; margin-top:0px; ">
+        <h2 style=" float:left; margin:3px 0px 0px 15px; color:#FFFFFF; font:23px/1.5 Hypster-Font,Arial,sans-serif;">
+            Classic player
+        </h2>
+    </div>
+
+
+
+
+    <div style=" float:left; width:100%; border-radius:2px; margin-top:15px; ">
+    
+        @using (Html.BeginForm("getPlayer_classicPlayer", "player"))
+        {
+            
+            <div style=" float:left; width:565px;">
+        
+                <div style=" float:left; width:220px; height:220px; margin:0 0 0 0px; border:7px solid #232323; background-color:#232323; border-radius:2px; cursor:pointer;">
+                    @if (Model.player.CLASSIC_playerSkin != "")
+                    {
+                        <img id="skinImgHolder1" alt="" src="/imgs/get_player/classic_skins/@(Model.player.CLASSIC_playerSkin).png"  />
+                    }
+                    else
+                    {
+                        <img id="skinImgHolder1" alt="" src="/imgs/get_player/widget_1.png"  />
+                    }
+                </div>
+
+
+
+                <div style=" float:left;  width:300px; min-height:220px; line-height:25px; margin:0 0 0 13px; border:7px solid #232323; background-color:#232323; border-radius:2px; text-align:right;">
+            
+                    Name: <input id="PlayerName" name="PlayerName" type="text" maxlength="50" style=" width:215px;" value="@Model.player.player_Name" />
+                    <br />
+            
+                    Playlist: 
+                    <select id="Sel_Playlist_ID" name="Sel_Playlist_ID" style=" width:220px; height:22px; margin-top:2px;" onchange="playlist_changed(this);"> 
+                        @foreach (var item in Model.playlists_list)
+                        {
+                            <option value="@item.id" @if (Model.player.playlist_ID == item.id)
+                                                     {<text>selected="selected"</text>}>@item.name</option>
+                        }
+                    </select>
+                    <br />
+
+
+                    Autostart: @Html.CheckBox("CLASSIC_autostart", (bool)Model.player.CLASSIC_autostart)
+                    <br />
+                    Shuffle Playback: @Html.CheckBox("CLASSIC_shufflePlayback", (bool)Model.player.CLASSIC_shufflePlayback)
+                    <br />
+
+
+                    Player Color Scheme: 
+                    <select id="Player_Color_Scheme" name="Player_Color_Scheme" onchange="preview_skin_classic(this.value);" style=" width:150px; height:22px; margin-top:2px;"> 
+                    
+                        <option value="1" @if (Model.player.CLASSIC_playerSkin == "1")
+                                          {<text>selected="selected"</text>} >Hypster Original</option>
+                        <option value="2" @if (Model.player.CLASSIC_playerSkin == "2")
+                                          {<text>selected="selected"</text>} >Hypster Original Blue</option>
+                        <option value="3" @if (Model.player.CLASSIC_playerSkin == "3")
+                                          {<text>selected="selected"</text>} >Hypster Original Red</option>
+                        <option value="4" @if (Model.player.CLASSIC_playerSkin == "4")
+                                          {<text>selected="selected"</text>} >Hypster Original Green</option>
+                        <option value="5" @if (Model.player.CLASSIC_playerSkin == "5")
+                                          {<text>selected="selected"</text>} >Hypster Original Yellow</option>
+
+                        <option value="6" @if (Model.player.CLASSIC_playerSkin == "5")
+                                          {<text>selected="selected"</text>} >Custom...</option>
+                    </select>
+                    <br />
+
+
+                    <input type="hidden" id="PlayerID" name="PlayerID" value="@Model.player.player_ID" />
+                </div>
+
+
+
+
+                <div id="CustomizePlayerContH" style=" display:none; float:left; width:547px; border:7px solid #232323; background-color:#232323; border-radius:2px; margin-top:10px;">
+                        
+
+
+                        <div id="playerPreviewCont" style=" float:left; width:300px;"></div>
+
+
+
+                        <div style=" float:right; width:170px; margin-left:10px;">
+                            
+                            <div style=" float:left; width:100%; margin:10px 0 0 10px; cursor:pointer; ">
+                                <div id="cp_BackgroundColor" style=" float:left; width:23px; height:23px; background-color:#9A0000;"></div>
+                                <div style=" float:left; margin-left:5px;">Background Color </div>
+                                <input type="hidden" id="hf_BackgroundColor" name="hf_BackgroundColor" value="9A0000" />
+                            </div>
+
+                            <div style=" float:left; width:100%; margin:10px 0 0 10px; cursor:pointer; ">
+                                <div id="cp_SongBackground" style=" float:left; width:23px; height:23px; background-color:#FF9700;"></div>
+                                <div style=" float:left; margin-left:5px;">Song Background </div>
+                                <input type="hidden" id="hf_SongBackground" name="hf_SongBackground" value="FF9700" />
+                            </div>
+
+                            <div style=" float:left; width:100%; margin:10px 0 0 10px; cursor:pointer; ">
+                                <div id="cp_SongClicked" style=" float:left; width:23px; height:23px; background-color:#FECB81;"></div>
+                                <div style=" float:left; margin-left:5px;">Song Clicked </div>
+                                <input type="hidden" id="hf_SongClicked" name="hf_SongClicked" value="FECB81" />
+                            </div>
+
+                            <div style=" float:left; width:100%; margin:10px 0 0 10px; cursor:pointer; ">
+                                <div id="cp_Buttons" style=" float:left; width:23px; height:23px; background-color:#D4D0C7;"></div>
+                                <div style=" float:left; margin-left:5px;">Buttons </div>
+                                <input type="hidden" id="hf_Buttons" name="hf_Buttons" value="D4D0C7" />
+                            </div>
+
+                            <div style=" float:left; width:100%; margin:10px 0 0 10px; ">
+                                
+                                <div style=" float:left; margin-left:5px;">Size </div>
+                                <select id="Custom_Size_Sel" name="Custom_Size_Sel" onchange="custom_skin_sizeChanged(this.value);" style=" width:70px; height:22px; margin:2px 0 0 10px;"> 
+                                    <option value="1" selected="selected">Big</option>
+                                    <option value="2" >Small</option>
+                                </select>
+                            </div>
+                            
+                            
+                            <input type="hidden" id="hf_Border" name="hf_Border" value="9A0000" />
+                            <input type="hidden" id="hf_Box" name="hf_Box" value="9A0000" />
+                            <input type="hidden" id="hf_Title" name="hf_Title" value="000000" />
+
+                        </div>
+
+
+                </div>
+
+
+                <input id="GetCode_btn" type="submit" value="GET CODE" style=" float:left; width:425px; height:30px; line-height:25px; border-radius:2px; background-color:#42606e; color:#FCF088; margin:15px 0 0 0; cursor:pointer; font-weight:bold;" />
+                <input type="button" value="CANCEL" onclick="window.location='/create/player';" style=" float:left; width:120px; height:30px; line-height:25px; border-radius:2px; background-color:#42606e; color:#FFFFFF; margin:15px 0 0 15px; cursor:pointer;" />
+
+            </div>
+
+
+
+
+            <div id="PlaylistSongsContainer" style=" float:left;  width:430px; min-height:220px; line-height:25px; margin-left:13px; border:7px solid #232323; background-color:#232323; border-radius:2px; text-align:right;">
+                <script type="text/javascript">
+                    $(document).ready(
+                        function () {
+                            var object = document.getElementById('Sel_Playlist_ID');
+                            playlist_changed(object);
+
+                            //populate custom player
+                            $("#playerPreviewCont").html("<embed quality='high' style='width:" + Player_Size_Width + "px;visibility:visible; height:" + Player_Size_Height + "px;' type='application/x-shockwave-flash' height='" + Player_Size_Height + "' width='" + Player_Size_Width + "'  pluginspage='http://www.macromedia.com/go/getflashplayer' border='0' src='http://www.hypster.com/flash/player.swf?id=1:" + $("#Sel_Playlist_ID").val() + ":1&autoplay=false' FlashVars='color_bg=0x" + $('#hf_BackgroundColor').attr('value') + "&color_border=0x" + $('#hf_Border').attr('value') + "&color_box=0x" + $('#hf_Box').attr('value') + "&color_songbg=0x" + $('#hf_SongBackground').attr('value') + "&color_song_clicked=0x" + $('#hf_SongClicked').attr('value') + "&color_Title=0x" + $('#hf_Title').attr('value') + "&color_btns=0x" + $('#hf_Buttons').attr('value') + "&color_title=0x" + $('#hf_Title').attr('value') + "' />");
+                        });
+                </script>
+            </div>
+
+        }
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    $('#cp_BackgroundColor').ColorPicker({
+        onSubmit: function (hsb, hex, rgb, el) {
+            $(el).val(hex);
+            $(el).ColorPickerHide();
+        },
+        onChange: function (hsb, hex, rgb) {
+            $('#cp_BackgroundColor').css('background-color', '#' + hex);
+            $('#hf_BackgroundColor').attr('value', hex);
+        },
+        onHide: function (colpkr) {
+            $("#playerPreviewCont").html("<embed quality='high' style='width:" + Player_Size_Width + "px;visibility:visible; height:" + Player_Size_Height + "px;' type='application/x-shockwave-flash' height='" + Player_Size_Height + "' width='" + Player_Size_Width + "'  pluginspage='http://www.macromedia.com/go/getflashplayer' border='0' src='http://www.hypster.com/flash/player.swf?id=1:" + $("#Sel_Playlist_ID").val() + ":1&autoplay=false' FlashVars='color_bg=0x" + $('#hf_BackgroundColor').attr('value') + "&color_border=0x" + $('#hf_Border').attr('value') + "&color_box=0x" + $('#hf_Box').attr('value') + "&color_songbg=0x" + $('#hf_SongBackground').attr('value') + "&color_song_clicked=0x" + $('#hf_SongClicked').attr('value') + "&color_Title=0x" + $('#hf_Title').attr('value') + "&color_btns=0x" + $('#hf_Buttons').attr('value') + "&color_title=0x" + $('#hf_Title').attr('value') + "' />");
+            return true;
+        }
+    })
+    .bind('keyup', function () {
+        $(this).ColorPickerSetColor(this.value);
+    });
+
+
+
+    $('#cp_SongBackground').ColorPicker({
+        onSubmit: function (hsb, hex, rgb, el) {
+            $(el).val(hex);
+            $(el).ColorPickerHide();
+        },
+        onChange: function (hsb, hex, rgb) {
+            $('#cp_SongBackground').css('background-color', '#' + hex);
+            $('#hf_SongBackground').attr('value', hex);
+        },
+        onHide: function (colpkr) {
+            $("#playerPreviewCont").html("<embed quality='high' style='width:" + Player_Size_Width + "px;visibility:visible; height:" + Player_Size_Height + "px;' type='application/x-shockwave-flash' height='" + Player_Size_Height + "' width='" + Player_Size_Width + "'  pluginspage='http://www.macromedia.com/go/getflashplayer' border='0' src='http://www.hypster.com/flash/player.swf?id=1:" + $("#Sel_Playlist_ID").val() + ":1&autoplay=false' FlashVars='color_bg=0x" + $('#hf_BackgroundColor').attr('value') + "&color_border=0x" + $('#hf_Border').attr('value') + "&color_box=0x" + $('#hf_Box').attr('value') + "&color_songbg=0x" + $('#hf_SongBackground').attr('value') + "&color_song_clicked=0x" + $('#hf_SongClicked').attr('value') + "&color_Title=0x" + $('#hf_Title').attr('value') + "&color_btns=0x" + $('#hf_Buttons').attr('value') + "&color_title=0x" + $('#hf_Title').attr('value') + "' />");
+            return true;
+        }
+    })
+    .bind('keyup', function () {
+        $(this).ColorPickerSetColor(this.value);
+    });
+
+
+
+
+
+    $('#cp_SongClicked').ColorPicker({
+        onSubmit: function (hsb, hex, rgb, el) {
+            $(el).val(hex);
+            $(el).ColorPickerHide();
+        },
+        onChange: function (hsb, hex, rgb) {
+            $('#cp_SongClicked').css('background-color', '#' + hex);
+            $('#hf_SongClicked').attr('value', hex);
+        },
+        onHide: function (colpkr) {
+            $("#playerPreviewCont").html("<embed quality='high' style='width:" + Player_Size_Width + "px;visibility:visible; height:" + Player_Size_Height + "px;' type='application/x-shockwave-flash' height='" + Player_Size_Height + "' width='" + Player_Size_Width + "'  pluginspage='http://www.macromedia.com/go/getflashplayer' border='0' src='http://www.hypster.com/flash/player.swf?id=1:" + $("#Sel_Playlist_ID").val() + ":1&autoplay=false' FlashVars='color_bg=0x" + $('#hf_BackgroundColor').attr('value') + "&color_border=0x" + $('#hf_Border').attr('value') + "&color_box=0x" + $('#hf_Box').attr('value') + "&color_songbg=0x" + $('#hf_SongBackground').attr('value') + "&color_song_clicked=0x" + $('#hf_SongClicked').attr('value') + "&color_Title=0x" + $('#hf_Title').attr('value') + "&color_btns=0x" + $('#hf_Buttons').attr('value') + "&color_title=0x" + $('#hf_Title').attr('value') + "' />");
+            return true;
+        }
+    })
+    .bind('keyup', function () {
+        $(this).ColorPickerSetColor(this.value);
+    });
+
+
+
+
+
+    $('#cp_Buttons').ColorPicker({
+        onSubmit: function (hsb, hex, rgb, el) {
+            $(el).val(hex);
+            $(el).ColorPickerHide();
+        },
+        onChange: function (hsb, hex, rgb) {
+            $('#cp_Buttons').css('background-color', '#' + hex);
+            $('#hf_Buttons').attr('value', hex);
+        },
+        onHide: function (colpkr) {
+            $("#playerPreviewCont").html("<embed quality='high' style='width:" + Player_Size_Width + "px;visibility:visible; height:" + Player_Size_Height + "px;' type='application/x-shockwave-flash' height='"+Player_Size_Height + "' width='" + Player_Size_Width + "'  pluginspage='http://www.macromedia.com/go/getflashplayer' border='0' src='http://www.hypster.com/flash/player.swf?id=1:" + $("#Sel_Playlist_ID").val() + ":1&autoplay=false' FlashVars='color_bg=0x" + $('#hf_BackgroundColor').attr('value') + "&color_border=0x" + $('#hf_Border').attr('value') + "&color_box=0x" + $('#hf_Box').attr('value') + "&color_songbg=0x" + $('#hf_SongBackground').attr('value') + "&color_song_clicked=0x" + $('#hf_SongClicked').attr('value') + "&color_Title=0x" + $('#hf_Title').attr('value') + "&color_btns=0x" + $('#hf_Buttons').attr('value') + "&color_title=0x" + $('#hf_Title').attr('value') + "' />");
+            return true;
+        }
+    })
+    .bind('keyup', function () {
+        $(this).ColorPickerSetColor(this.value);
+    });
+
+
+
+
+
+    
+    function custom_skin_sizeChanged(size) {
+        if (size == 1) {
+            Player_Size_Width = 370;
+            Player_Size_Height = 450;
+        }
+        else {
+            Player_Size_Width = 56;
+            Player_Size_Height = 13;
+        }
+        $("#playerPreviewCont").html("<embed quality='high' style='width:" + Player_Size_Width + "px;visibility:visible; height:" + Player_Size_Height + "px;' type='application/x-shockwave-flash' height='" + Player_Size_Height + "' width='" + Player_Size_Width + "'  pluginspage='http://www.macromedia.com/go/getflashplayer' border='0' src='http://www.hypster.com/flash/player.swf?id=1:" + $("#Sel_Playlist_ID").val() + ":1&autoplay=false' FlashVars='color_bg=0x" + $('#hf_BackgroundColor').attr('value') + "&color_border=0x" + $('#hf_Border').attr('value') + "&color_box=0x" + $('#hf_Box').attr('value') + "&color_songbg=0x" + $('#hf_SongBackground').attr('value') + "&color_song_clicked=0x" + $('#hf_SongClicked').attr('value') + "&color_Title=0x" + $('#hf_Title').attr('value') + "&color_btns=0x" + $('#hf_Buttons').attr('value') + "&color_title=0x" + $('#hf_Title').attr('value') + "' />");
+    }
+
+</script>

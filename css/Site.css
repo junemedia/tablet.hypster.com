@@ -1,0 +1,3749 @@
+﻿/* SCROLLBARS SETTINGS */
+/*----------------------------------------------*/
+
+
+html
+{
+	scrollbar-face-color:#777777;
+	scrollbar-base-color:#777777;
+	scrollbar-arrow-color:black;
+	scrollbar-track-color:#313537;
+	scrollbar-shadow-color:#777777;
+	scrollbar-highlight-color:#777777;
+	scrollbar-3dlight-color:#666666;
+	scrollbar-darkshadow-Color:#666666;
+	
+	height: 100%;
+	
+	font-family:Segoe UI Light; 
+    font-weight:lighter;
+}
+
+
+
+/*----------------------------------------------*/
+ @font-face 
+ {
+ 	font-family: 'Hypster-Font';
+ 	src: url('/webfonts/245B38_0_0.eot');
+ 	/*src: url('/webfonts/245B38_0_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/245B38_0_0.woff') format('woff'),url('/webfonts/245B38_0_0.ttf') format('truetype');*/
+ 	src: url('/webfonts/245B38_0_0.eot?#iefix'),url('/webfonts/245B38_0_0.ttf') format('truetype');
+ }
+ 
+ @font-face 
+ {
+ 	font-family: 'Hypster-Segoe';
+ 	src: url('/webfonts/segoeuil.eot');
+ 	/*src: url('/webfonts/segoeuil.eot?#iefix') format('embedded-opentype'),url('/webfonts/segoeuil.woff') format('woff'),url('/webfonts/segoeuil.ttf') format('truetype');*/
+	src: url('/webfonts/segoeuil.eot?#iefix') format('embedded-opentype'),url('/webfonts/segoeuil.ttf') format('truetype');
+ 	font-weight:lighter;
+ }
+
+
+
+
+ .shadow {
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+ }
+/*----------------------------------------------*/
+
+
+
+
+
+
+
+/*----------------------------------------------*/
+body {
+    font-size: .85em;
+    font-family:Hypster-Segoe; 
+    font-weight:lighter;
+    color:#EEEEEE;
+    
+    background: #3f5d6c url(/imgs/main_doc_back.png) repeat;
+    margin:0px; 
+    padding:0px;
+    
+    
+    width:100%;
+    height: 100%;
+    /*min-width:1040px;*/
+}
+
+
+
+header, footer, nav, section {
+    display: block;
+}
+
+img
+{
+	border:0px;
+}
+
+
+
+.MainBD13
+{
+	float:left; width:100%; min-width:1040px; min-height: 100%; height: auto !important; height: 100%; margin-bottom:25px;
+}
+
+
+
+
+
+.Trans_BACK {
+     background:#000000;
+     
+     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=90);
+     opacity: 0.90;
+     -moz-opacity:0.90;
+     position:absolute;
+     
+     display:none; z-index:100000; position:absolute; top:0px; left:0px; width:1px; height:1px;
+}
+
+div.Trans_75
+{
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=75);
+    opacity: 0.75;
+    -moz-opacity:0.75;
+}
+
+#popupContainer
+{
+	display:none; z-index:100001; position:absolute; top:0px; left:0px; text-align:center;
+}
+
+#popupContainer_PopupPlayer
+{
+	display:none; z-index:100001; position:absolute; top:0px; left:0px; text-align:center;
+}
+/*-----------------------------------------------------------*/
+
+
+
+
+
+
+
+/*-----------------------------------------------------------*/
+/*----------------COMMON ELEMENTS ---------------------------*/
+/*-----------------------------------------------------------*/
+
+
+.boxContRight
+{
+	float:right; width:100%; height:auto; background:url('/imgs/stripe-bg.png') repeat-y center;  margin:25px 0 0 0;
+	overflow:hidden;
+}
+
+
+.boxContLeft
+{
+	float:left; width:100%; height:auto; background:url('/imgs/stripe-bg2.png') repeat-y center;  margin:25px 0 0 0;
+	overflow:hidden;
+}
+
+
+.slideRight
+{
+	width:1024px; min-height:50px; padding:15px 0 15px 15px; background-color:#313537; margin:0 auto 0 auto; border-radius:2px;
+}
+
+.slideLeft
+{
+	width:1024px; min-height:50px; padding:15px 15px 15px 15px; background-color:#9da2a4; margin:0 auto 0 auto; border-radius:2px;
+}
+
+
+.boxContRightTop
+{
+	margin-top:5px;
+}
+
+
+
+
+
+
+.BoxCont300x250
+{
+	float:left; 
+	width:318px; 
+	height:268px; 
+	overflow:hidden; 
+	padding:2px; 
+	background:url('/imgs/home_box_back.png') no-repeat;
+}
+
+
+/*-----------------------------------------------------------*/
+/*-----------------------------------------------------------*/
+/*-----------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles for basic forms */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+input[type=text] 
+{
+	font-family:Hypster-Segoe; 
+    font-weight:lighter;
+    font-size:18px;
+}
+
+input[type=button] 
+{
+	height:22px; line-height:19px; border:1px solid #454545; background-color:#42606e; color:#FFFFFF; cursor:pointer;
+}
+
+input[type=submit]
+{
+	height:22px; line-height:19px; border:1px solid #454545; background-color:#42606e; color:#FFFFFF; cursor:pointer;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/* Like buttons */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+#hyp_sosialHolder1
+{
+	float:left;	
+	width:100%;
+}
+
+
+.hyp_SI_Cont_google
+{
+	float:left;
+	width:75px; 
+	height:22px; 
+	background:#454545 url('../imgs/social_icons/google_icon.png') no-repeat center; 
+	border-radius:2px;
+	cursor:pointer; 
+	margin-left:25px; 
+}
+.hyp_SI_Cont_twitter
+{
+	float:left;
+	width:75px; 
+	height:22px; 
+	background:#454545 url('../imgs/social_icons/twitter_icon.png') no-repeat center; 
+	border-radius:2px;
+	cursor:pointer; 
+	margin-left:10px; 
+}
+.hyp_SI_Cont_facebook
+{ 
+	float:left;
+	width:75px; 
+	height:22px; 
+	background:#454545 url('../imgs/social_icons/facebook_icon.png') no-repeat center; 
+	border-radius:2px;
+	cursor:pointer; 
+	margin-left:10px; 
+}
+
+
+
+
+.hyp_SI_Cont_facebook1
+{
+	float:left;
+	width:90px;
+	height:22px;
+	margin-left:16px;
+}
+
+.hyp_SI_Cont_twitter1
+{	
+	float:left;
+	width:90px;
+	height:22px;
+	margin-left:5px;
+}
+
+.hyp_SI_Cont_google1
+{
+	float:left;
+	width:80px;
+	height:22px;
+	margin-left:5px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles for validation helpers */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+a
+{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:#FFFFFF;
+}
+
+a:visited
+{
+	color:#FFFFFF;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+/*    PAGE GLOBAL  */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.ContentHeaderCont
+{
+	float:left;
+	width:100%;
+	height:110px;
+}
+
+.ContentHeaderInner
+{
+	float:left;
+	width:100%;
+	height:60px; 
+	background-color:#2e2e2e; 
+	border-bottom:3px solid #191919;
+}
+
+
+
+
+.ContentRootCont
+{
+	float:left;
+	min-width:1040px;
+	width:100%;
+	
+	/*min-height:200px;*/
+}
+
+
+.ContentFooterCont
+{
+	/*float:left;*/
+	clear:both;
+	
+	min-width:1040px;
+	width:100%; 
+	
+	height:270px;
+	background-color:#1A1A1A; 
+	border-top:4px solid #2f2f2f; 
+	margin-top:25px; 
+	
+}
+
+
+
+
+#TopAdd1
+{
+	float:left; width:728px; height:90px;
+}
+
+
+.BottomPane
+{
+	width:1050px; clear:both;
+	min-height:270px;
+	background-color:#202121;
+	margin-left:13px;
+}
+
+.BottomPane img
+{
+	float:left; margin:13px 0px 0 15px;
+}
+
+
+.BottomPaneInnr
+{
+	float:left; width:750px; margin:10px 0 0 0px;
+}
+
+.BottomPaneInnr .MenuItmCont
+{
+	float:left; width:169px; height:115px; margin:10px 0 0 9px; padding-left:7px; border-left:1px solid #2f2f2f;
+}
+
+.BottomPaneInnr .MenuItmCont a
+{
+	float:left; display:block; width:96%; padding:0 1% 2px 3%; text-align:left; font-size:15px;
+	margin-top:6px;
+}
+
+
+
+.push {
+	clear: both;
+}
+
+
+
+
+
+.FeaturedAdContBottom
+{
+	width:728px; height:90px;  background-color:#2f2f2f; border:2px solid #2f2f2f; border-radius:2px;
+	float:left; margin:16px 2px 0 9px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Site Header */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+#MainMenu
+{
+	width:1024px;
+	margin:0 auto 0 auto;
+	height:59px;
+}
+
+
+#MainMenu .mLogo
+{
+	float:left;
+	margin-top:2px;
+	cursor:pointer;
+}
+
+
+
+
+#MainMenu .mHypster
+{
+	float:left; width:100px; height:28px; line-height:24px; cursor:pointer;
+	font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+	margin-top:32px; margin-left:3px; text-align:center;
+	border-radius:2px;
+}
+
+#MainMenu .mListen
+{
+	float:left; width:100px; height:28px; line-height:24px; cursor:pointer;
+	font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+	margin-top:32px; margin-left:3px; text-align:center;
+	border-radius:2px;
+}
+
+#MainMenu .mCreate
+{
+	float:left; width:100px; height:28px; line-height:24px; cursor:pointer;
+	font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+	margin-top:32px; margin-left:3px; text-align:center;
+	border-radius:2px;
+}
+
+#MainMenu .mConnect
+{
+	float:left; width:100px; height:28px; line-height:24px; cursor:pointer;
+	font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+	margin-top:32px; margin-left:3px; text-align:center;
+	border-radius:2px;
+}
+
+
+
+
+
+.hypContHolder
+{
+	float:left; width:102px;
+	margin-left:15px;
+}
+
+#HypsterSub
+{
+	display:block; 
+	position:relative; 
+	top:0px; left:4px; 
+	float:left; 
+	width:145px; 
+	height:23px; 
+	background-color:#383838; 
+	border-top:3px solid #191919;
+}
+
+#HypsterSub .HypSub_tv
+{
+	display:block; float:left; width:70px; height:23px; line-height:23px; text-align:center; border-right:1px solid #4f5458;
+}
+
+#HypsterSub  .HypSub_news
+{
+	display:block; float:left; width:70px; height:23px; line-height:23px; text-align:center;
+}
+
+#HypsterSub  .HypSub_radio
+{
+	display:block; float:left; width:70px; height:23px; line-height:23px; text-align:center;  border-left:1px solid #212427;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.TopHeaderCont
+{
+	float:right; width:300px; height:30px; margin:0;
+	overflow:hidden;
+	margin:32px 0px 0 0;
+}
+
+.LoginCont
+{
+	float:right; min-width:50px; height:25px; line-height:25px; color:#EEEEEE; text-align:right; padding:0 0 0 8px;
+	font-family:Hypster-Segoe; font-weight:lighter; font-size:14px;
+}
+
+
+.LoginAcctCont
+{
+	float:right; min-width:50px; height:25px; line-height:25px; color:#EEEEEE; text-align:right; padding:0 0 0 8px;
+	font-family:Hypster-Segoe; font-weight:lighter; font-size:14px;
+	
+	margin-right:7px; cursor:pointer;
+}
+
+.LoginPlrCont
+{
+	float:right; min-width:50px; height:25px; line-height:25px; color:#EEEEEE; text-align:right; padding:0 0 0 8px;
+	font-family:Hypster-Segoe; font-weight:lighter; font-size:14px;
+	
+	margin-right:10px; cursor:pointer;
+	padding:0 10px 0 10px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+.VideoThumbBox
+{
+	display:block; float:right; width:236px; height:141px; background-color:#44484a;  margin-left:27px; margin-top:30px; border-radius:2px; cursor:pointer;
+}
+
+.VideoThumbBox img
+{
+	float:left; width:230px; height:135px; margin:3px; border:none;
+}
+
+
+.videoBoxHeader
+{
+	float:left; 
+	width:230px; 
+	height:30px; 
+	margin-left:3px; 
+	margin-top:-33px;  
+	background-color:#232323; 
+	overflow:hidden;  
+	opacity:0.85; 
+	filter:alpha(opacity=85); 
+	
+	color:#FFFFFF; 
+	font-size:15px; 
+	font-family:Hypster-Segoe; 
+	line-height:30px; 
+	text-align:left;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    VALIDATORS SECTION  */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.txtRegister
+{
+	margin-top:7px;
+	width:342px;
+	height:25px;
+	border:3px solid #FFFFFF;
+	border-radius:3px;
+}
+
+
+
+.txtLogin
+{
+	margin-top:7px;
+	width:342px;
+	height:25px;
+	border:3px solid #FFFFFF;
+	border-radius:3px;
+}
+
+
+.txtValidator
+{
+	color:#FCF088;
+	font-family:Arial;
+	font-size:12px;
+	line-height:15px;
+	font-weight:normal;
+}
+
+
+.txtValidator ul
+{
+	list-style:none;
+	margin:10px 0 0 0;
+	padding:0px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   NEWS SECTION   */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.InnerNewsCont
+{	
+	float:left; width:400px; height:505px; margin:20px 0 0 13px;
+	text-align:left;
+}
+
+
+
+.PostItm
+{
+	font-family:Hypster-Segoe; 
+    font-weight:lighter;
+    font-size:14px;
+	margin-top:0px; line-height:20px;
+	color:#CDCDCD;
+	
+	float:left; width:205px; height:220px; overflow:hidden;
+	margin-left:5px;
+}
+
+
+
+
+.PostItm-title
+{
+	display:block;
+	font-size:18px;
+	margin-top:-4px;
+	height:22px;
+	overflow:hidden;
+}
+.PostItm-title span
+{
+	font-family:Hypster-Segoe; 
+    font-weight:lighter;
+    color:#EEEEEE;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*   NEWS SECTION END   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* +++++++ HOME PAGE +++++++++ */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+.sld1_topCont
+{
+	float:left; width:1024px;
+}
+
+
+.sld1_topCont .topLeft
+{
+	float:left; width:706px; height:250px; overflow:hidden; background-color:#1c1c1c; border:2px solid #1c1c1c; border-radius:2px;
+}	
+
+.sld1_topCont .topRight
+{
+	float:left; width:300px; height:250px; overflow:hidden; margin:0 0 0 8px; background-color:#1c1c1c; border:2px solid #1c1c1c; border-radius:2px;
+}
+
+
+
+
+.sld1_middleCont
+{
+	
+}
+#listenSlide1_textBoxes
+{
+	float:left; width:1024px;
+}
+
+
+.sld1_middleCont .middleC1
+{
+	float:left; width:30%; padding:4px 1% 0 1%; height:120px; margin:20px 0 0 0; background-color:#2e3335; border-radius:2px; text-align:center;
+}
+
+.sld1_middleCont .middleC2
+{
+	float:left; width:30%; padding:4px 1% 0 1%; height:120px; margin:20px 0 0 2%; background-color:#2e3335; border-radius:2px; text-align:center;
+}
+
+.sld1_middleCont .middleC3
+{
+	float:left; width:30%; padding:4px 1% 0 1%; height:120px; margin:20px 0 0 2%; background-color:#2e3335; border-radius:2px; text-align:center;
+}
+
+
+.head11
+{
+	font-size:22px; font-weight:bold;
+}
+
+.cont21
+{
+	font-size:16px;
+}
+
+
+
+
+
+.sld1_middleCont
+{
+	float:left; width:100%;
+}
+
+.sld1_bottomCont #txtSearchString
+{
+	float:left; width:420px; height:31px; margin:12px 0 0 11px; padding:0 7px 0 7px; background-color:#EEEEEE; border:3px solid #FEFEFE; border-radius:5px;
+}
+
+
+.sld1_bottomCont #btnSearch
+{
+	float:left; width:89px; height:39px; margin:11px 0 0 11px; background:url('/imgs/search_btn.png') no-repeat; cursor:pointer;
+}
+
+.sld1_bottomContInnr
+{
+	float:left; width:100%; height:62px; margin:20px 0 0 0; background-color:#1c1c1c; border-radius:2px;
+}
+
+.sld1_bottomCont #listenSlide1_search
+{
+	float:right; width:45%; height:52px; overflow:hidden; margin:5px;
+}
+
+
+.sld1_bottomCont #VisualSHolder
+{
+	float:left; min-width:1200px;
+}
+
+.sld1_bottomCont .VisualS_itm
+{
+	float:left; height:52px; cursor:pointer;
+}
+
+
+
+
+
+
+.popularHomeContHolder
+{
+	float:left; width:435px; height:610px;
+}
+
+.popularHomeInner
+{
+	float:left; width:440px; margin-left:0px; margin-top:0px;
+}
+
+
+.popularHomeInner .headerCont
+{
+	float:left; width:330px; height:35px; margin:0 0 8px 0; padding:2px; background:#5a5d5f url('/imgs/home/News_HeaderBack.png') no-repeat right; margin-left:-15px;
+}
+
+
+.popularHomeInner .headerCont div
+{
+	float:right; width:150px; overflow:hidden; margin:7px 165px 0 0; font-family:Hypster-Font; font-size:22px; color:#FFFFFF; font-style:italic; letter-spacing:1.1;
+}
+
+
+
+.popularHomeInner .songItm
+{
+	float:left; width:415px; height:32px; line-height:32px; margin-top:7px; padding:2px; color:#DEDEDE; font-family:Hypster-Segoe;  font-weight:lighter; font-size:16px; overflow:hidden; cursor:pointer;
+	background-color:#585a5d;
+}
+.popularHomeInner .songItm1
+{
+	float:left; width:415px; height:32px; line-height:32px; margin-top:7px; padding:2px; color:#DEDEDE; font-family:Hypster-Segoe;  font-weight:lighter; font-size:16px; overflow:hidden; cursor:pointer;
+	background-color:#4b5052;
+}
+
+
+
+.popularHomeInner .songItm_title
+{
+	display:block; float:left; width:380px; margin-left:7px; overflow:hidden; color:#FEFEFE;
+}
+
+
+.popularHomeInner .songItm_play
+{
+	display:block; float:right; width:15px; height:17px; margin:4px 4px 0 0; padding:4px; background: url('/imgs/play_icon_lte.png') no-repeat center;
+}
+
+.popularHomeInner .songItm_add
+{	
+	display:block; float:right; width:15px; height:17px; margin:4px 4px 0 0; padding:4px; background: url('/imgs/search-music-icon.png') no-repeat center;
+}
+
+
+.popularHomeAdCont
+{
+	float:left; width:160px; height:600px; margin:0 0 0 0; background-color:#4f5356; border:3px solid #4f5356; border-radius:3px;
+}
+
+#listenSlide3_cont
+{
+	float:right; width:500px; height:605px; margin:0 0 0 0; background-color:#5a5d5f; border-radius:2px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+/* +++++++ LISTEN PAGE +++++++++ */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.listenMenuCont
+{
+	float:left; width:100%;
+}
+
+
+.listenMenuCont #Menu1
+{
+	float:left; width:332px; height:140px; line-height:14px; margin:0 0 0 0; background-color:#1d1d1c; border-radius:2px;  text-align:center; font-family:Hypster-Segoe;  font-weight:lighter; font-size:29px; color:#FFFFFF; cursor:pointer;
+}
+
+
+.listenMenuCont #Menu2
+{
+	float:left; width:332px; height:140px; line-height:14px; background-color:#2b3032; margin:0 0 0 10px; border-radius:2px; text-align:center; font-family:Hypster-Segoe;  font-weight:lighter; font-size:29px; color:#FFFFFF; cursor:pointer;
+}
+
+
+.listenMenuCont #Menu3
+{
+	float:left; width:332px; height:140px; line-height:14px; background-color:#2b3032; margin:0 0 0 10px; border-radius:2px; text-align:center; font-family:Hypster-Segoe;  font-weight:lighter; font-size:29px; color:#FFFFFF; cursor:pointer;
+}
+
+
+
+
+
+.listenMenuCont .Menu1_img
+{
+	margin:20px 0 10px 0;
+}
+
+.listenMenuCont .Menu2_img
+{
+	margin:20px 0 10px 0;
+}
+
+.listenMenuCont .Menu3_img
+{
+	margin:20px 0 10px 0;
+}
+
+
+
+
+
+
+
+#listenTab1
+{
+	float:left; width:100%; height:325px; overflow:hidden; margin-top:-2px;
+}
+
+
+#listenTab2
+{
+	display:none; float:left; width:100%; height:325px; margin-top:-2px; background-color:#1d1d1c;
+}
+
+#listenTab3
+{
+	display:none; float:left; width:100%; min-height:325px; margin-top:-2px; background-color:#1d1d1c;
+}
+
+
+
+#listenTab1 .contTop
+{
+	float:left; width:100%; height:65px; background-color:#1d1d1c;
+}
+
+
+#listenTab1 .contMiddle
+{
+	float:left; min-width:2200px; height:250px; margin-top:10px; overflow:hidden;
+	background-color:#1d1d1c;
+}
+
+
+#listenTab1 #txtSearchString
+{
+	float:left; width:520px; height:33px; margin:12px 0 0 12px; padding:0 7px 0 7px; background-color:#EEEEEE; border:3px solid #FEFEFE; border-radius:5px;
+}
+
+
+#listenTab1 #btnSearch
+{
+	float:left; width:89px; height:39px; margin:12px 0 0 12px; background:url('/imgs/search_btn.png') no-repeat; cursor:pointer;
+}
+
+#listenTab1 .VisSearchItm
+{
+	float:left; height:125px; cursor:pointer;
+}
+
+
+
+
+#listenTab1 #txtSearchString_youtube
+{
+	float:left; width:230px; height:19px; margin:7px 0 0 25px; padding:0 7px 0 7px; background-color:#EEEEEE; border:3px solid #FEFEFE; border-radius:5px; font-size:14px;
+}
+
+#listenTab1 #btnSearch_youtube
+{
+	float:left; width:70px; height:26px; line-height:26px; margin:7px 0 0 12px; background-color:#42606e; border-radius:3px; cursor:pointer; color:#FFFFFF; text-align:center;
+}
+
+
+
+
+
+
+
+
+#listenTab2 .contLimit
+{
+	float:left; width:1024px; margin:20px 1% 1% 1%; text-align:left;
+}
+
+#listenTab2 .contTop
+{
+	float:left; width:100%; color:#DEDEDE; font-family:Hypster-Segoe;  font-weight:lighter;
+}
+
+#listenTab2 .contMiddle
+{
+	float:left; width:100%;
+}
+
+
+
+
+#listenTab2 .RadioSt
+{
+	float:left; width:240px; margin:7px 0 0 10px; padding-bottom:2px; padding-left:4px; font-size:17px; border-radius:2px; cursor:pointer;
+}
+
+
+.contMiddle .radioSearch
+{
+	float:left; width:100%; height:62px; margin:10px 0 0 0; background-color:#1c1c1c; border-radius:2px;
+}
+
+
+.contMiddle #stationName
+{
+	float:left; width:520px; height:33px; margin:11px 0 0 11px; padding:0 7px 0 7px; background-color:#EEEEEE; border:3px solid #FEFEFE; border-radius:5px; 
+}
+
+.contMiddle .btnRadioSearch
+{
+	float:left; width:89px; height:39px; margin:11px 0 0 11px; background:url('/imgs/search_btn.png') no-repeat; cursor:pointer;
+}
+
+
+
+
+
+#listenTab3 .contLimit
+{
+	float:left; width:1024px; margin:20px 1% 1% 1%; text-align:left;
+}
+
+#listenTab3 .plItem
+{
+	float:left; width:310px; height:27px; line-height:27px; margin:0 15px 10px 0; padding:5px; background-color:#343434; border-radius:2px; color:#FFFFFF; font-family:Hypster-Segoe;  font-weight:lighter; font-size:17px; cursor:pointer;
+}
+
+#listenTab3 .plName
+{
+	float:left; width:240px; height:27px; margin-left:7px; overflow:hidden;
+}
+
+#listenTab3 .plPlay
+{
+	display:block; float:right; width:15px; height:17px; margin:2px 2px 0 0; padding:4px; background: url('/imgs/play_icon_lte.png') no-repeat center;
+}
+
+#listenTab3 .plEdit
+{
+	display:block; float:right; width:17px; height:17px; margin:2px 2px 0 0; padding:4px; background: url('/imgs/edit_icon_lte.png') no-repeat center;
+}
+
+
+
+
+#listenTab3 .plItemCreate
+{
+	float:left; width:310px; height:27px; line-height:27px; margin:0 15px 10px 0; padding:5px; background-color:#555555; border-radius:2px; color:#FFFFFF; font-family:Hypster-Segoe;  font-weight:lighter; font-size:17px; cursor:pointer;
+}
+#listenTab3 .plItemCreate div
+{
+	float:left; width:260px; margin-left:7px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* +++++++ CREATE PAGE +++++++++ */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+#CreateSection1
+{
+	float:left; width:338px; height:420px; overflow:hidden; margin:0; background-color:#292929; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer;
+}
+
+#CreateSection2
+{
+	float:left; width:338px; height:420px; overflow:hidden; margin-left:5px; background-color:#181818; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer;
+}
+
+#CreateSection3
+{
+	float:left; width:338px; height:420px; overflow:hidden; margin-left:5px; background-color:#232323; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer;
+}
+
+
+
+
+#CreateSection1 .secImgs
+{
+	float:left; width:100%; text-align:center; margin-top:45px;
+}
+#CreateSection1 .secText
+{
+	float:left; width:100%; text-align:center;
+}
+
+
+#CreateSection2 .secImgs
+{
+	float:left; width:100%; text-align:center; margin-top:45px;
+}
+#CreateSection2 .secText
+{
+	float:left; width:100%; text-align:center;
+}
+
+
+#CreateSection3 .secImgs
+{
+	float:left; width:100%; text-align:center; margin-top:45px;
+}
+#CreateSection3 .secText
+{
+	float:left; width:100%; text-align:center;
+}
+
+#CreateContHolder
+{
+	float:left; width:100%;
+}
+
+
+
+
+
+
+#CreatePlayerSection1
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin:0; background-color:#1d1d1c; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+#CreatePlayerSection2
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin-left:5px; background-color:#2b3032; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+#CreatePlayerSection3
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin-left:5px; background-color:#2b3032; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+
+
+#CreatePlayerSection1 img
+{
+	margin:20px 0 10px 0;
+}
+
+#CreatePlayerSection2 img
+{
+	margin:20px 0 10px 0;
+}
+
+#CreatePlayerSection3 img
+{
+	margin:20px 0 10px 0;
+}
+
+
+
+
+#CreatePlaylistSection1
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin:0; background-color:#2b3032; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+#CreatePlaylistSection2
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin-left:5px; background-color:#1d1d1c; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+#CreatePlaylistSection3
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin-left:5px; background-color:#2b3032; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+
+#CreatePlaylistSection1 img
+{
+	margin:20px 0 10px 0;
+}
+
+#CreatePlaylistSection2 img
+{
+	margin:20px 0 10px 0;
+}
+
+#CreatePlaylistSection3 img
+{
+	margin:20px 0 10px 0;
+}
+
+
+
+
+
+
+
+#CreateStationSection1
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin:0; background-color:#2b3032; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+#CreateStationSection2
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin-left:5px; background-color:#2b3032; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+#CreateStationSection3
+{
+	float:left; width:338px; height:140px; line-height:14px; overflow:hidden; margin-left:5px; background-color:#1d1d1c; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#DEDEDE; cursor:pointer; border-radius:2px;
+}
+
+
+
+#CreateStationSection1 img
+{
+	margin:20px 0 10px 0;
+}
+
+#CreateStationSection2 img
+{
+	margin:20px 0 10px 0;
+}
+
+#CreateStationSection3 img
+{
+	margin:20px 0 10px 0;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+/* +++++++ CONNECT PAGE +++++++++ */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.connectHead
+{
+	float:right; width:1024px;  text-align:left;
+}
+
+.connectHead .ffHeader
+{
+	float:left; width:200px; margin-top:0px;  color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:32px;
+}
+
+
+
+.connectCont
+{
+	float:left; width:858px; padding:0px 0 15px 0px; background-color:#313537; border-radius:2px; text-align:left;
+}	
+
+
+.connectCont .connectInnerCont
+{
+	float:left; width:860px;  margin:-16px 0 0 -16px;
+}
+
+
+
+.connectFriendCont
+{
+	float:left; width:407px; min-height:142px; overflow:hidden; padding:3px; background:#23292b; border-radius:1px; margin-top:15px; margin-left:15px; text-align:left;
+}
+
+
+
+.connectPaging
+{
+	float:left; width:100%; height:28px; margin:23px 0 0 0; color:#FFFFFF; overflow:hidden;
+}
+
+
+.connectPaging .ConnectPage
+{
+	float:left; min-width:29px; line-height:28px; border-radius:2px; text-align:center; margin-right:10px; color:#FFFFFF; font-size:16px; cursor:pointer;
+}
+
+
+.style_22
+{
+	color:#AAAAAA; font-size:13px;
+}
+
+.style_23
+{
+	color:#FFFFFF; font-size:16px;
+}
+
+.style_24
+{
+	color:#FCF088;
+}
+
+
+.connectFriendCont .txtHolder
+{
+	float:left; width:190px; margin-top:0px; margin-left:3px; font-size:16px; color:#EEEEEE;
+}
+
+.connectFriendCont .txtHolder div
+{
+	float:left; width:100%; margin-top:2px; margin-left:5px;
+}
+
+
+.connectFriendCont .ActButtons
+{
+	float:left; width:100%; margin-top:8px; margin-bottom:2px;
+}
+
+
+
+.connectFriendCont .FollowBtn
+{
+	float:right; width:60px; overflow:hidden; height:22px; line-height:22px; margin:2px 4px 0 0; padding:0 2px 0 2px; background:#ffa910 url('/imgs/box_back_orange.png') repeat; border-radius:1px; font-size:13px; color:#000000;
+}
+
+.connectFriendCont .DetailsBtn
+{
+	float:right; width:90px; height:22px; line-height:22px; margin:2px 4px 0 0; background-color:#454545; color:#CCCCCC; text-align:center; border-radius:1px; cursor:pointer;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+/* +++++++ SEARCH PAGE +++++++++ */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.SearchPageRoot
+{
+	float:left; width:100%; min-height:50px; margin:0 0 4px 0;
+}
+
+
+.SearchPageRoot .SongItm
+{
+	display:block; float:left; width:98%; min-height:70px; padding:1%; line-height:17px; margin:0px 0px 4px 0px; color:#FFF; text-align:left;
+	background-color:#747e83;
+}
+
+.SearchPageRoot .SongItmB
+{
+	display:block; float:left; width:98%; min-height:70px; padding:1%; line-height:17px; margin:0px 0px 4px 0px; color:#FFF; text-align:left;
+	background-color:#858c90;
+}
+
+
+
+
+.SearchPageRoot .lfCont
+{
+	float:left; cursor:pointer;
+}
+
+.SearchPageRoot .rtCont
+{
+	float:right; width:170px; text-align:right;
+}
+
+
+
+.SearchPageRoot .SyndicationBtn
+{
+	float:left; width:750px; background-color:#637076; color:#FCF088; margin:5px 2px 2px 2px; padding:1px 2px 2px 2px;
+	font-weight:bold;
+}
+
+
+.SearchPageRoot .AddPl_btn
+{
+	float:right; width:120px; height:25px; line-height:25px; background-color:#637076; color:#FCF088; margin:3px 2px 2px 2px; cursor:pointer; text-align:center;
+}
+
+.SearchPageRoot .GetRing_btn
+{
+	display:block; float:right; width:120px; height:25px; line-height:25px; background-color:#637076; margin:5px 2px 2px 2px; text-align:center;
+}
+
+.SearchPageRoot .SearchSimilar_btn
+{
+	float:right; width:120px; height:25px; line-height:25px; background-color:#637076; margin:3px 2px 2px 2px; cursor:pointer; text-align:center;
+}
+
+
+
+.NFMessageCont
+{
+	float:left; width:98%; height:50px; padding:1%; margin-bottom:5px; background:#555555 url('/imgs/box_back.png') repeat; border-radius:3px; font-size:17px; color:#FCF088;
+}
+
+.NFMessageCont div
+{
+	float:left; width:100%; text-align:left; margin-bottom:3px;
+}
+
+
+.SongSearchPagingRoot
+{
+	float:left; width:98%; padding:1%;
+}
+
+.SongSearchPagingRoot .PagingInner
+{
+	float:left; max-width:700px; height:27px; overflow:hidden;
+}
+
+
+
+
+
+.lfCont .imgThumb
+{
+	float:left; width:120px; height:90px; border:3px solid #637076;
+}
+
+
+.lfCont .songCont
+{
+	float:left; width:600px; overflow:hidden; margin-left:6px; line-height:19px;
+}
+
+
+
+/*   PAGING SECTION  */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+.searchPagingBtn
+{
+	float:left; 
+	display:block; 
+	min-width:25px; 
+	height:25px; 
+	line-height:22px; 
+	margin-right:6px; 
+	
+	color:#353535;
+	font-size:16px;
+	padding:0px 4px 0 4px;
+	cursor:pointer;
+	text-align:center;
+}
+
+
+.searchPagingBtn_Sel
+{
+	float:left; 
+	display:block; 
+	min-width:25px; 
+	height:25px; 
+	line-height:27px; 
+	margin-right:6px; 
+	background-color:#555555;
+	border-radius:2px; 
+	color:#FFFFFF;
+	font-size:15px; 
+	font-family: Arial,Verdana,sans-serif; 
+	text-align:center;
+	padding:0px 4px 0 4px;
+	cursor:pointer;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+.PopularMusicOnHypster
+{
+	float:right; width:100%; margin-left:15px;
+}
+
+
+.PopularMusicOnHypster .PopularHeaderCont
+{
+	float:left; width:100%;
+}
+
+
+.PopularMusicOnHypster .PopularHeader
+{
+	float:left; width:250px; margin-top:40px;  color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:27px;
+}
+
+.PopularMusicOnHypster .PopularAdCont
+{
+	float:right; width:728px; height:90px; background-color:#667278; border:3px solid #667278; border-radius:2px;
+}
+
+
+.PopularMusicOnHypster .PopularMusicCont
+{
+	float:left; width:500px; margin-top:10px;
+}
+
+.PopularMusicCont .SongItm
+{
+	background-color:#858c90; border-radius:1px; float:left; width:490px; height:28px; line-height:28px; margin-top:7px; padding:5px; color:#FFFFFF; font-family:Hypster-Segoe;  font-weight:lighter; font-size:17px; overflow:hidden; cursor:pointer;
+}
+
+.PopularMusicCont .SongItmB
+{
+	background-color:#747e83; border-radius:1px; float:left; width:490px; height:28px; line-height:28px; margin-top:7px; padding:5px; color:#FFFFFF; font-family:Hypster-Segoe;  font-weight:lighter; font-size:17px; overflow:hidden; cursor:pointer;
+}
+
+
+
+.PopularMusicCont .SongTitle
+{
+	float:left; width:390px; overflow:hidden; margin-left:7px;
+}
+
+.PopularMusicCont .SongAdPl
+{
+	display:block; float:right; width:15px; height:17px; margin:2px 4px 0 0; padding:4px; background: url('/imgs/search-music-icon.png') no-repeat center;
+}
+
+.PopularMusicCont .SongLstn
+{
+	display:block; float:right; width:15px; height:17px; margin:4px 4px 0 0; padding:4px; background: url('/imgs/play_icon_lte.png') no-repeat center;
+}
+
+
+
+
+
+
+
+.PopularPlaylists
+{
+	float:right; 
+	width:100%;
+	/*width:1024px;*/
+}
+
+
+.PopularPlaylists .PopularHeaderCont
+{
+	float:left; width:100%;
+}
+
+
+.PopularPlaylists .PopularHeader
+{
+	float:left; width:250px; margin-top:40px;  color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:27px;
+}
+
+.PopularPlaylists .PopularAdCont
+{
+	float:right; width:728px; height:90px; background-color:#667278; border:3px solid #667278; border-radius:2px;
+}
+
+
+
+.PopularPlaylists .PopularPlstsCont
+{
+	float:left; width:500px; margin-top:0px;
+}
+
+
+.PopularPlstsCont .PlstItm
+{
+	float:left; width:490px; height:30px; line-height:30px; margin:10px 10px 0 0; padding:5px; background-color:#858c90; border-radius:1px; color:#FFFFFF; font-family:Hypster-Segoe;  font-weight:lighter; font-size:17px; cursor:pointer;
+}
+
+.PopularPlstsCont .PlstItmB
+{
+	float:left; width:490px; height:30px; line-height:30px; margin:10px 10px 0 0; padding:5px; background-color:#747e83; border-radius:1px; color:#FFFFFF; font-family:Hypster-Segoe;  font-weight:lighter; font-size:17px; cursor:pointer;
+}
+
+
+.PopularPlstsCont .PlstTitle
+{
+	float:left; width:450px; margin-left:7px;
+}
+
+.PopularPlstsCont .PlstLstn
+{
+	display:block; float:right; width:15px; height:17px; margin:4px 4px 0 0; padding:4px; background: url('/imgs/play_icon.png') no-repeat center;
+}
+
+
+
+
+
+
+
+
+.FeaturedVideoCont
+{
+	float:left; width:100%; height:100px;
+}
+
+
+.FeaturedVideoCont #listenSlide2_header
+{
+	float:left; width:290px; margin-left:-15px;
+}
+
+.FeaturedVideoCont .FeaturedAdCont
+{
+	float:right; width:728px; height:90px; background-color:#59666c; border:3px solid #59666c; border-radius:2px;
+}
+
+
+.FeaturedVideoCont .FeaturedHeaderBack
+{
+	float:left; width:100%; height:39px; line-height:39px; background:#44484a url('/imgs/home/featuredVideo_HeaderBack.png') no-repeat right;
+}
+
+
+.FeaturedVideoCont .FeaturedHeaderBack div
+{
+	float:right; width:130px; overflow:hidden; margin:3px 115px 0 0; font-family:Hypster-Font; font-size:22px; color:#FFFFFF; font-style:italic; letter-spacing:1.2;
+}
+
+
+.FeaturedVideoCont .FeaturedSubHeader
+{
+	float:right; width:250px; color:#313537; font-size:14px; margin:3px 0 0 20px; text-align:left;
+}
+
+.FeaturedVideoInner
+{
+	float:right; width:1060px; margin-left:-35px; margin-bottom:10px;
+}
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+
+.PopularPlaylists #PopularPlaylistsSlide2_header
+{
+	float:left; width:290px; margin-left:-15px;
+}
+
+.PopularPlaylists .FeaturedHeaderBack
+{
+	float:left; width:100%; height:39px; line-height:39px; background:#44484a url('/imgs/home/featuredVideo_HeaderBack.png') no-repeat right;
+}
+
+.PopularPlaylists .FeaturedHeaderBack div
+{
+	float:right; margin:3px 120px 0 0; font-family:Hypster-Font; font-size:22px; color:#FFFFFF; font-style:italic; letter-spacing:1.2;
+}
+
+.PopularPlaylists .FeaturedSubHeader
+{
+	float:right; width:250px; color:#313537; font-size:14px; margin:3px 0 0 20px; text-align:left;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------------- */
+
+.PopularMusicOnHypster #PopularMusicSlide2_header
+{
+	float:left; width:290px; margin-left:-15px;
+}
+
+.PopularMusicOnHypster .FeaturedHeaderBack
+{
+	float:left; width:100%; height:39px; line-height:39px; background:#44484a url('/imgs/home/featuredVideo_HeaderBack.png') no-repeat right;
+}
+
+.PopularMusicOnHypster .FeaturedHeaderBack div
+{
+	float:right; margin:3px 120px 0 0; font-family:Hypster-Font; font-size:22px; color:#FFFFFF; font-style:italic; letter-spacing:1.2;
+}
+
+.PopularMusicOnHypster .FeaturedSubHeader
+{
+	float:right; width:250px; color:#313537; font-size:14px; margin:3px 0 0 20px; text-align:left;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+
+.AboutUsCont
+{
+	float:left; width:1000px; padding:15px 0 15px 15px; background-color:#202121; border-radius:2px; text-align:left;
+}
+
+
+.ContactsThanksCont
+{
+	float:left; width:950px; min-height:100px; margin:15px 0 0 15px; background-color:#353535;
+}
+
+.ContactUsCont
+{
+	float:left; width:1000px; padding:15px 0 15px 15px; background-color:#202121; border-radius:2px; text-align:left;
+}
+
+
+.PrivacyPolicyCont
+{
+	float:left; width:1000px; padding:15px 0 15px 15px; background-color:#202121; border-radius:2px; text-align:left;
+}
+
+
+.TermsOfServiceCont
+{
+	float:left; width:1000px; padding:15px 0 15px 15px; background-color:#202121; border-radius:2px; text-align:left;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+
+.NewsInnrContHldr
+{
+	float:left; width:420px;
+}
+
+
+.LatestNewsHeader
+{
+	float:left; width:100%;
+}
+
+
+.LatestNewsHeader .ltstNInner
+{
+	float:left; width:320px; height:35px; margin:10px 0 0 0; padding:2px; background:#313537 url('/imgs/home/news_header_1.png') no-repeat right;
+}
+
+.LatestNewsHeader .ltstNInner div
+{
+	float:left; margin:7px 0 0 25px; font-family:Hypster-Font; font-size:22px; color:#FFFFFF; font-style:italic; letter-spacing:1.1;
+}
+
+.newsImage
+{
+	display:block; float:left; width:185px; max-height:160px; overflow:hidden;
+}
+
+
+
+
+
+.NewsItm1
+{
+	float:left; width:100%; height:170px;
+}
+
+.NewsItm2
+{
+	float:left; width:100%; height:170px; margin-top:35px;
+}
+
+
+.NewsReadMoreCont
+{
+	float:left; width:400px; height:20px; line-height:20px; margin-top:0px; padding:2px; background-color:none; color:#FFFFFF; font-family:Hypster-Segoe;  font-weight:lighter; font-size:17px;
+}
+
+
+.NewsReadMoreCont a
+{
+	float:right; margin-left:7px; cursor:pointer;
+}
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*++++++++++++++++ PUBLIC PROFILE +++++++++++++++++++++*/
+/* --------------------------------------------------------------------------------- */
+
+
+
+#PublicPSectionMenu1
+{
+	float:left; width:335px; height:150px; overflow:hidden; margin:0px; background-color:#181818; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;
+}
+
+#PublicPSectionMenu2
+{
+	float:left; width:335px; height:150px; overflow:hidden; margin-left:5px; background-color:#292929; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;
+}
+
+#PublicPSectionMenu3
+{
+	float:left; width:335px; height:150px; overflow:hidden; margin-left:5px; background-color:#292929; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;
+}
+
+
+
+#PublicPSectionMenu1 .PublicPMenuInner
+{
+	float:left; width:100%; line-height:14px; text-align:center;
+}
+
+#PublicPSectionMenu2 .PublicPMenuInner
+{
+	float:left; width:100%; line-height:14px; text-align:center;
+}
+
+#PublicPSectionMenu3 .PublicPMenuInner
+{
+	float:left; width:100%; line-height:14px; text-align:center;
+}
+
+
+
+#PublicPSectionMenu1 img
+{
+	margin:20px 0 10px 0;
+}
+
+#PublicPSectionMenu2 img
+{
+	margin:20px 0 10px 0;
+}
+
+#PublicPSectionMenu3 img
+{
+	margin:20px 0 10px 0;
+}
+
+
+
+#PublicPSection_1 .PerInfHeader
+{
+	float:right; width:1024px; color:#404040; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:0 0 0 0;
+}
+
+
+
+
+#PublicPSection_1 .NameTxtCont
+{
+	float:left; width:400px; height:30px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+.NameTxtCont .lbl1
+{
+	float:left; width:60px; margin:3px 0 0 0; text-align:right; color:#2f5262;
+}
+.NameTxtCont .txt1
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+
+#PublicPSection_1 .UsNameTxtCont
+{
+	float:left; width:400px; height:30px; margin-left:20px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+.UsNameTxtCont .lbl1
+{
+	float:left; width:90px; margin:3px 0 0 0; text-align:right; color:#2f5262;
+}
+.UsNameTxtCont .txt1
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+
+#PublicPSection_1 .MemberTxtCont
+{
+	float:left; width:275px; height:30px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+.MemberTxtCont .lbl1
+{
+	float:left; margin:3px 0 0 7px; color:#2f5262;
+}
+.MemberTxtCont .txt1
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+
+
+#PublicPSection_1 .CityTxtCont
+{
+	float:left; width:300px; height:30px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+.CityTxtCont .lbl1
+{
+	float:left; margin:3px 0 0 7px; color:#2f5262;
+}
+.CityTxtCont .txt1
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+
+
+#PublicPSection_1 .CountryTxtCont
+{
+	float:left; width:300px; height:30px; margin-left:20px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+.CountryTxtCont .lbl1
+{
+	float:left; margin:3px 0 0 7px; color:#2f5262;
+}
+.CountryTxtCont .txt1
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+
+
+#PublicPSection_1 .ZipTxtCont
+{
+	float:left; width:170px; height:30px; margin-left:20px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+.ZipTxtCont .lbl1
+{
+	float:left; margin:3px 0 0 7px; color:#2f5262;
+}
+.ZipTxtCont .txt1
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+
+
+#PublicPSection_1 .BirthDateHeader
+{
+	float:left; width:100px; height:30px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+#PublicPSection_1 .BirthDateHeader div
+{
+	float:left; margin:3px 0 0 7px; color:#2f5262;
+}
+
+
+
+#PublicPSection_1 .DOBmHeader
+{
+	float:left; width:60px; height:30px; border:1px solid #DEDEDE; margin-left:20px; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+#PublicPSection_1 .DOBmHeader div
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+#PublicPSection_1 .DOBdHeader
+{
+	float:left; width:60px; height:30px; border:1px solid #DEDEDE; margin-left:20px; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+#PublicPSection_1 .DOBdHeader div
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+#PublicPSection_1 .DOByHeader
+{
+	float:left; width:90px; height:30px; border:1px solid #DEDEDE; margin-left:20px; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;
+}
+#PublicPSection_1 .DOByHeader div
+{
+	float:left; margin:3px 0 0 7px; color:#000000;
+}
+
+
+
+
+
+
+
+#PublicPSection_1 .photoCont
+{
+	float:left; width:120px; height:120px; overflow:hidden; margin:5px; background-color:#555555; border-radius:2px; cursor:pointer;
+}
+#PublicPSection_1 .photoCont img
+{
+	float:left; width:120px; height:120px; margin:0px; background-color:#333333; border-radius:2px;
+}
+
+
+#PublicPSection_1 .photoHeader
+{
+	float:left; width:100%; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;
+}
+
+
+
+
+
+
+#PublicPSection_2 .FavoriteGenresHeader
+{
+	float:left; width:100%; color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;
+}
+
+#PublicPSection_2 .FavoriteGenresCont
+{
+	float:left; width:100%; color:#2e3335;
+}
+
+#PublicPSection_2 .FavoriteGenresItm
+{
+	float:left; width:220px; margin:7px 0 0 10px; font-size:16px;
+}
+
+#PublicPSection_2 .FavoriteGenresItmN
+{
+	float:left; width:220px; margin:7px 0 0 10px; font-size:16px;
+}
+
+
+
+
+
+
+
+#PublicPSection_2 .playlistsHeader
+{
+	float:left; width:100%; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;
+}
+
+
+#PublicPSection_2 .playlistItm
+{
+	float:left; width:700px; height:30px; margin-bottom:4px; margin-top:3px;
+}
+
+
+#PublicPSection_2 .ItmTitle
+{
+	float:left; width:610px; height:27px; line-height:27px; padding:3px 3px 3px 10px; background-color:#555555; color:#FFFFFF; font-size:16px; text-align:left; cursor:pointer; border-radius:2px;
+}
+
+#PublicPSection_2 .ItmPlay
+{
+	float:left; height:27px; line-height:27px; margin:0px 4px 0 4px; padding:3px; text-align:left; background-color:#555555; color:#FFFFFF; font-size:11px; cursor:pointer; border-radius:2px;
+}
+#PublicPSection_2 .ItmPlay img
+{
+	margin:7px 7px 0 7px;
+}
+
+
+
+
+#PublicPSection_2 .songsHeader
+{
+	float:left; width:100%; color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;
+}
+
+
+#PublicPSection_2 .songItm
+{
+	float:left; width:100%;
+}
+
+#PublicPSection_2 .songItmTitle
+{
+	float:left; width:800px; height:27px; line-height:27px; padding:3px 3px 3px 10px; margin-bottom:4px;  background-color:#858c90;
+}
+
+#PublicPSection_2 .songItmTitleB
+{
+	float:left; width:800px; height:27px; line-height:27px; padding:3px 3px 3px 10px; margin-bottom:4px;  background-color:#747e83;
+}
+
+#PublicPSection_2 .songItmPlay
+{
+	float:left; width:35px; height:27px; line-height:27px; padding:3px; margin-left:5px; cursor:pointer; background-color:#858c90;
+}
+#PublicPSection_2 .songItmPlayB
+{
+	float:left; width:35px; height:27px; line-height:27px; padding:3px; margin-left:5px; cursor:pointer; background-color:#747e83;
+}
+
+#PublicPSection_2 .style_1122
+{
+	float:left; font-size:16px; color:#FFFFFF;
+}
+#PublicPSection_2 .style_1133
+{
+	float:left; margin:7px 7px 0 10px;
+}
+
+
+
+
+
+#PublicPSection_2 .StationsHeader
+{
+	float:left; width:100%; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;
+}
+
+#PublicPSection_2 .RadioStItm
+{
+	float:left; width:100%; margin-bottom:4px;
+}
+
+
+#PublicPSection_2 .RadioItmTitle
+{
+	float:left; width:420px; height:27px; line-height:26px; background-color:#767676; padding:3px 3px 3px 10px;  margin-left:4px; cursor:pointer;
+	font-size:16px;
+	border-radius:2px;
+}
+
+#PublicPSection_2 .RadioItmPlay
+{
+	float:left; height:27px; line-height:26px; padding:3px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#767676;  cursor:pointer;
+	margin-left:4px;
+	border-radius:2px;
+}
+#PublicPSection_2 .RadioItmPlay img
+{
+	margin:7px 7px 0 7px;
+}
+
+
+
+
+
+
+#PublicPSection_3 .MembersIFollowHeader
+{
+	float:left; width:98%; height:25px; line-height:25px; color:#454545; font-size:22px; overflow:hidden; margin:5px 0 5px 7px;
+}
+
+#PublicPSection_3 .MIF_Itm
+{
+	float:left; width:330px; margin-left:1%; margin-top:5px;
+}
+#PublicPSection_3 .MIF_Itm a
+{
+	display:block; float:left; width:330px; height:48px; background-color:#68747a; border-radius:2px; text-align:left; cursor:pointer;
+}
+
+#PublicPSection_3 .MIF_img
+{
+	float:left; width:47px; height:44px; margin:2px 0 0 2px;
+}
+#PublicPSection_3 .MIF_title
+{
+	float:left; margin:13px 0 0 7px; font-size:15px;
+}
+
+
+
+#PublicPSection_3 .MyFollowersHeader
+{
+	float:left; width:98%; height:25px; line-height:25px; color:#ABABAB; font-size:22px; overflow:hidden; margin:5px 0 5px 7px; 
+}
+
+#PublicPSection_3 .MF_Itm
+{
+	float:left; width:330px; margin-left:1%; margin-top:5px;
+}
+
+#PublicPSection_3 .MF_Itm a
+{
+	display:block; float:left; width:330px; height:48px; background-color:#454545; border-radius:2px; text-align:left; cursor:pointer;
+}
+
+#PublicPSection_3 .MF_img
+{
+	float:left; width:47px; height:44px; margin:2px 0 0 2px;
+}
+
+#PublicPSection_3 .MF_title
+{
+	float:left; margin:13px 0 0 7px; font-size:15px;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* CREATE PLAYLIST */
+/* --------------------------------------------------------------------------------- */
+
+.CreatePlaylistCont
+{
+	float:left; width:1024px; margin-top:20px; margin-left:15px;
+}
+
+
+.CreatePlaylistCont .MainHeadCont
+{
+	float:left; width:100%; height:40px; /*border-bottom:1px solid #313131;*/
+}
+
+
+
+
+.CreatePlaylistCont .MainHeadPlaylist
+{
+	float:left; width:410px; height:40px; line-height:30px; text-align:left; color:#FCF088; line-height:35px;
+	/*border-bottom:1px solid #313131;*/
+}
+.CreatePlaylistCont .MainHeadPlaylist img
+{
+	cursor:pointer;
+}
+.CreatePlaylistCont .MainHeadPlaylist span
+{
+	color:#FCF088; font-weight:bold; font-size:22px; margin-left:3px;
+}
+
+
+.CreatePlaylistCont .MainHeadSongs
+{
+	float:right; width:600px; height:40px; line-height:30px; text-align:left; color:#FCF088; line-height:35px;
+	
+}
+.CreatePlaylistCont .MainHeadSongs img
+{
+	float:left; margin:11px 7px 0 5px; cursor:pointer;
+}
+.CreatePlaylistCont .MainHeadSongs div
+{
+	float:left; width:560px; height:33px; overflow:hidden; font-weight:bold; font-size:22px; cursor:pointer;
+}
+
+
+
+.CreatePlaylistCont .PlstItm_Act
+{
+	float:left; width:100%; height:33px; line-height:33px; text-align:left; border-bottom:2px solid #e5d762;  color:#FFFFFF; margin-top:3px; margin-left:1%; cursor:pointer;
+}
+
+.CreatePlaylistCont .PlstItm_ActTitle
+{
+	float:left; width:330px; padding-left:4px; color:#FCF088; font-size:16px;
+}
+
+
+
+
+.CreatePlaylistCont .PlstItm
+{
+	float:left; width:100%; height:33px; line-height:33px; text-align:left; border-bottom:1px solid #313131; color:#FFFFFF; margin-top:3px; margin-left:1%; cursor:pointer;
+}
+
+.CreatePlaylistCont .PlstItm_Edt
+{
+	float:left; width:30px; height:33px; line-height:33px; text-align:left; color:#FFFFFF; font-size:11px; margin-left:4px; cursor:pointer;
+	background:url('/imgs/action_icons/edit_icon_s.png') no-repeat center;
+}
+
+.CreatePlaylistCont .PlstItm_Del
+{
+	float:left; width:30px; height:33px; line-height:33px; text-align:left; color:#FFFFFF; font-size:11px; margin-left:1%; cursor:pointer;
+	background:url('/imgs/action_icons/delete_icon_s.png') no-repeat center;
+}
+
+.CreatePlaylistCont .PlstItm_MkActive
+{
+	float:left; height:33px; line-height:33px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#1d1d1c; border:none; margin-left:1%; cursor:pointer;
+}
+
+.CreatePlaylistCont .PlstItm_PlName
+{
+	float:left; width:225px; height:29px; border:1px solid #656565; font-size:14px;
+}
+
+.CreatePlaylistCont .PlstItm_PlSave
+{
+	float:left; width:50px; height:33px; margin-left:2px;
+}
+
+
+
+
+
+
+
+
+.CreatePlaylistCont .AddNewPlstItm
+{
+	float:left; width:150px; height:23px; line-height:23px; margin:5px 4px 3px 4px; padding-left:3px; background-color:#42606e; color:#FFFFFF; border-radius:2px; text-align:center; cursor:pointer; 
+}
+
+.CreatePlaylistCont  #AddNewPlaylist_Container
+{
+	display:none; float:left; width:98%; text-align:left; margin:3px;
+}
+
+
+.CreatePlaylistCont  #AddPlaylist_Name
+{
+	float:left; width:197px; height:29px; border:1px solid #656565; font-size:14px;
+}
+
+
+.CreatePlaylistCont  #AddPlaylist_Save
+{
+	float:left; width:125px; height:33px; margin-left:3px;
+}
+
+.CreatePlaylistCont  #AddPlaylist_Cancel
+{
+	float:left; width:65px; height:33px; margin-left:3px;
+}
+
+
+
+.CreatePlaylistCont  .PlaylistsInnrCont
+{
+	float:left; width:410px; min-height:80px; margin-top:3px; overflow:hidden;
+}
+
+.CreatePlaylistCont  .SongsInnrCont
+{
+	float:right; width:600px; min-height:400px; overflow:hidden; padding:2px 0 0 9px;
+}
+
+
+
+
+
+.CreatePlaylistCont .SongImg
+{
+	float:left; width:67px; height:50px; margin:4px 0 0 4px; border-radius:2px;	
+}
+
+.CreatePlaylistCont .SongTitle
+{
+	float:left; width:435px; height:50px; line-height:24px; margin-left:10px; margin-top:4px; cursor:pointer; font-size:16px; color:#DEDEDE;
+}
+
+
+.CreatePlaylistCont .SongItm_Edt
+{
+	float:left; width:25px; height:33px; line-height:33px; cursor:pointer;
+	margin:10px 0 0 7px;
+	background:url('/imgs/play_icon_lte.png') no-repeat center;
+}
+
+.CreatePlaylistCont .SongItm_Del
+{
+	float:left; width:25px; height:33px; line-height:33px; cursor:pointer;
+	margin:10px 0 0 3px;
+	background:url('/imgs/action_icons/delete_icon_s.png') no-repeat center;
+}
+
+
+
+.CreatePlaylistCont .EmptyPlCont
+{
+	float:left; width:600px; height:70px; border-bottom:1px solid #464647; background-color:#212121; cursor:pointer; overflow:hidden; margin-top:4px;
+}
+
+.CreatePlaylistCont .EmptyPlCont div
+{
+	font-size:20px; color:#EEEEEE; margin:5px 0 0 5px;
+}
+
+.CreatePlaylistCont #AddNewSong_Container
+{
+	float:left; width:230px; height:25px; line-height:25px; overflow:hidden; background-color:#42606e; color:#FFFFFF; border-radius:2px; margin-left:0px; margin-top:5px; margin-bottom:23px; cursor:pointer; text-align:center;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+/* CREATE RADIO */
+/* --------------------------------------------------------------------------------- */
+
+
+.CreateRadioContHolder
+{
+	float:left; width:100%; overflow:hidden; background-color:#1d1d1c; 
+}
+
+
+
+.CreateRadioContHolder .StatNameCont
+{
+	float:left; width:100%; margin-top:7px;
+}
+.CreateRadioContHolder #RadioStationName
+{
+	float:left; width:310px; height:31px; margin:10px 0 0 20px; padding:0 7px 0 7px; background-color:#EEEEEE; border:3px solid #FEFEFE; border-radius:5px;
+}
+
+
+
+.CreateRadioContHolder .StatSearchCont
+{
+	float:left; width:50%; margin-top:7px;
+}
+.CreateRadioContHolder #RadioStationSearchTerm
+{
+	float:left; width:310px; height:31px; margin:10px 0 0 20px; padding:0 7px 0 7px; background-color:#EEEEEE; border:3px solid #FEFEFE; border-radius:5px;
+}
+
+
+
+.CreateRadioContHolder .StatSaveCont
+{
+	float:left; width:100%; height:10px; margin-top:3px;
+}
+
+.CreateRadioContHolder #RadioStationSave
+{
+	float:left; width:305px; height:40px; line-height:33px; margin:10px 0 0 20px; background-color:#42606e; border-radius:5px; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:20px; text-align:center; cursor:pointer;
+}
+
+.CreateRadioContHolder .errMsg1
+{
+	float:left; margin:10px 0 0 20px; color:#FCF088; font-size:14px;
+}
+
+
+
+
+.CreateRadioContHolder .VisSearchCont
+{
+	float:left; min-width:2200px; height:250px; margin-top:20px; margin-bottom:20px; overflow:hidden;
+}
+
+.CreateRadioContHolder .AdCont
+{
+	float:left; width:300px; height:250px; margin-left:20px;
+}
+
+.CreateRadioContHolder .VisSerItm
+{
+	float:left; height:125px; cursor:pointer;
+}
+
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/*  SONG LANDING PAGE */
+/* --------------------------------------------------------------------------------- */
+
+.SongLandingCont
+{
+	float:left; width:1024px;
+}
+
+.SongLandingCont .ImgCont
+{
+	float:left; width:360px; 
+}
+
+.SongLandingCont .ImgCont img
+{
+	float:left; border:2px solid #454545; width:340px; height:255px;
+}
+
+
+.SongLandingCont .ItmDetailsCont
+{
+	float:left; width:600px;
+}
+
+
+.SongLandingCont .SongTitle
+{
+	float:left; width:100%; height:33px; margin-bottom:10px; overflow:hidden; text-align:left; font-size:24px; color:#FFFFFF;
+}
+
+
+.SongLandingCont .SongAddDetails
+{
+	float:left; width:100%; height:170px; text-align:left; font-size:16px; line-height:24px; color:#FFFFFF;
+}
+
+
+.SongLandingCont .SongAddDetails .witm
+{
+	float:left; width:100%;
+}
+
+
+.SongLandingCont .ActionsCont
+{
+	float:left; width:100%; margin-top:13px;
+}
+
+.SongLandingCont .ActPlayBtn
+{
+	float:left; width:34px; height:33px; background-color:#454545; margin:0 0 0 0; cursor:pointer; text-align:center;
+}
+
+.SongLandingCont .AddPlayBtn
+{
+	float:left; width:34px; height:33px; background-color:#454545; margin:0 0 0 0; cursor:pointer; text-align:center;
+	margin-left:8px;
+}
+
+
+.SongLandingCont .ActAddBtn
+{
+	float:left; width:140px; height:33px; line-height:33px; margin-left:8px; background-color:#454545; cursor:pointer; text-align:center;
+}
+
+
+.SongLandingCont .ActGetRingtone
+{
+	display:block; float:left; width:140px; height:33px; line-height:33px; margin-left:8px; background-color:#454545; text-align:center;
+}
+
+
+
+
+
+
+.SongCommentsCont
+{
+	float:right; width:1040px; text-align:left;
+}
+
+
+.SongCommentsCont .CommHeader
+{
+	float:left; width:100%; font-size:26px; color:#555555;
+}
+
+.SongCommentsCont .CommItm
+{
+	float:left; width:97%; min-height:30px; margin-top:10px; padding:1%; font-size:16px; background-color:#858c90; border-radius:2px;
+}
+
+.SongCommentsCont .CommItm .CommComment
+{
+	float:left; color:#EEEEEE; font-size:15px; line-height:19px;
+}
+.SongCommentsCont .CommItm .CommDate
+{
+	float:right; margin-top:10px; font-size:15px;
+}
+
+.SongCommentsCont .CommV1
+{
+	float:left; width:97%; height:30px; margin-top:10px; padding:1%; font-size:16px; background-color:#858c90; border-radius:2px;
+}
+.SongCommentsCont .CommV2
+{
+	float:left; width:97%; height:20px; margin-top:10px; padding:1%; font-size:16px; background-color:#909699; border-radius:2px;
+}
+.SongCommentsCont .CommV3
+{
+	float:left; width:97%; height:15px; margin-top:10px; margin-bottom:10px; padding:1%; font-size:16px; background-color:#969b9e; border-radius:2px;
+}
+
+
+
+
+
+.SongCommentsCont #songComment
+{
+	float:left; width:98%; height:80px; margin-top:10px; padding:5px; font-size:16px; background-color:#747e83; border:1px solid #747e83; color:#FFFFFF;
+}
+
+.SongCommentsCont .CommSubmCont
+{
+	float:left; width:99%; margin-top:10px; margin-bottom:10px;
+}
+
+.SongCommentsCont #PostNewComm
+{
+	float:right; width:220px; height:27px; line-height:26px; background-color:#858c90; border:1px solid #858c90; border-radius:2px; color:#323232; text-align:center; font-size:16px;
+}
+
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+/* ADD TO PLAYLIST */
+/* --------------------------------------------------------------------------------- */
+
+#AddToPlaylistCont1
+{
+	float:left; margin-top:90px; width:850px; height:480px; background-color:#43616f; border:5px solid #43616f; border-radius:2px;
+}
+
+#AddToPlaylistCont1 .ExitBtnCont
+{
+	float:left; width:100%; height:1px;
+}
+
+#AddToPlaylistCont1 .ExitBtnCont img
+{
+	float:right; margin:-22px -22px 0 0; cursor:pointer;
+}
+
+
+#AddToPlaylistCont1 .LeftCont
+{
+	float:left; width:435px; height:475px; overflow:hidden; padding:2px; background:#555555 url('/imgs/box_back.png') repeat; margin-top:0px;
+}
+
+#AddToPlaylistCont1 .RightCont
+{
+	float:left; width:400px; height:475px; padding:2px; background:#555555 url('/imgs/box_back.png') repeat; border-radius:2px; margin-top:0px; margin-left:5px;
+}
+
+
+
+
+#AddToPlaylistCont1 .LeftCont .LeftContInnr
+{
+	float:left; width:98%; margin:1%;
+}
+
+
+
+
+
+
+#AddToPlaylistCont1 .RightCont #PlaylistContHoder1
+{
+	float:left; width:98%; height:465px; margin:1%; text-align:left; overflow:auto;
+}
+
+
+#AddToPlaylistCont1 .PlaylistTitle
+{
+	float:left; width:100%; text-align:left; color:#FCF088; font-size:17px;
+}
+
+
+
+#AddToPlaylistCont1 .PlaylistItm
+{
+	float:left; width:100%; text-align:left;
+}
+
+#AddToPlaylistCont1 .PlaylistItm div
+{
+	float:left; width:99%; height:25px; line-height:25px; overflow:hidden; background-color:#454545; margin-left:1%; margin-top:3px; border-radius:2px; cursor:pointer; 
+}
+
+
+
+#AddToPlaylistCont1 .SongTitle
+{
+	float:left; margin:0px 0px 0px 5px; color:#FCF088; font-size:20px; text-align:left;
+}
+
+
+#AddToPlaylistCont1 .SongDetails
+{
+	float:left; width:100%; text-align:left; margin-top:10px;
+}
+
+
+#AddToPlaylistCont1 .SongImg
+{
+	width:120px; height:90px; float:left; border:1px solid #656565;
+}
+
+
+#AddToPlaylistCont1 .SongVerCont
+{
+	float:left; width:100%; text-align:left;
+}
+
+
+#AddToPlaylistCont1 .VerSong
+{
+	width:350px; height:23px; line-height:23px;  background-color:#333333; border-radius:2px; margin:5px 2px 2px 2px; padding:1px 2px 2px 2px; font-size:11px; text-align:left; cursor:pointer; overflow:hidden;
+}
+
+#AddToPlaylistCont1 .VerSongExt
+{
+	display:block; width:350px; height:23px; line-height:23px;  background-color:#333333; border-radius:2px; margin:5px 2px 2px 2px; padding:1px 2px 2px 2px; font-size:11px; text-align:left; cursor:pointer; overflow:hidden;
+}
+
+
+
+
+#AddToPlaylistCont1 .AddBtn1
+{
+	float:left; width:230px; height:30px; line-height:30px;  background-color:#333333; border:1px solid #656565;  padding:1px 2px 2px 2px; font-size:12px; color:#FCF088;
+}
+
+#AddToPlaylistCont1 .AddBtn2
+{
+	float:left; width:180px; height:30px; line-height:30px;  background-color:#333333; border:1px solid #656565;  padding:1px 2px 2px 2px; font-size:12px; color:#FCF088; margin-left:10px;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+/* ADD TO PLAYLIST POPUP */
+/* --------------------------------------------------------------------------------- */
+
+#AddToPlaylistContPopup1
+{
+	float:left; margin-top:30px; width:850px; height:480px; background-color:#43616f; border:5px solid #43616f; border-radius:2px;
+}
+
+#AddToPlaylistContPopup1 .ExitBtnCont
+{
+	float:left; width:100%; height:1px;
+}
+
+#AddToPlaylistContPopup1 .ExitBtnCont img
+{
+	float:right; margin:-22px -22px 0 0; cursor:pointer;
+}
+
+
+#AddToPlaylistContPopup1 .LeftCont
+{
+	float:left; width:435px; height:475px; overflow:hidden; padding:2px; background:#555555 url('/imgs/box_back.png') repeat; margin-top:0px;
+}
+
+#AddToPlaylistContPopup1 .RightCont
+{
+	float:left; width:400px; height:475px; padding:2px; background:#555555 url('/imgs/box_back.png') repeat; border-radius:2px; margin-top:0px; margin-left:5px;
+}
+
+
+
+
+#AddToPlaylistContPopup1 .LeftCont .LeftContInnr
+{
+	float:left; width:98%; margin:1%;
+}
+
+
+
+
+
+
+#AddToPlaylistContPopup1 .RightCont #PlaylistContHoder1
+{
+	float:left; width:98%; height:465px; margin:1%; text-align:left; overflow:auto;
+}
+
+
+#AddToPlaylistContPopup1 .PlaylistTitle
+{
+	float:left; width:100%; text-align:left; color:#FCF088; font-size:17px;
+}
+
+
+
+#AddToPlaylistContPopup1 .PlaylistItm
+{
+	float:left; width:100%; text-align:left;
+}
+
+#AddToPlaylistContPopup1 .PlaylistItm div
+{
+	float:left; width:99%; height:25px; line-height:25px; overflow:hidden; background-color:#454545; margin-left:1%; margin-top:3px; border-radius:2px; cursor:pointer; 
+}
+
+
+
+
+#AddToPlaylistContPopup1 .SongTitle
+{
+	float:left; margin:0px 0px 0px 5px; color:#FCF088; font-size:20px; text-align:left;
+}
+
+#AddToPlaylistContPopup1 .SongDetails
+{
+	float:left; width:100%; text-align:left; margin-top:10px;
+}
+
+#AddToPlaylistContPopup1 .SongImg
+{
+	width:120px; height:90px; float:left; border:1px solid #656565;
+}
+
+
+#AddToPlaylistContPopup1 .AddBtn1
+{
+	float:left; width:420px; height:30px; line-height:30px;  background-color:#333333; border:1px solid #656565;  padding:1px 2px 2px 2px; font-size:12px; color:#FCF088;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+/*     SLIDESHOW */
+/* --------------------------------------------------------------------------------- */
+.SearchSongsAdCont
+{
+	float:right; width:728px; height:90px; background-color:#667278; border:3px solid #667278; border-radius:2px;
+	margin:3px 0 6px 0;
+}
+
+
+
+
+.SlideshowBultesCont
+{
+	float:left; width:100%; height:20px; margin:-20px 0 0 0;
+}
+
+.SlideshowBultesCont .slideBulet
+{
+	float:left; width:9px; height:9px; background-color:#909090; border-radius:9px; margin:3px 0 0 7px; cursor:pointer;
+}
+
+.SlideshowBultesCont .slideBuletSel
+{
+	float:left; width:9px; height:9px; background-color:#575757; border-radius:9px; margin:3px 0 0 7px; cursor:pointer;
+}
+
+
+#HomeSlide1
+{
+	float:left; width:100%;
+}
+#HomeSlide2
+{
+	float:left; width:100%;
+}
+#HomeSlide3
+{
+	float:left; width:100%;
+}
+
+
+#HomeSlide1 img
+{
+	float:left; cursor:pointer;
+}
+#HomeSlide2 img
+{
+	float:left; cursor:pointer;
+}
+#HomeSlide3 img
+{
+	float:left; cursor:pointer;
+}
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+/*     NEW PLAYER ON TUMBLR    */
+/* --------------------------------------------------------------------------------- */
+
+
+.NPFT_TopAd
+{
+	float:right; width:726px; height:90px; background-color:#59666c; border:3px solid #59666c; border-radius:2px;
+}
+
+.NPFT_BottomAd
+{
+	float:left; width:726px; height:90px; background-color:#59666c; border:3px solid #59666c; border-radius:2px;
+}
+
+.NPFT_GoOnTop
+{
+	float:left; width:273px; height:90px; line-height:90px; margin:0 0 0 10px; padding:3px; background-color:#59666c; border-radius:3px; font-size:25px; color:#FFFFFF; text-align:center; cursor:pointer;
+}
+
+
+
+
+.NPFT_Head
+{
+	float:right; width:1024px;  text-align:left;
+}
+
+.NPFT_BHead
+{
+	float:right; width:1024px;  text-align:left;
+}
+
+.NPFT_Head .ffHeader
+{
+	float:left; width:230px; margin-top:0px;  color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:32px;
+}
+
+
+.NPFT_ContHolder
+{
+	float:left; width:1024px; padding:0px; min-height:1000px;
+}
+/* --------------------------------------------------------------------------------- */
+
+
+
+/* New_Player_For_Tumblr.cshtml */
+/* --------------------------------------------------------------------------------- */
+
+.NPFT_PP_ContHolder
+{
+	float:left; width:1024px; padding:0px; min-height:1000px;
+}
+
+
+.NPFT_PP_ContHolder .NewPlayerForTumblr
+{
+	float:left; width:300px; height:60px; background-color:#2e2e2e; margin-left:10px; cursor:pointer; text-align:center;
+}
+
+.NPFT_PP_ContHolder .GetCodeBtn
+{
+	float:left; width:300px; height:60px; background-color:#1e1e1e; margin-left:10px; cursor:pointer; text-align:center;
+}
+
+.NPFT_PP_ContHolder #CPL_Tab1
+{
+	float:left; width:1013px; padding:13px; min-height:1000px; background-color:#2e2e2e; border-radius:2px;
+}
+
+
+.NPFT_PP_ContHolder .topHeader
+{
+	float:left; width:100%; min-height:80px; margin-bottom:13px;
+}
+
+.NPFT_PP_ContHolder .middleCont
+{
+	float:left; width:828px; min-height:200px; overflow:hidden; border-radius:2px;
+}
+
+.NPFT_PP_ContHolder .AdCont
+{
+	float:right; width:166px; min-height:1800px;
+}
+
+.AddUnit
+{
+	float:left; width:160px; height:600px; margin:0 0 20px 0; background-color:#2e2e2e; border:3px solid #2e2e2e; border-radius:3px;
+}
+
+
+.middleCont img
+{
+	float:left; width:260px; margin:0 0 12px 10px;
+}
+
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+/* --------------------------------------------------------------------------------- */
+.NPFT_ContHolder .SettingItm
+{
+	float:left; width:100%; text-align:right; margin-top:10px;
+}
+
+
+.NPFT_ContHolder #cp_MainBackColor
+{
+	float:right; width:24px; height:24px; background-color:#000000; border-radius:2px; cursor:pointer;
+}
+
+.NPFT_ContHolder #cp_ButtonsColor
+{
+	float:right; width:24px; height:24px; background-color:#2488ba; border-radius:2px; cursor:pointer;
+}
+
+
+
+
+.NPFT_ContHolder #CPL_Tab2
+{
+	float:left; width:985px; padding:20px; min-height:500px; background-color:#2e2e2e;
+}
+
+
+
+.NPFT_ContHolder #SampleSettingsHolder
+{
+	/*float:left; width:380px;*/
+	float:left; width:350px; margin-bottom:20px; background-color:#242424; padding:15px; border-radius:3px;
+}
+
+.NPFT_ContHolder #SampleContHolder
+{
+	float:right; width:540px; margin-bottom:20px; margin-right:0px; background-color:#272727; color:#BCBCBC; padding:20px; border-radius:3px; 
+}
+
+.NPFT_ContHolder #SampleCodeHolder
+{
+	float:left; width:960px; margin-bottom:5px; background-color:#242424; padding:13px; border-radius:3px;
+}
+
+
+
+.NPFT_ContHolder #hypPlayer_Playlist_ID
+{
+	width:220px; height:22px; margin-top:2px;
+}
+
+
+.NPFT_ContHolder .HeaderCompText
+{
+	float:left; width:100%; font-size:19px; line-height:13px; text-align:left; color:#fbf3aa;
+	margin-bottom:10px;
+}
+
+
+
+
+
+.NPFT_ContHolder #PlayerCodeArea
+{
+	width:96%; margin:2%; height:200px; background-color:#DDDDDD; border:none;
+}
+
+
+.NPFT_ContHolder #PlayerControlsCodeArea
+{
+	width:96%; margin:2%; height:80px; background-color:#DDDDDD; border:none;
+}
+
+
+.NPFT_ContHolder .BottomMsgCont
+{
+	float:left; width:98%; padding:10px; margin:20px 0 0 0; min-height:70px; line-height:19px; background-color:#282828; border-radius:2px; font-size:16px;
+}
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+.NPFT_ContHolder .GetCodeBtn
+{
+	float:left; width:300px; height:60px; background-color:#2e2e2e; margin-left:10px; cursor:pointer; text-align:center;
+}
+
+
+.NPFT_ContHolder .MoreSkinsBtn
+{
+	float:left; width:300px; height:60px; background-color:#3e3e3e; margin-left:10px; cursor:pointer; text-align:center;
+}
+/* --------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Player for tumblr sample page */
+/* --------------------------------------------------------------------------------- */
+
+.BenContHolder
+{
+	float:left; width:100%; min-height:80px;
+}
+
+.BenContHolder .BenItem
+{
+	width:1000px; margin:10px; padding:5px; min-height:30px; line-height:27px; background-color:#717c81; border-radius:2px; color:#FFFFFF; font-size:19px;
+}
+/* --------------------------------------------------------------------------------- */
+
+
+
+/* PLAYER 6 */
+
+.NPFT_ContHolder #cp_PlayPauseButtonColor
+{
+	float:right; width:24px; height:24px; background-color:#50846b; border-radius:2px; cursor:pointer;
+}
+
+
+.NPFT_ContHolder #cp_PrevButtonColor
+{
+	float:right; width:24px; height:24px; background-color:#0e1211; border-radius:2px; cursor:pointer;
+}
+
+
+.NPFT_ContHolder #cp_NextButtonColor
+{
+	float:right; width:24px; height:24px; background-color:#1d2624; border-radius:2px; cursor:pointer;
+}
+
+
+.NPFT_ContHolder #cp_ShuffleButtonColor
+{
+	float:right; width:24px; height:24px; background-color:#415158; border-radius:2px; cursor:pointer;
+}
+
+
+.NPFT_ContHolder #cp_HypsterButtonColor
+{
+	float:right; width:24px; height:24px; background-color:#2488ba; border-radius:2px; cursor:pointer;
+}
+
+
+
+/* PLAYER 7 */
+.NPFT_ContHolder #cp_BorderColor
+{
+	float:right; width:24px; height:24px; background-color:#454545; border-radius:2px; cursor:pointer;
+}
+/*------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+/* GetSideVideos.css */
+
+/*    VIDEOS WIDGET SECTION  */
+/*------------------------------------------------------------*/
+.HomeVideoRootCont
+{
+	float:left; 
+	width:636px; 
+	height:280px;
+}
+
+
+
+
+
+.HomeVideoHeader
+{
+	float:left; 
+	width:100%; 
+	height:40px; 
+	background-color:#173860;
+}
+
+
+.HomeVideoHeader div
+{
+	float:left; margin:5px 0 0 10px; color:#EEEEEE; font:21px/1.5 Hypster-Font,Arial,sans-serif;
+}
+
+
+.HomeVideoHeader a
+{
+	display:block; float:right; margin:5px 10px 0 0; color:#EEEEEE; font:19px/1.5 Hypster-Font,Arial,sans-serif;
+}
+
+
+
+
+
+
+
+
+
+.videoSlideshow
+{
+	 float:left; 
+	 width:100%; 
+	 height:240px;
+}
+
+.videoSlideshow .VidSlide
+{
+	float:left; width:100%; margin-top:3px;
+}
+
+
+
+
+
+.VidSlide .VidLeft
+{
+	float:left; width:316px; height:235px; background-color:#999999;
+}
+
+.VidSlide .VidRight
+{
+	float:right; width:316px; height:195px; background-color:#999999;
+}
+
+
+.VidSlide .vidMcont
+{
+	display:block; 
+	float:left;  
+	width:100%; 
+	height:235px;
+	cursor:pointer;
+}
+
+
+.vidMcont span
+{
+	display:block;
+	float:left; 
+	width:100%; 
+	height:45px; 
+	margin-top:186px;  
+	background-color:#232323; 
+	overflow:hidden;  
+	opacity:0.75; 
+	filter:alpha(opacity=85); 
+	color:#FFFFFF; 
+	
+	font-family: Hypster-Font,Tahoma,Arial,Verdana,sans-serif; 
+	font-size:18px;
+	
+	line-height:48px; 
+	text-align:left;
+	border-top:4px solid #7a7a84;
+}
+
+.vidMcont span img
+{
+	float:left; margin:8px 0 0 15px;
+}
+
+
+.videoSlideshow_navBtns
+{
+	position:relative; float:left; display:none; width:1px; height:1px;
+}
+
+.videoSlideshow_navBtns
+{
+	position:relative; float:left; display:none; width:1px; height:1px;
+}
+
+.videoSlideshow_navBtns img
+{
+	width:16px; height:18px; cursor:pointer;	
+}
+/*------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   Home.css */
+/*------------------------------------------------------------*/
+
+
+.HomeRootCont
+{
+	float:left; 
+	width:100%;
+}
+
+
+
+
+#HomeRow1
+{
+	float:left; width:100%; height:250px; margin-top:25px;
+}
+
+#HomeRow2
+{
+	float:left; width:100%; height:280px; margin-top:40px;
+}
+
+#HomeRow3
+{
+	float:left; width:100%; height:260px; margin-top:40px;
+}
+
+#HomeRow4
+{
+	float:left; width:100%; height:280px; margin-top:40px;
+}
+
+
+
+
+
+
+
+
+
+
+.HPSlideshow
+{
+	float:left; width:636px; height:250px;
+	overflow:hidden;
+}
+
+
+
+
+.HomeRootCont .BtnsCont
+{
+	float:right; width:100px; margin:220px 0 0 0;
+}
+
+
+.HomeRootCont .SlideCont
+{
+	width:636px; height:250px;
+}
+
+#HomePageSlide1
+{
+	background:url('/imgs/home/slideshow/1.png') no-repeat;
+}
+
+#HomePageSlide2
+{
+	background:url('/imgs/home/slideshow/2.png') no-repeat;
+}
+
+#HomePageSlide3
+{
+	background:url('/imgs/home/slideshow/3.png') no-repeat;
+}
+
+
+.HomeRootCont .Bullet
+{
+	float:left; width:20px; height:20px; background:#FFFFFF; border-radius:10px; margin-left:5px; cursor:pointer;
+}
+
+.HomeRootCont .Bullet .Sel
+{
+	background:#122c4b;
+}
+
+
+
+
+
+
+
+
+
+.HomeRootCont .HomeTopAdd
+{
+	float:right; width:300px; height:250px; margin:0px;
+}
+
+
+
+#PlayerCont
+{
+	float:right; 
+	width:300px; 
+	height:280px; 
+	margin:0px; 
+	background:url('/imgs/home/hypster_player.png') no-repeat; 
+	cursor:pointer;
+}
+
+
+/*------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Widget_MostPopularSongs.css */
+/*------------------------------------------------------------*/
+
+.MostPopularSongsRootCont
+{
+	float:left; width:100%; height:220px; overflow:hidden;
+}
+	
+
+
+
+.MostPopularSongsRootCont .LeftArrow
+{
+	float:left; width:2%; height:220px; overflow:hidden;
+}
+.MostPopularSongsRootCont .LeftArrow img
+{
+	width:16px; height:18px; margin-top:90px; cursor:pointer;
+}
+
+
+
+.RightArrow
+{
+	float:left; width:2%; height:220px; overflow:hidden;
+}
+.MostPopularSongsRootCont .RightArrow img
+{
+	width:16px; height:18px; margin-top:90px; cursor:pointer;
+}
+
+
+
+
+
+
+
+
+.MostPopularSongsRootCont .MiddleCont
+{
+	float:left; width:96%; height:220px; overflow:hidden;
+}
+
+#MostPopularSongInner
+{
+	float:left; margin:0px;
+}
+
+
+
+
+
+
+.MostPopularSongsRootCont .ItemSong
+{
+	float:left; width:140px; margin:25px 35px 25px 10px;
+}
+
+
+.MostPopularSongsRootCont .ItemSong .ItemImg
+{
+	float:left; width:140px; height:140px; background-size: Auto 188px; border:1px solid #676767; cursor:pointer;
+}
+
+.MostPopularSongsRootCont .ItemSong .ItemNav
+{
+	float:right; width:56px; height:27px; line-height:24px; background-color:#e0e0e0; margin:-32px 4px 0 0; cursor:pointer;
+}
+
+.MostPopularSongsRootCont .ItemSong .ItemTitle
+{
+	float:left; width:100%; height:40px; line-height:20px; overflow:hidden; padding:1px; margin:8px 0 0 2px; font:17px/1.2 Arial,sans-serif; color:#363636; text-align:left; cursor:pointer;
+}
+
+
+
+
+
+.MostPopularSongsRootCont .ItemSong .ItemNav .Play
+{
+	float:left; display:block; width:27px; height:27px; background:url('/imgs/items/play_btn.png');
+}
+
+.MostPopularSongsRootCont .ItemSong .ItemNav .AddPl
+{
+	float:left; display:block; width:27px; height:27px; background:url('/imgs/items/add_to_pls_btn.png');
+}
+
+/*------------------------------------------------------------*/
+
+
+

@@ -1,0 +1,184 @@
+﻿@model hypster.ViewModels.listenViewModel
+@{
+    ViewBag.Title = "Listen To Youtube Music | Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "Search music, create playlists and embed them on blogs such as Tumblr or Bolgger.";
+}
+
+
+<script type="text/javascript">
+    active_menu = ".mListen";
+    $(".mListen").css("background-color", "#191919");
+
+    $(document).ready(function () {
+        RenderRadio();
+    });
+    $(window).resize(function () {
+        RenderRadio();
+    });
+</script>
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight" style=" min-height:480px;">
+
+
+
+                <div class="listenMenuCont">
+            
+                        <div id="Menu1" onclick="Open_Menu1()" style="background-color:#2b3032;">
+                            <img class="Menu1_img" alt="" src="/imgs/listen/search_music.png" /><br />
+                            Search Music
+                        </div>
+
+                        <div id="Menu3" onclick="Open_Menu3()">
+                            <img class="Menu3_img" alt="" src="/imgs/listen/playlists.png" /><br />
+                            Playlists
+                        </div>
+
+                        <div id="Menu2" onclick="Open_Menu2()" style="background-color:#1d1d1c;">
+                            <img class="Menu2_img" alt="" src="/imgs/listen/radio.png" /><br />
+                            Listen Radio
+                        </div>
+
+                </div>
+
+
+
+
+
+                <!-- TAB 1 -->
+                <div id="listenTab1" style=" display:none;">
+            
+                        <div class="contTop">
+                            <input type="text" id="txtSearchString" name="txtSearchString" onKeyUp="ListenSearchString_KeyUp(event)" value=" Enter Artist, Song or Genre" onfocus="if(this.value == ' Enter Artist, Song or Genre') this.value = '';" onblur="if(this.value == '') this.value = ' Enter Artist, Song or Genre';" />
+                            <div id="btnSearch" onclick="SearchMusic();"></div>
+                        </div>
+                
+
+                        <div class="contMiddle">
+                        
+                                <div style=" float:left; width:300px; height:250px; ">
+                                    <div id="SideAd2"></div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            document.getElementById("SideAd2").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                                        });
+                                    </script>
+                                </div>
+
+                                @for (int i = 0; i < 50; i++)
+                                {
+                                    if (i < Model.visualSearch_list.Count)
+                                    {
+                                        <img class="VisSearchItm" alt="@Model.visualSearch_list[i].Artist_Name.Replace("_"," ");" src="/imgs/visualSearch/@(Model.visualSearch_list[i].Artist_Name).jpg" onclick="window.location='/listen?ss=@Model.visualSearch_list[i].Artist_Name.Replace("_","+")';" />
+                                    }
+                                }
+                        
+                        
+                                @for (int i = 50; i > 0; i--)
+                                {
+                                    if (i < Model.visualSearch_list.Count)
+                                    {
+                                        <img class="VisSearchItm" alt="@Model.visualSearch_list[i].Artist_Name.Replace("_"," ");" src="/imgs/visualSearch/@(Model.visualSearch_list[i].Artist_Name).jpg" onclick="window.location='/listen?ss=@Model.visualSearch_list[i].Artist_Name.Replace("_","+")';" />
+                                    }
+                                }
+                        </div>
+
+                <!-- TAB 1 -->
+                </div>
+            
+
+
+
+
+
+
+
+
+                <!-- TAB 2 -->
+                <div id="listenTab2" style=" display:block;">
+       
+                        <!-- CONTENT LIMIT -->
+                        <div class="contLimit">
+                    
+                            <div class="contTop">
+                                    @foreach (var item in Model.genres_list)
+                                    {
+                                        <div class="RadioSt" onclick="OpenPlayer('media_type=Radio&Genre=@item.GenreName')" onmouseover="this.style.backgroundColor='#303030';" onmouseout="this.style.backgroundColor='';">
+                                            <img alt="@item.GenreName" src="/imgs/listen/radio_icon.png" /> @item.GenreName
+                                        </div>
+                                    }
+                            </div>
+
+
+                            <!-- RADIO SEARCH -->
+                            <div class="contMiddle">
+                                    <div class="radioSearch">
+                                        <input type="text" id="stationName" name="stationName" value=" Enter Artist, Song or Genre" onfocus="if(this.value == ' Enter Artist, Song or Genre') this.value = '';" onblur="if(this.value == '') this.value = ' Enter Artist, Song or Genre';" />
+                                        <div class="btnRadioSearch" onclick="CustomRadioStation()"></div>
+                                    </div>
+                            </div>
+                            <!-- RADIO SEARCH -->
+
+                        </div>
+       
+
+               <!-- TAB 2 -->
+               </div>
+           
+
+
+
+
+
+
+
+
+
+               <!-- TAB 3 -->
+               <div id="listenTab3">
+       
+                        <!-- CONTENT LIMIT -->
+                        <div class="contLimit">
+                        
+                            @for (int i = 0; i <= 12; i++)
+                            {
+                                if (i < Model.most_viewed_playlists.Count)
+                                {
+                                    <div class="plItem" onclick="OpenPlayer('media_type=playlist&playlist_id=@(Model.most_viewed_playlists[i].id)&us_id=@(Model.most_viewed_playlists[i].userid)');">
+                                        <div class="plName">@Model.most_viewed_playlists[i].name</div>
+                                        <a class="plPlay"></a>
+                                    </div>
+                                }
+                            }
+
+                            <div class="plItemCreate" onclick="window.location='/create/playlist';">
+                                <div>+ Create Playlist</div>
+                            </div>
+
+                        </div>
+
+               <!-- TAB 3 -->
+               </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide2" class="slideLeft" style=" min-height:475px;">
+
+            @Html.Action("PopularMusicOnHypster", "popular")
+
+    </div>
+</div>

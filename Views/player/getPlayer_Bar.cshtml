@@ -1,0 +1,153 @@
+﻿@model hypster.ViewModels.GetPlayerViewModel
+@{
+    ViewBag.Title = "Hypster - Bar player";
+    ViewBag.Desc = "";
+    Layout = null;
+}
+
+
+<div style=" float:left; width:1024px; margin:15px 0 15px 15px; " >
+
+
+    <div style=" float:left; width:100%; height:40px; overflow:hidden; background-color:#232323; border-radius:2px; margin-top:0px; ">
+        <h2 style=" float:left; margin:3px 0px 0px 15px; color:#FFFFFF; font:23px/1.5 Hypster-Font,Arial,sans-serif;">
+            Bar player
+        </h2>
+    </div>
+
+
+
+    <div style=" float:left; width:100%; border-radius:2px; margin-top:15px; ">
+   
+        @using (Html.BeginForm("getPlayer_barPlayer", "player"))
+        {
+            <div style=" float:left; width:565px;">
+
+                <div style=" float:left; width:220px; height:220px; margin:0 0 0 0px; border:7px solid #232323; background-color:#232323; border-radius:2px; cursor:pointer;">
+                    @if (Model.player.BAR_playerSkin != "")
+                    {
+                        <img id="skinImgHolder1" alt="" src="/imgs/get_player/bar_skins/@(Model.player.BAR_playerSkin).png"  />
+                    }
+                    else
+                    {
+                        <img id="skinImgHolder1" alt="" src="/imgs/get_player/bar_skins/tunes.png"  />
+                    }
+                </div>
+
+            
+                <div style=" float:left; width:300px; height:220px; line-height:25px; margin:0 0 0 13px; border:7px solid #232323; background-color:#232323; text-align:right;">
+            
+                    Name: <input id="PlayerName" name="PlayerName" type="text" maxlength="50" style=" width:215px;" value="@Model.player.player_Name" />
+                    <br />
+            
+                    Playlist: 
+                    <select id="Sel_Playlist_ID" name="Sel_Playlist_ID" style=" width:220px; height:22px; margin-top:2px;" onchange="playlist_changed(this);"> 
+                        @foreach (var item in Model.playlists_list)
+                        {
+                            <option value="@item.id" @if (Model.player.playlist_ID == item.id)
+                                                     {<text>selected="selected"</text>}>@item.name</option>
+                        }
+                    </select>
+                    <br />
+
+                    Autostart: @Html.CheckBox("BAR_autostart", (bool)Model.player.BAR_autostart) 
+                    <br />
+                    Shuffle Playback: @Html.CheckBox("BAR_shufflePlayback", (bool)Model.player.BAR_shufflePlayback) 
+                    <br />
+
+
+                    Placement of the Player: 
+                    <select id="Placement_of_the_Player" name="Placement_of_the_Player" style=" width:150px; height:22px; margin-top:2px;"> 
+                        <option value="bottom" @if (Model.player.BAR_placementOfThePlayer == "bottom")
+                                               {<text>selected="selected"</text>}>bottom</option>
+                        <option value="top" @if (Model.player.BAR_placementOfThePlayer == "top")
+                                            {<text>selected="selected"</text>}>top</option>
+                    </select>
+                    <br />
+
+                    Show Playlist by Default: @Html.CheckBox("BAR_showPlaylistByDefault", (bool)Model.player.BAR_showPlaylistByDefault)
+                    <br />
+
+
+                    Player Color Scheme: 
+                    <select id="Player_Color_Scheme" name="Player_Color_Scheme" onchange="preview_skin_bar(this.value);" style=" width:150px; height:22px; margin-top:2px;"> 
+                        <option value="tunes" @if (Model.player.BAR_playerSkin == "tunes")
+                                               {<text>selected="selected"</text>} >Tunes</option>
+
+                        <option value="aquaBlue" @if (Model.player.BAR_playerSkin == "aquaBlue")
+                                            {<text>selected="selected"</text>} >Aqua Blue</option>
+
+                        <option value="aquaPurple" @if (Model.player.BAR_playerSkin == "aquaPurple")
+                                            {<text>selected="selected"</text>} >Aqua Purple</option>
+
+                        <option value="aquaPink" @if (Model.player.BAR_playerSkin == "aquaPink")
+                                            {<text>selected="selected"</text>} >Aqua Pink</option>
+
+                        <option value="aquaOrange" @if (Model.player.BAR_playerSkin == "aquaOrange")
+                                            {<text>selected="selected"</text>} >Aqua Orange</option>
+
+                        <option value="aquaGreen" @if (Model.player.BAR_playerSkin == "aquaGreen")
+                                            {<text>selected="selected"</text>} >Aqua Green</option>
+
+                        <option value="cyber" @if (Model.player.BAR_playerSkin == "cyber")
+                                            {<text>selected="selected"</text>} >Cyber</option>
+
+                        <option value="black" @if (Model.player.BAR_playerSkin == "black")
+                                            {<text>selected="selected"</text>} >Black</option>
+
+                        <option value="blue" @if (Model.player.BAR_playerSkin == "blue")
+                                            {<text>selected="selected"</text>} >Blue</option>
+
+                        <option value="purple" @if (Model.player.BAR_playerSkin == "purple")
+                                            {<text>selected="selected"</text>} >Purple</option>
+
+                        <option value="pink" @if (Model.player.BAR_playerSkin == "pink")
+                                            {<text>selected="selected"</text>} >Pink</option>
+
+                        <option value="orange" @if (Model.player.BAR_playerSkin == "orange")
+                                            {<text>selected="selected"</text>} >Orange</option>
+
+                        <option value="green" @if (Model.player.BAR_playerSkin == "green")
+                                            {<text>selected="selected"</text>} >Green</option>
+                    </select>
+
+
+                    <input type="hidden" id="PlayerID" name="PlayerID" value="@Model.player.player_ID" />
+                </div>
+            
+            
+                <input type="submit" value="GET CODE" style=" float:left; width:425px; height:30px; line-height:25px; border-radius:2px; background-color:#42606e; color:#FCF088; margin:15px 0 0 0; cursor:pointer; font-weight:bold;" />
+                <input type="button" value="CANCEL" onclick="window.location='/create/player';" style=" float:left; width:120px; height:30px; line-height:25px; border-radius:2px; background-color:#42606e; color:#FFFFFF; margin:15px 0 0 15px; cursor:pointer;" />
+
+            </div>
+            
+
+
+
+
+            <div id="PlaylistSongsContainer" style=" float:left; width:430px; min-height:220px; line-height:25px; margin-left:13px; border:7px solid #232323; background-color:#232323; border-radius:2px; text-align:right;">
+                
+                <script type="text/javascript">
+                    $(document).ready(
+                        function () {
+                            var object = document.getElementById('Sel_Playlist_ID');
+                            playlist_changed(object);
+                        });
+                </script>
+
+            </div>
+
+
+        
+        }
+    </div>
+
+
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,168 @@
+﻿@model hypster.ViewModels.connectViewModel
+@{
+    ViewBag.Title = "Connect with Friends, Discover New Playlists | Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "Connect with friends and discover new playlists.";
+    ViewBag.ActivePage = "connect";
+}
+
+
+<script type="text/javascript">
+    active_menu = ".mConnect";
+    $(".mConnect").css("background-color", "#191919");
+
+    $(document).ready(function () {
+        RenderConnect();
+    });
+    $(window).resize(function () {
+        RenderConnect();
+    });
+</script>
+
+
+
+
+
+
+<div class="boxContLeft boxContRightTop">
+    <div id="listenSlide2" class="slideLeft" style=" min-height:95px; ">
+        
+            
+                <div class="connectHead">
+                    
+                    <div class="ffHeader">
+                        Find Friends
+                    </div>
+                    
+                    <div style=" float:right; width:726px; height:90px; background-color:#59666c; border:3px solid #59666c; border-radius:2px;">
+                        <div id="TopAdd19312yw7jdcvbb"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                document.getElementById("TopAdd19312yw7jdcvbb").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                            });
+                        </script>
+                    </div>
+
+                </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="boxContRight">
+    <div id="listenSlide1" class="slideRight">
+        
+        <div style=" float:left; width:1040px; ">
+        
+
+            <div class="connectCont">
+                
+
+                    <div class="connectInnerCont">
+                        @foreach (var item in Model.members_list)
+                        {   
+                        <div class="connectFriendCont">
+                        
+                            @if (item.profile_pic_id > Model.New_User_ID)
+                            {
+                                <img src="http://pics.hypster.com/userpics/@(item.username)/@(item.profile_pic_id)_s.jpg")" alt="" onclick="window.location='/profile/@item.username';" style=" float:left; width:94px; height:94px; margin:4px; margin-left:5px; background-color:#333333; cursor:pointer;" onerror="this.src='/imgs/user_img_nf.png';" />
+                            }
+                            else
+                            {
+                                <img src="http://pics.hypster.com/userpics/@(item.profile_pic_id)_s.jpg")" alt="" onclick="window.location='/profile/@item.username';" style=" float:left; width:94px; height:94px; margin:4px; margin-left:5px; background-color:#333333; cursor:pointer;" onerror="this.src='/imgs/user_img_nf.png';" />
+                            }
+
+                            <div class="txtHolder">
+                                <div>
+                                    <span class="style_22">user:</span> @item.username<br />
+                                    <span class="style_22">name:</span> @item.name<br />
+                                    <span class="style_22">country:</span> @item.country<br/>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="ActButtons">
+                                @if (User.Identity.Name != item.username)
+                                {
+                                    using (Html.BeginForm("FollowFriend", "account"))
+                                    {
+                                        <div class="FollowBtn">
+                                            <input type="hidden" id="user_to_follow_id" name="user_to_follow_id" value="@item.id" />
+                                            <input type="submit" value="Follow" style=" background:none; border:0px; color:#000000; line-height:15px;"  />
+                                        </div>
+                                    }
+                                }
+           
+                                <div class="DetailsBtn" onclick="window.location='/profile/@item.username';">Details</div>
+                            </div>
+
+                        </div>
+                        }
+                    </div>
+
+
+
+                    <div class="connectPaging">
+                        @for (var i = 1; i <= Model.Number_Of_Pages; i++)
+                        {
+                            <div class="ConnectPage" onclick="window.location='/connect/page/@i';" style=" @if(i == Model.Current_Page){ <text> background-color:#23292b;</text> }">@i</div>
+                        }
+                    </div>
+
+            </div>
+
+
+
+
+            <div style=" float:left; width:166px; min-height:1800px; "> 
+            
+
+                <div style=" float:left; width:160px; height:600px; margin:0 0 0 0; background-color:#23292b; border:3px solid #23292b; border-radius:3px;">
+                    <div id="SideAdConnect_o2112ouw"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("SideAdConnect_o2112ouw").innerHTML = "<iframe src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MTYweDYwMCxuPWlmcmFtZQ==?subid=default\" width=\"160\" height=\"600\" scrolling=\"no\" marginwidth=\"0\" style=\"border:none;\" frameborder=\"0\"></iframe>";
+                        });
+                    </script>
+                </div>
+
+
+
+                <div style=" float:left; width:160px; height:600px; margin:6px 0 0 0; background-color:#23292b; border:3px solid #23292b; border-radius:3px;">
+                    <div id="SideAdConnect_d398273"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("SideAdConnect_d398273").innerHTML = "<iframe src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MTYweDYwMCxuPWlmcmFtZQ==?subid=default\" width=\"160\" height=\"600\" scrolling=\"no\" marginwidth=\"0\" style=\"border:none;\" frameborder=\"0\"></iframe>";
+                        });
+                    </script>
+                </div>
+
+
+                <div style=" float:left; width:160px; height:600px; margin:6px 0 0 0; background-color:#23292b; border:3px solid #23292b; border-radius:3px;">
+                    <div id="SideAdConnect_s2398s9"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("SideAdConnect_s2398s9").innerHTML = "<iframe src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MTYweDYwMCxuPWlmcmFtZQ==?subid=default\" width=\"160\" height=\"600\" scrolling=\"no\" marginwidth=\"0\" style=\"border:none;\" frameborder=\"0\"></iframe>";
+                        });
+                    </script>
+                </div>
+        
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

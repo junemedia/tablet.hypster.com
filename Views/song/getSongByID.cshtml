@@ -1,0 +1,177 @@
+﻿@model hypster.ViewModels.SongLandingPageViewModel
+@{
+    ViewBag.Title = @Model.song.Title + " - Hypster";
+    ViewBag.Desc = "";
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        RenderSong();
+    });
+    $(window).resize(function () {
+        RenderSong();
+    });
+</script>
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight" style=" min-height:250px;">
+
+
+            <div class="SongLandingCont">
+                
+
+                <div class="ImgCont">
+                    <img src="http://i.ytimg.com/vi/@Model.song.YoutubeId/0.jpg" />
+                </div>
+
+
+                <div class="ItmDetailsCont">
+                    
+                    <div class="SongTitle">
+                            @Model.song.Title
+                    </div>
+
+
+                    <div class="SongAddDetails">
+                            <div class="witm">
+                                Added: <span style=" color:#FCF088;"> @Model.song.adddate.ToShortDateString() </span>
+                            </div>
+
+                            <div class="witm">
+                                Giud: <span style=" color:#FCF088;"> @Model.song.YoutubeId </span>
+                            </div>
+
+                            <div id="addDetailsContainer" class="witm"></div>
+                    </div>
+
+
+
+                    <div class="ActionsCont">
+                            <div class="ActPlayBtn" onclick="OpenPlayer('song_guid=@Model.song.YoutubeId&song_title=@HttpUtility.UrlEncode(Model.song.Title)');">
+                                <img alt="" src="/imgs/play_icon.png" style=" margin-top:9px;" />
+                            </div>
+
+                            <div class="AddPlayBtn" onclick="window.location='/listen?ss=@System.Web.HttpUtility.UrlEncode(Model.song.Title)';">
+                                <img alt="" src="/imgs/search-music-icon.png" style=" margin-top:7px;" />
+                            </div>
+                    
+                            <div class="ActAddBtn" onclick="ShowAddToMyPlaylist('?song_guid=@Model.song.YoutubeId&song_title=@System.Web.HttpUtility.UrlEncode(Model.song.Title)');">
+                                <b>+</b> Add to Playlist
+                            </div>
+                    
+                            <div class="ActGetRingtone">
+                                <a href="http://www.funtonia.com/mp3ringtones/search.asp?sw=@Model.song.Title&affid=120674" target="_blank">Get Ringtone&nbsp;</a>
+                            </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide2" class="slideLeft" style=" min-height:300px;">
+        
+
+            <div class="SongCommentsCont">
+            
+
+                    <div class="CommHeader">
+                        Comments
+                    </div>
+
+
+                    @using (Html.BeginForm("PostSongComment", "songDetails", FormMethod.Post))
+                    {
+                        <textarea id="songComment" name="songComment"></textarea>
+                        <input type="hidden" id="songGuid" name="songGuid" value="@Model.song.id" />
+
+                        <div class="CommSubmCont">
+                            <input id="PostNewComm" type="submit" value="Post Comment"/>
+                        </div>
+                    }
+
+
+
+                    @foreach (hypster_tv_DAL.songComment item in Model.songComments_list)
+                    {
+                        <div class="CommItm">
+                            <div class="CommComment">
+                                @item.comment
+                            </div>
+
+                            <div class="CommDate">
+                                @item.userName, <span style="font-size:13px;">@item.postDate.ToString()</span>
+                            </div>
+                        </div>
+                    }
+
+
+
+                    <div style=" float:left; width:100%; margin-top:10px; ">
+
+                        <div style="float:left; width:728px; height:90px; background-color:#858c90; border:3px solid #858c90; border-radius:2px;">
+                            <div id="TopAdd1"></div>
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    document.getElementById("TopAdd1").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                                });
+                            </script>
+                        </div>
+
+
+                        <div onclick="window.location='http://@System.Configuration.ConfigurationManager.AppSettings["videoHostName"]/page/1';" style=" float:left; width:275px; height:90px; margin-left:15px; background-color:#858c90; border:3px solid #858c90; border-radius:2px; line-height:90px; text-align:center; font-size:27px; cursor:pointer;">
+                            Hypster Videos
+                        </div>
+
+                    </div>
+
+
+
+            </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $.ajax({
+            type: "POST",
+            url: "/songDetails/GetSongDynamicDetails?song_guid=@Model.song.YoutubeId",
+            async: true,
+            success: function (data) {
+                $('#addDetailsContainer').html(data);
+            }
+        });
+
+    });
+
+</script>
+
+
+

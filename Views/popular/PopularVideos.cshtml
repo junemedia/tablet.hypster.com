@@ -1,0 +1,71 @@
+﻿@model List<hypster_tv_DAL.videoClip>
+@{
+    Layout = null;
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+            $("#listenSlide2_header").css("width", (cont_width - 750 - 20) + "px");
+        }
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+            $("#listenSlide2_header").css("width", (cont_width - 750 - 20) + "px");
+        }
+    });
+</script>
+
+
+
+
+
+<div class="FeaturedVideoCont">
+            
+        <div id="listenSlide2_header">
+                
+            <div class="FeaturedHeaderBack">
+                <div>Featured Video</div>
+            </div>
+
+            <div class="FeaturedSubHeader">
+                check favorite songs of hypster users, charts, trends, genres...
+            </div>
+
+        </div>
+
+
+        <div class="FeaturedAdCont">
+            <div id="TopAdd1"></div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    @if(Request.RawUrl.ToString() == "/"){
+                        <text>document.getElementById("TopAdd1").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zMTQ0LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";</text>
+                    }else
+                    {
+                        <text>document.getElementById("TopAdd1").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";</text>
+                    }
+                });
+            </script>
+        </div>
+
+</div>
+
+
+
+
+<div class="FeaturedVideoInner">
+    @foreach(var clip in Model)
+    {   
+        <a class="VideoThumbBox" href="http://@System.Configuration.ConfigurationManager.AppSettings["videoHostName"]/video/@(clip.Guid)">
+            <img alt="@clip.Name" src="http://@System.Configuration.ConfigurationManager.AppSettings["videoHostName"]/uploads/covers/@(clip.Guid).jpg" />
+            <div class="videoBoxHeader">&nbsp;&nbsp;@clip.Name</div>
+        </a>
+    }
+</div>

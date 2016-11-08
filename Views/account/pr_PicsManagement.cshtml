@@ -1,0 +1,170 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+
+<script type="text/javascript">
+
+    function turn_on_uploadTool() {
+        $('#TakePicsMainCont').css('display', 'block');
+
+        $('#webcameraTool_1').css('display', 'none');
+        $('#uploadTool_1').css('display', 'block');
+    }
+
+    function turn_on_webcamTool() {
+        $('#TakePicsMainCont').css('display', 'block');
+
+        $('#uploadTool_1').css('display', 'none');
+        $('#webcameraTool_1').css('display', 'block');
+    }
+
+</script>
+
+
+
+
+
+
+<div style=" float:left; width:100%;" >
+
+
+
+
+        <div id="TakePicsMainCont" style=" display:none; float:left; width:100%; min-height:90px; overflow:hidden; background:#555555 url('/imgs/box_back.png') repeat; margin:7px 0 0 7px;  ">
+                    
+
+
+
+                    <div id="uploadTool_1" style=" display:none; float:left; width:100%; text-align:left;">
+                            
+                            @using (Html.BeginForm("AccountPicsManagement_UploadPics", "account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div style=" float:left; width:615px; height:130px; margin:11px; padding:3px;">
+
+                                        <text>&nbsp;Add Image</text>
+                                        <div style=" width:970px; height:25px; padding:3px; border-radius:3px; background-color:#EEEEEE;">
+                                            <input type="file" name="file" id="file" style=" width:970px; height:24px; color:#000000;" />
+                                        </div>
+
+                                        <text>&nbsp;Description </text><input id="PicDesc" name="PicDesc" type="text" value="" style=" width:970px;" />
+                                        <br />
+            
+                                        <div style=" float:left; width:98%; text-align:right; margin-bottom:15px; margin-top:10px;">
+                                            <input type="submit" value="Add Image" style=" width:160px; " />
+                                            <input type="button" value="Cancel" style=" width:160px;" onclick="$('#TakePicsMainCont').css('display','none');" />
+                                        </div>
+            
+                                        @Html.ValidationSummary(true, "", new { @class = "txtValidator" })
+
+                                </div>   
+                            }
+                    </div>
+
+                    
+
+
+                    <div id="webcameraTool_1" style=" display:none; float:left; width:100%;">
+
+                            <div style=" float:left; width:1000px; height:590px; background-color:#777777; border:3px solid #777777; border-radius:2px; margin:7px;">
+                                <script type="text/javascript" src="/Scripts/swfobject.js"></script>
+                                <script type="text/javascript">
+                                    <!-- For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. --> 
+                                    var swfVersionStr = "10.0.0";
+                                    <!-- To use express install, set to playerProductInstall.swf, otherwise the empty string. -->
+                                    var xiSwfUrlStr = "playerProductInstall.swf";
+                                    var flashvars = {};
+                                    var params = {};
+                                    params.quality = "high";
+                                    params.bgcolor = "#000000";
+                                    params.allowscriptaccess = "sameDomain";
+                                    params.allowfullscreen = "true";
+                                    var attributes = {};
+                                    attributes.id = "CameraSnapshot";
+                                    attributes.name = "CameraSnapshot";
+                                    attributes.align = "top";
+                                    swfobject.embedSWF(
+                                        "/Scripts/CameraSnapshot.swf", "flashContent", 
+                                        "1000", "590", 
+                                        swfVersionStr, xiSwfUrlStr, 
+                                        flashvars, params, attributes);
+		                            <!-- JavaScript enabled so display the flashContent div in case it is not replaced with a swf object. -->
+		                            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+                                </script>
+ 
+
+                                <div id="flashContent" >
+                                    <p>
+	                                    To view this page ensure that Adobe Flash Player version 
+		                                10.0.0 or greater is installed. 
+	                                </p>
+	                                <script type="text/javascript">
+	                                    var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
+	                                    document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='"
+						                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>"); 
+	                                </script> 
+                                </div>
+
+
+                                <noscript>
+                                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1000" height="590" id="CameraSnapshot">
+                                        <param name="movie" value="/Scripts/CameraSnapshot.swf" />
+                                        <param name="quality" value="high" />
+                                        <param name="bgcolor" value="#000000" />
+                                        <param name="allowScriptAccess" value="sameDomain" />
+                                        <param name="allowFullScreen" value="true" />
+                                        <!--[if !IE]>-->
+                                        <object type="application/x-shockwave-flash" data="/Scripts/CameraSnapshot.swf" width="1000" height="590">
+                                            <param name="quality" value="high" />
+                                            <param name="bgcolor" value="#000000" />
+                                            <param name="allowScriptAccess" value="sameDomain" />
+                                            <param name="allowFullScreen" value="true" />
+                                        <!--<![endif]-->
+                                        <!--[if gte IE 6]>-->
+                                            <p> 
+                                                Either scripts and active content are not permitted to run or Adobe Flash Player version
+                                                10.0.0 or greater is not installed.
+                                            </p>
+                                        <!--<![endif]-->
+                                            <a href="http://www.adobe.com/go/getflashplayer">
+                                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" />
+                                            </a>
+                                        <!--[if !IE]>-->
+                                        </object>
+                                        <!--<![endif]-->
+                                    </object>
+                                </noscript>
+                            </div>
+
+                    </div>
+                
+
+        </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    function PictureSaved()
+    {
+        setTimeout('timeout_trigger()', 4500);
+    }
+
+    function timeout_trigger() {
+        window.location = '/account/pics';
+    }
+
+</script>

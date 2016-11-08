@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="@ViewBag.Desc Create tumblr playlist, music for tumblr." />
+    <meta name="keywords" content="hypster, music, radio, tv, tumblr, blogger, free playlist, player, player for tumblr, genres, free music online, hipster, playlist, player skins, playlist maker online, tumblr playlist creator, create tumblr playlist, music playlist for tumblr, hipster music playlist" />
+
+
+
+
+    <script src="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css"  type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"  type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"  type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+
+
+    @Scripts.Render("~/scripts/hypScript.js?id=9231872")
+    @Scripts.Render("~/scripts/hypSlide.js?id=182763")
+    
+    <link href="/css/Site.css" rel="stylesheet" type="text/css" />
+    
+
+</head>
+
+
+
+
+
+<body>
+    <div class="MainBD13">
+        
+
+        <div class="ContentHeaderCont">
+           
+                <div class="ContentHeaderInner">
+                    <div id="MainMenu" >
+                        <img class="mLogo" alt="Hypster Logo" src="/imgs/shared/main_logo.png" onclick="window.location='/';" />
+                        
+
+                        <div class="hypContHolder">
+                            <a class="mHypster" href="/" title="Hypster Home Page" >Hypster</a>
+                            
+                            <div id="HypsterSub">
+                                <a class="HypSub_tv" href="http://@System.Configuration.ConfigurationManager.AppSettings["videoHostName"]">TV</a>
+                                <a class="HypSub_news" href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]">News</a>
+                            </div>
+                        </div>
+
+                        <a class="mListen" href="/listen" title="Listen to Music, Playlists, Station">Listen</a>
+                        <a class="mCreate" href="@if(User.Identity.IsAuthenticated){<text>/create/playlist</text>}else{<text>/create</text>}" title="Create Player For Blog, Playlist, Station">Create</a>
+                        <a class="mConnect" href="/connect" title="Connect with Frieds, Discover New Playlists">Connect</a>
+
+
+                        <div class="TopHeaderCont">
+                            @Html.Partial("~/Views/account/pr_LoginStatus.cshtml")
+                        </div>
+                    </div>
+                </div>
+
+            
+        </div>
+
+
+
+        <div class="ContentRootCont" >
+             @RenderBody()
+        </div>
+        
+    
+        <div class="push"></div>
+    </div>
+
+
+
+
+
+    
+    <div class="ContentFooterCont">
+        <center>
+
+                <div class="BottomPane">
+                    <div style=" float:left; width:290px; height:250px; margin-top:10px;">
+                        <img alt="" src="/imgs/shared/footer_logo_1.png" style=" padding:13px 5px 15px 50px;" />
+
+
+                        <div style=" float:left; width:100%; height:22px;">
+                                <div id="hyp_sosialHolder1" onmouseover="this.style.display = 'none'; $('#hyp_SNR_BtnHolder_1').css('display','block');">
+                                    <div class="hyp_SI_Cont_google"></div>
+                                    <div class="hyp_SI_Cont_twitter"></div>
+                                    <div class="hyp_SI_Cont_facebook"></div>
+                                </div>
+
+                                <div id="hyp_SNR_BtnHolder_1" style=" float:left; width:100%; display:none;">
+                    
+                                    <div class="hyp_SI_Cont_facebook1">
+                                        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F@(System.Configuration.ConfigurationManager.AppSettings["newsHostName"])&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+                                    </div>
+
+                                    <div class="hyp_SI_Cont_twitter1">
+                                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]" data-text="Hypster">Tweet</a>
+                                        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } } (document, "script", "twitter-wjs");</script>
+                                    </div>
+
+                                    <div class="hyp_SI_Cont_google1">
+                                        <div class="g-plusone" data-size="medium" data-href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]"></div>
+                                        <script type="text/javascript">                                            (function () { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();</script>
+                                    </div>
+
+                                </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="BottomPaneInnr">
+
+                        <div class="MenuItmCont">
+                            <!--a href="/hypster/New_Player_For_Tumblr">New Tumblr Player</a-->
+                            <a href="/hypster/How_To_Use" >How To Use</a>
+                            <a href="/hypster/Hypster_On_Mobile" >Hypster On Mobile</a>
+                        </div>
+
+
+                        <div class="MenuItmCont">
+                            <a href="/" >Hypster</a>
+                            <a href="/listen" >Listen</a>
+                            <a href="/create" >Create</a>
+                            <a href="/connect" >Connect</a>
+                        </div>
+
+                        <div class="MenuItmCont">
+                            <a href="/listen/radio" >Radio</a>
+                            <a href="http://@System.Configuration.ConfigurationManager.AppSettings["videoHostName"]" >TV</a>
+                            <a href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]" >Music News</a>
+                        </div>
+                        
+                        <div class="MenuItmCont">
+                            <a href="/hypster/Contact_Us" >Contact Us</a>
+                            <a href="/hypster/About_Us" >About Us</a>
+                            <a href="/hypster/Privacy_Policy" >Privacy Policy</a>
+                            <a href="/hypster/Terms_of_Service" >Terms of Service</a>
+                        </div>
+
+
+                    
+                        <div style=" float:right; width:100%;">
+                            <div class="FeaturedAdContBottom">
+                                <div id="TopAdd_Bottom_2938eu93"></div>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        @if(Request.RawUrl.ToString() == "/"){
+                                            <text>document.getElementById("TopAdd_Bottom_2938eu93").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zMTQ0LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";</text>
+                                        }else
+                                        {
+                                            <text>document.getElementById("TopAdd_Bottom_2938eu93").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";</text>
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div style=" float:left; width:98%; height:15px; margin-top:-10px; font-size:9px; text-align:right; ">@System.Configuration.ConfigurationManager.AppSettings["server_ID"]</div>
+                </div>
+
+        </center>
+    </div>
+    
+
+
+
+
+
+
+
+    
+    <div class="Trans_BACK" id="HideBackDiv" onclick="Show_Content();"></div>
+    <div id="popupContainer"></div>
+    
+
+
+    
+
+
+
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-28695705-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    
+   
+</body>
+</html>

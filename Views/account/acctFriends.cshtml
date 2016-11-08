@@ -1,0 +1,265 @@
+﻿@model hypster.ViewModels.getAccountInfo_PrivateViewModel
+
+@{
+    ViewBag.Title = "Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        RenderAccountFriends();
+    });
+    $(window).resize(function () {
+        RenderAccountFriends();
+    });
+</script>
+
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide0" class="slideRight" style=" min-height:130px;">
+            
+
+
+            <div id="SectionMenu1" onclick="window.location='/account/info';" style=" float:left; width:335px; height:150px; overflow:hidden; margin:0px; background-color:#292929; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;">
+            
+                <div style=" float:left; width:100%; line-height:14px; text-align:center;">
+                    <img alt="" src="/imgs/account/create_player_icon_sm.png" style=" margin:20px 0 10px 0;" /><br />
+                    Info
+                </div>
+            
+            </div>
+
+
+
+
+            <div id="SectionMenu2" onclick="window.location='/account/music';" style=" float:left; width:335px; height:150px; overflow:hidden; margin-left:5px; background-color:#292929; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;">
+            
+                <div style=" float:left; width:100%; line-height:14px; text-align:center;">
+                    <img alt="" src="/imgs/account/create_playlist_icon_sm.png" style=" margin:20px 0 10px 0;" /><br />
+                    Music
+                </div>
+
+            </div>
+
+
+
+
+            <div id="SectionMenu3" onclick="window.location='/account/friends';" style=" float:left; width:335px; height:150px; overflow:hidden; margin-left:5px; background-color:#181818; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;">
+                
+                <div style=" float:left; width:100%; line-height:14px; text-align:center;">
+                    <img alt="" src="/imgs/account/create_station_icon_sm.png" style=" margin:20px 0 10px 0;" /><br />
+                    Friends
+                </div>
+            
+            </div>
+
+
+     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- **************SECTION 3*************************** -->
+<div id="Section3" style=" display:block;">
+
+
+<div class="boxContLeft">
+    <div id="listenSlide1" class="slideLeft">
+        
+                
+                <div style=" float:right; width:1040px; margin-bottom:20px;">
+    
+                    <div style=" float:left; width:98%; height:25px; line-height:25px; color:#454545; font-size:22px; overflow:hidden; margin:5px 0 5px 7px; ">
+                        Members I Follow (@Model.MembersIFollow_list.Count)
+                    </div>
+
+                    @{ int counter_MembersIFollow_list = 0; }
+                    @foreach (var item in Model.MembersIFollow_list)
+                    {
+                        if (counter_MembersIFollow_list > 150)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            counter_MembersIFollow_list++;
+                        }
+
+                        
+                        if (item != null)
+                        {
+                        <div style=" float:left; width:330px; margin-left:1%; margin-top:5px;">
+
+                            <a href="/profile/@item.username" style=" display:block; float:left; width:270px; height:48px; background-color:#68747a; border-radius:2px; text-align:left; cursor:pointer;">
+                
+                                <img alt="" src="@Url.Content("/userpics/" + item.username + "/" + item.profile_pic_id + "_s.jpg")" style=" float:left; width:47px; height:44px; margin:2px 0 0 2px;" onerror="this.style.backgroundColor='#56636a';" />
+                                <div style=" float:left; margin:13px 0 0 7px; font-size:15px;">
+                                    <text>&nbsp;</text>@item.username
+                                </div>
+
+                            </a> 
+            
+                            <div onclick="Delete_MemberIFollow(@item.id);" style=" float:left; width:50px; height:48px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#68747a; border-radius:2px; margin-left:7px; cursor:pointer;">
+                                <img alt="" src="/imgs/action_icons/delete_icon_s.png" style=" margin:17px 0 0 17px;" />
+                            </div>
+                        </div>
+                        }
+        
+                    }
+                </div>
+
+
+                <div style=" float:right; width:1040px; margin-bottom:20px;">
+                    <div id="TopAdd1_d2832e9du21q" style=" float:left; margin:0 0 0 10px; width:728px; height:90px;  background-color:#68747a; border:2px solid #68747a; border-radius:2px;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("TopAdd1_d2832e9du21q").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                        });
+                    </script>
+
+                    <div onclick="$(document).scrollTop(0);" style=" float:left; width:273px; height:90px; line-height:90px; margin:0 0 0 10px; background-color:#68747a; border:2px solid #68747a; border-radius:2px; font-size:25px; color:#FFFFFF; text-align:center; cursor:pointer;">
+                        Go On Top
+                    </div>
+                </div>
+
+            
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="boxContRight">
+    <div id="listenSlide2" class="slideRight">
+    
+        
+
+                <div style=" float:left; width:1040px; margin-bottom:20px;">
+
+                    <div style=" float:left; width:98%; height:25px; line-height:25px; color:#ABABAB; font-size:22px; overflow:hidden; margin:5px 0 5px 7px; ">
+                        My Followers (@Model.MyFollowers_list.Count)
+                    </div>
+
+
+                    @{ int counter_MyFollowers_list = 0; }
+                    @foreach (var item in Model.MyFollowers_list)
+                    {
+                        if (counter_MyFollowers_list > 150)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            counter_MyFollowers_list++;
+                        }
+
+
+                        
+                        if (item != null)
+                        {
+                        <div style=" float:left; width:330px; margin-left:1%; margin-top:5px;">
+                
+                            <a href="/profile/@item.username" style=" display:block; float:left; width:270px; height:48px; background-color:#454545; border-radius:2px; text-align:left; cursor:pointer;">
+                    
+                                <img alt="" src="@Url.Content("/userpics/" + item.username + "/" + item.profile_pic_id + "_s.jpg")" style=" float:left; width:47px; height:44px; margin:2px 0 0 2px;" onerror="this.src='/imgs/user_img_nf.png';" />
+                                <div style=" float:left; margin:13px 0 0 7px; font-size:15px;">
+                                    <text>&nbsp;</text>@item.username
+                                </div>
+
+                            </a>
+
+                            <div onclick="Delete_MyFollower(@item.id);" style=" float:left; width:50px; height:48px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#454545; border-radius:2px; margin-left:7px; cursor:pointer;">
+                                <img alt="" src="/imgs/action_icons/delete_icon_s.png" style=" margin:17px 0 0 17px;" />
+                            </div>
+                        </div> 
+                        }
+        
+                    }
+                </div>
+
+                <div style=" float:left; width:1040px; margin-bottom:20px;">
+                    <div id="TopAdd1_sd2s93872981" style=" float:left; margin:0 0 0 10px; width:728px; height:90px;  background-color:#2f2f2f; border:2px solid #2f2f2f; border-radius:2px;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("TopAdd1_sd2s93872981").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                        });
+                    </script>
+
+                    <div onclick="$(document).scrollTop(0);" style=" float:left; width:273px; height:90px; line-height:90px; margin:0 0 0 10px;  background-color:#2f2f2f; border:2px solid #2f2f2f; border-radius:2px; font-size:25px; color:#FFFFFF; text-align:center; cursor:pointer;">
+                        Go On Top
+                    </div>
+                </div>
+
+
+    </div>
+</div>
+
+
+
+</div>
+<!-- **************SECTION 3*************************** -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide3" class="slideLeft">
+            <div style=" float:right; width:1024px;"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    function Delete_MemberIFollow(id) {
+        var randomnumber = Math.floor(Math.random() * 11000000);
+        if (confirm('Are you sure you want to delete?') == true) { window.location = '/account/Delete_MemberIFollow?follower_id=' + id + '&R_Num=' + randomnumber; }
+    }
+
+    function Delete_MyFollower(id) {
+        var randomnumber = Math.floor(Math.random() * 11000000);
+        if (confirm('Are you sure you want to delete?') == true) { window.location = '/account/Delete_MyFollower?follower_id=' + id + '&R_Num=' + randomnumber; }
+    }
+
+</script>
+
+
+
+
+

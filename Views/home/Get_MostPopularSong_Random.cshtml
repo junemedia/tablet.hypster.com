@@ -1,0 +1,20 @@
+﻿@model List<hypster_tv_DAL.Song>
+@{
+    Layout = null;
+}
+
+
+@{
+    int back_id = 1;
+}
+@for(int i=1; i<=13; i++)
+{
+    if( i < Model.Count)
+    {
+        <div @if (back_id == 1) { <text>class="songItm"</text>} else {<text>class="songItm1"</text>}>
+            <a class="songItm_title" href="/song/@Model[i - 1].id">@(i). @Model[i - 1].Title</a>
+            <a class="songItm_play" title="play" onclick="OpenPlayer('song_guid=@Model[i - 1].YoutubeId&song_title=@HttpUtility.UrlEncode(Model[i - 1].Title)');"></a>
+        </div>
+    }
+    back_id = back_id * -1;
+}

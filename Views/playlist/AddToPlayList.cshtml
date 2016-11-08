@@ -1,0 +1,154 @@
+﻿@model hypster.ViewModels.AddToPlayListViewModel
+@{
+    Layout = null;
+}
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#AddToPlaylistCont1").css("display", "block");
+        $("#AddToPlaylistCont1").css("margin-left", (($(document).width() - 850) / 2) + "px");
+    });
+
+</script>
+
+
+
+
+
+<div id="AddToPlaylistCont1">
+    
+
+    <div class="ExitBtnCont">
+        <img alt="" src="/imgs/exit_button.png" onclick="HideAddToPlaylist();" />
+    </div>
+
+
+
+
+    <div class="LeftCont">
+    
+            <div class="LeftContInnr">
+            @using (Html.BeginForm("SubmitAddNewSong", "playlist", FormMethod.Post))
+            {
+                <h2 class="SongTitle">
+                    @ViewBag.song_title
+                </h2>
+            
+        
+                <div class="SongDetails">
+            
+                    <img class="SongImg" alt="" src="http://i.ytimg.com/vi/@ViewBag.song_guid/default.jpg" />
+            
+
+                    <div style=" float:left; width:290px; line-height:31px; margin-left:10px; text-align:right; ">
+                        Song ID: <input type="text" value="@ViewBag.song_guid" disabled="disabled" style=" width:210px; height:19px;" /><br />
+                        Title: <input type="text" value="@ViewBag.song_title" disabled="disabled" style=" width:210px; height:19px; margin-top:2px;" /><br />
+                        Playlist: 
+                        <select id="Sel_Playlist_ID" name="Sel_Playlist_ID" style=" width:215px; height:26px; margin-top:2px;" onchange="playlist_changed_addToPlaylist(this);"> 
+                            @foreach (var item in Model.playlists_list)
+                            {
+                                <option value="@item.id" @if(Model.curr_user.active_playlist == item.id){<text>selected="selected"</text>}>@item.name</option>
+                            }
+                        </select>
+
+                        <input id="Song_Guid" name="Song_Guid" type="hidden" value="@ViewBag.song_guid" />
+                        <input id="Song_Title" name="Song_Title" type="hidden" value="@ViewBag.song_title" />
+                        <input id="ss" name="ss" type="hidden" value="@ViewBag.ss" />
+
+                        <input id="StayHereCheck" name="StayHereCheck" type="hidden" value="" />
+                    </div>
+                </div>
+        
+        
+
+                <div class="SongVerCont">
+            
+                    <div class="VerSong" onclick="OpenPlayer('song_guid=@ViewBag.song_guid&song_title=@HttpUtility.UrlEncode(ViewBag.song_title)');">
+                        <img alt="" src="/imgs/attention_icon.png" style=" margin-top:2px;" />
+                        Verify if song allowed on hypster
+                    </div>
+            
+                
+                    <a class="VerSongExt" href="http://hyptest.tumblr.com/?PL_ID=" target="_blank">
+                        <img alt="" src="/imgs/attention_icon.png" style=" margin-top:2px;" />
+                        Verify if song allowed on external domain websites
+                    </a>
+
+                </div>
+        
+        
+                <div style="float:left; width:100%; margin-top:10px; text-align:right;">
+                    <input class="AddBtn1" type="submit" value="ADD AND GO TO MY PLAYLIST" onclick="Add_and_go_to_CLICK();" />
+                    <input class="AddBtn2" type="submit" value="ADD AND GET MORE" onclick="Add_and_stay_here_CLICK();" />
+                </div>
+            
+            }
+            </div>
+        
+    </div>
+
+
+    
+
+
+
+    <div class="RightCont">
+    
+            <div id="PlaylistContHoder1">
+
+                <div class="PlaylistTitle">
+                    @ViewBag.Playlist_Name
+                </div>
+            
+                @foreach (var item in Model.songs_list)
+                {
+                    <div class="PlaylistItm">
+                        <div onclick="OpenPlayer('song_guid=@item.YoutubeId&song_title=@HttpUtility.UrlEncode(item.Title)');">
+                            <text>&nbsp;</text>@item.Title
+                        </div>
+                    </div>
+                }
+            </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    function Add_and_stay_here_CLICK() {
+        $('#StayHereCheck').val('1');
+        $('.AddBtn2').attr('value', 'Please wait...');
+    }
+    function Add_and_go_to_CLICK() {
+        $('.AddBtn1').attr('value', 'Please wait...');
+    }
+
+    function playlist_changed_addToPlaylist(object) {
+        
+        $.ajax({
+            type: "POST",
+            url: "/playlist/getPlaylistDetails?PL_ID=" + object[object.selectedIndex].value,
+            async: true,
+            success: function (data) {
+                $('#PlaylistContHoder1').html(data);
+            }
+        });
+
+    }
+
+    function HideAddToPlaylist() {
+        document.getElementById('HideBackDiv').style.display = 'none';
+        document.getElementById('popupContainer').style.display = 'none';
+        $('#popupContainer').html("");
+    }
+
+</script>

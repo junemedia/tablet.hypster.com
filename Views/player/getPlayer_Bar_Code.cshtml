@@ -1,0 +1,93 @@
+﻿@model hypster_tv_DAL.Player
+@{
+    ViewBag.Title = "Hypster - Bar player";
+    ViewBag.Desc = "";
+}
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+
+            $("#listenSlide1").css("float", "right");
+            $("#listenSlide1").css("width", cont_width + "px");
+
+        }
+
+
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+
+            $("#listenSlide1").css("float", "right");
+            $("#listenSlide1").css("width", cont_width + "px");
+
+        }
+    });
+</script>
+
+
+
+
+
+
+<div class="boxContRight">
+    <div id="listenSlide1" style="width:1024px; min-height:400px; padding:15px 0 15px 15px; background-color:#313537; margin:0 auto 0 auto; border-radius:2px; ">
+
+
+
+
+                <div style=" float:left; width:950px; margin:15px 0 15px 15px;" >
+
+                    <div style=" float:left; width:100%; min-height:300px; overflow:hidden; background:#555555 url('/imgs/box_back.png') repeat; border-radius:2px; margin-top:0px; ">
+    
+    
+                        <div style=" float:left; width:100%; text-align:left; margin-top:10px;">
+                            
+                            <h2 style=" float:left; width:98%; margin-left:2%; margin-bottom:0px; color:#FCF088; font:23px/1.5 Hypster-Font,Arial,sans-serif;">
+                                Copy and Paste code on your website
+                            </h2>
+
+                            <div style=" float:left; width:98%; margin-left:2%; color:#FCF088; font-size:16px;">
+                                Please paste the following code under beginning of &lt;body&gt; tag (i.e. on top of webpage content). <br />
+                                Note: This code will only work on blogs and websites. This will not work on myspace/facebook/twitter/tagged/friendster. <br />
+                            </div>
+                        </div>
+
+
+                        <textarea id="PlayerCodeArea" style=" width:96%; margin:2%; height:300px;">
+                            <!--Hypster Music Player-->
+                            <script type="text/javascript" src="http://scm.hypster.com/script.php" ><!--//--></script>
+                            <script type="text/javascript">
+                            <!--
+                                SCMMusicPlayer.init("{'skin':'skins/@Model.BAR_playerSkin/skin.css','playback':{'autostart':'@(Model.BAR_autostart.ToString().ToLower())','shuffle':'@Model.BAR_shufflePlayback.ToString().ToLower()','volume':'100'},'playlist':'@Model.playlist_ID','placement':'@Model.BAR_placementOfThePlayer','showplaylist':'@Model.BAR_showPlaylistByDefault.ToString().ToLower()'}");
+                            //-->
+                            </script>
+                            <!--Hypster Music Player-->
+                        </textarea>
+
+
+                        <div style=" float:left; width:100%; margin-bottom:10px;">
+                            <div onclick="window.location='/account/music';" style="float:left; width:190px; height:23px; line-height:23px; margin:5px 4px 3px 17px; padding-left:3px; background-color:#42606e; color:#FFFFFF; border-radius:2px; text-align:center; cursor:pointer; ">
+                                Go to my players
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+    
+
+    </div>
+</div>

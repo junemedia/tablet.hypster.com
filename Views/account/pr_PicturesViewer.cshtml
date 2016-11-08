@@ -1,0 +1,49 @@
+﻿@model List<hypster_tv_DAL.Photo>
+@{
+    ViewBag.Title = "Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "";
+    Layout = null;
+}
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#PicsViewer1").css("display","block");
+        $("#PicsViewer1").css("margin-left", (($(document).width() - 930) / 2) + "px");
+    });
+
+
+    function HidePicsViewer() {
+        document.getElementById('HideBackDiv').style.display = 'none';
+        document.getElementById('popupContainer').style.display = 'none';
+        $('#popupContainer').html("");
+    }
+
+</script>
+
+
+
+<div id="PicsViewer1" style=" display:none; float:left; width:930px; min-height:600px; background-color:#333333; border-radius:3px; margin-top:50px;">
+    
+
+    <div style=" float:left; width:100%; height:1px;">
+        <img alt="" src="/imgs/exit_button.png" style=" float:right; margin:-30px -30px 0 0; cursor:pointer;" onclick="HidePicsViewer();" />
+    </div>
+
+
+
+    <div style=" float:left; width:250px; max-height:595px; overflow:auto; margin:20px 0 20px 0; ">
+        @foreach (var item in Model)
+        {   
+            <img src="@Url.Content("/userpics/" + ViewBag.view_pics_user_name + "/" + item.id + "_s.jpg")" onclick="$('#imagePicsViewContainer1').attr('src','@Url.Content("/userpics/" + ViewBag.view_pics_user_name + "/" + item.id + ".jpg")');" alt="" style=" float:left; width:94px; height:94px; overflow:hidden; margin:0 0 14px 14px; border:1px solid #4d4c4c; cursor:pointer; " onerror="this.src='/imgs/user_img_nf.png';" />
+        }
+    </div>
+
+
+    <div style=" float:left; width:680px;">
+        <img id="imagePicsViewContainer1"  alt="" src="@ViewBag.active_img_id" style=" float:left; width:650px; margin:15px; border:2px solid #4d4c4c; " />
+    </div>
+
+
+</div>

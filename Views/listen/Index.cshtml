@@ -1,0 +1,234 @@
+﻿@model hypster.ViewModels.listenViewModel
+@{
+    ViewBag.Title = "Listen To Youtube Music | Hypster - own playlist online - playlist for tumblr";
+    ViewBag.Desc = "Search music, create playlists and embed them on blogs such as Tumblr or Bolgger.";
+    ViewBag.ActivePage = "listen";
+}
+
+
+
+
+<script type="text/javascript">
+    active_menu = ".mListen";
+    $(".mListen").css("background-color", "#191919");
+
+    $(document).ready(function () {
+        RenderListen();
+    });
+    $(window).resize(function () {
+        RenderListen();
+    });
+</script>
+
+
+
+
+
+
+<div style=" float:left; width:100%; min-height:950px;">
+
+
+        <div class="boxContRight boxContRightTop">
+            <div id="listenSlide1" class="slideRight" style=" min-height:465px;">
+
+
+                    <div class="listenMenuCont">
+            
+                            <div id="Menu1" onclick="Open_Menu1()" title="Search Music">
+                                <img class="Menu1_img" alt="Search Music" src="/imgs/listen/search_music.png" /><br />
+                                Search Music
+                            </div>
+
+                            <div id="Menu3" onclick="Open_Menu3()" title="Listen Playlists">
+                                <img class="Menu3_img" alt="Playlists" src="/imgs/listen/playlists.png" /><br />
+                                Playlists
+                            </div>
+
+                            <div id="Menu2" onclick="Open_Menu2()" title="Listen Radio Stations">
+                                <img class="Menu2_img" alt="Listen Radio" src="/imgs/listen/radio.png" /><br />
+                                Listen Radio
+                            </div>
+
+                    </div>
+
+
+
+
+
+                    <!-- TAB 1 -->
+                    <div id="listenTab1">
+            
+                            <div id="MainSearchLn" class="contTop">
+                        
+                                <input type="text" id="txtSearchString" name="txtSearchString" onKeyUp="ListenSearchString_KeyUp(event)" value="@if (@ViewBag.searchString != null){ <text>@ViewBag.searchString</text> }else{<text> Enter Artist, Song or Genre</text>}" onfocus="if(this.value == ' Enter Artist, Song or Genre') this.value = '';" onblur="if(this.value == '') this.value = ' Enter Artist, Song or Genre';" />
+                                <div id="btnSearch" onclick="SearchMusic();"></div>
+                        
+                                <div onclick="showHide_AddSearch(this);" style=" float:left; width:130px; height:34px; line-height:34px; background-color:#353535; border:4px solid #191919; color:#CCCCCC; border-radius:3px; margin:11px 0 0 12px; text-align:center; cursor:pointer; font-size:16px;">
+                                   Advanced Search
+                                </div>
+
+
+                        
+                                <div id="AddSearch" style=" display:none; float:left; width:100%; height:275px; background-color:#1d1d1c;">
+                            
+                                    <div style=" float:left; width:1000px;">
+
+                                        <div style=" float:left; width:100%; margin:20px 0 0 20px; padding:2px; background-color:#191919; color:#FCF088; font-size:16px;">
+                                            &nbsp;Search by youtube id (GJzF7H2e3Tw):
+                                        </div>
+
+                                        <div style="float:left; width:100%; margin:5px 0 0 0;">
+                                            <input type="text" id="txtSearchString_youtube" name="txtSearchString" onKeyUp="ListenSearchString_KeyUp(event)" value=" Enter youtube id" onfocus="if(this.value == ' Enter youtube id') this.value = '';" onblur="if(this.value == '') this.value = ' Enter youtube id';" />
+                                            <div id="btnSearch_youtube" onclick="SearchMusicYTID();">Search</div>
+                                        </div>
+
+
+
+                                        <div style=" float:left; width:100%; margin:20px 0 0 20px; padding:2px; background-color:#191919; color:#FCF088; font-size:16px;">
+                                            &nbsp;Order By:
+                                        </div>
+                                        <div style="float:left; width:100%; margin:0px 0 0 5px; ">
+                                            <div style=" float:left; margin:5px 0 0 15px; line-height:24px;">
+                                                <input type="radio" name="group_orderBy" value="relevance">Relevance<br>
+                                                <input type="radio" name="group_orderBy" value="published">Published<br>
+                                                <input type="radio" name="group_orderBy" value="viewCount">View Count<br>
+                                                <input type="radio" name="group_orderBy" value="rating">Rating<br>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div class="contMiddle">
+                        
+                                    <div style=" float:left; width:300px; height:250px; ">
+                                        <div id="SideAd23111" style=" display:block;"></div>
+                                        <script type="text/javascript">
+                                            $(document).ready(function () {
+                                                document.getElementById("SideAd23111").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                                            });
+                                        </script>
+                                    </div>
+                                    @Html.Action("visualSearchBar", "listen")
+
+                            </div>
+
+                    <!-- TAB 1 -->
+                    </div>
+            
+
+
+
+
+
+
+
+
+                    <!-- TAB 2 -->
+                    <div id="listenTab2">
+       
+                            <!-- CONTENT LIMIT -->
+                            <div class="contLimit">
+                    
+                                <div class="contTop">
+                                    @Html.Action("RadioStationsBar", "listen")
+                                </div>
+
+
+                                <!-- RADIO SEARCH -->
+                                <div class="contMiddle">
+                                        <div class="radioSearch">
+                                            <input type="text" id="stationName" name="stationName" value=" Enter Artist, Song or Genre" onfocus="if(this.value == ' Enter Artist, Song or Genre') this.value = '';" onblur="if(this.value == '') this.value = ' Enter Artist, Song or Genre';" />
+                                            <div class="btnRadioSearch" onclick="CustomRadioStation()"></div>
+                                        </div>
+                                </div>
+                                <!-- RADIO SEARCH -->
+
+                            </div>
+       
+
+                   <!-- TAB 2 -->
+                   </div>
+           
+
+
+
+
+
+
+
+
+
+                   <!-- TAB 3 -->
+                   <div id="listenTab3">
+       
+                            <!-- CONTENT LIMIT -->
+                            <div class="contLimit">
+                        
+                                @if (User.Identity.IsAuthenticated == true)
+                                {
+                                    for (int i = 0; i <= 12; i++)
+                                    {
+                                        if (i < Model.most_viewed_playlists.Count)
+                                        {
+                                            <div class="plItem">
+                                                <div class="plName">@Model.most_viewed_playlists[i].name</div>
+                                                <a class="plEdit" title="Edit playlist" onclick="window.location='/create/playlist?playlist_id=@Model.most_viewed_playlists[i].id'"></a>
+                                                <a class="plPlay" title="Play playlist" onclick="OpenPlayer('media_type=playlist&playlist_id=@(Model.most_viewed_playlists[i].id)&us_id=@(Model.most_viewed_playlists[i].userid)');"></a>
+                                            </div>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    @Html.Action("GetMostViewedPlaylists", "listen")
+                                }
+
+                                <div class="plItemCreate" title="Create new playlist" onclick="window.location='/create/playlist';">
+                                    <div>+ Create Playlist</div>
+                                </div>
+
+                            </div>
+
+                   <!-- TAB 3 -->
+                   </div>
+           
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="boxContLeft">
+            <div id="listenSlide2" class="slideLeft" style=" min-height:475px;">
+                    @Html.Action("PopularMusicOnHypster", "popular")
+            </div>
+        </div>
+
+
+
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready( function(){
+        @if (ViewBag.searchString != null)
+        {
+            <text>SearchMusicStr('@ViewBag.searchString');</text>
+        }
+    });
+</script>

@@ -1,0 +1,118 @@
+﻿@model hypster_tv_DAL.Player
+@{
+    ViewBag.Title = "Hypster - Classic player";
+    ViewBag.Desc = "";
+}
+
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+
+            $("#listenSlide1").css("float", "right");
+            $("#listenSlide1").css("width", cont_width + "px");
+        }
+
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+
+            $("#listenSlide1").css("float", "right");
+            $("#listenSlide1").css("width", cont_width + "px");
+        }
+    });
+</script>
+
+
+
+
+
+<div class="boxContRight">
+    <div id="listenSlide1" style="width:1024px; min-height:400px; padding:15px 0 15px 15px; background-color:#313537; margin:0 auto 0 auto; border-radius:2px; ">
+
+
+
+            <div style=" float:left; width:950px; margin:15px 0 15px 15px;" >
+
+                <div style=" float:left; width:100%; min-height:300px; overflow:hidden; background:#555555 url('/imgs/box_back.png') repeat; border-radius:2px; margin-top:0px; ">
+
+
+                    <div style=" float:left; width:100%; text-align:left; margin-top:10px;">
+                        
+                        <h2 style=" float:left; width:98%; margin-left:2%; margin-bottom:0px; color:#FCF088; font:23px/1.5 Hypster-Font,Arial,sans-serif;">
+                            Copy and Paste code on your website
+                        </h2>
+
+                        <div style=" float:left; width:98%; margin-left:2%; color:#FCF088; font-size:16px;">
+                            Please paste the following code between &lt;body&gt; &lt;/body&gt; tags <br />
+                        </div>
+
+                    </div>
+
+
+                    <textarea id="PlayerCodeArea" style=" width:96%; margin:2%; height:300px;">
+            
+                        @if(Model.CLASSIC_playerSkin == "1")
+                        {
+                            <embed quality="high" style="width:370px;visibility:visible; height:450px;" type="application/x-shockwave-flash" height="300" width="450"  pluginspage="http://www.macromedia.com/go/getflashplayer" border="0" src="http://www.hypster.com/flash/player.swf?id=@(Model.user_ID):@(Model.playlist_ID):@if(Model.CLASSIC_shufflePlayback.Value == true){<text>1</text>}else{<text>0</text>}&autoplay=@if(Model.CLASSIC_autostart.Value == true){<text>true</text>}else{<text>false</text>}" FlashVars="color_bg=0x9A0000&color_border=0x9A0000&color_box=0x9A0000&color_songbg=0xFF9700&color_song_clicked=0xFECB81&color_Title=0x000000&color_btns=0xD4D0C7&color_title=0x000000" />
+                            <br />
+                            <a href="http://www.hypster.com/?src=player-text" style="font-weight:bold;font-size:12px">Get Your Own Free Hypster.com Playlist.</a>
+                        }
+
+                        @if (Model.CLASSIC_playerSkin == "2")
+                        {
+                            <embed quality="high" style="width:370px;visibility:visible; height:450px;" type="application/x-shockwave-flash" height="300" width="450"  pluginspage="http://www.macromedia.com/go/getflashplayer" border="0" src="http://www.hypster.com/flash/player.swf?id=@(Model.user_ID):@(Model.playlist_ID):@if(Model.CLASSIC_shufflePlayback.Value == true){<text>1</text>}else{<text>0</text>}&autoplay=@if(Model.CLASSIC_autostart.Value == true){<text>true</text>}else{<text>false</text>}" FlashVars="color_bg=0x3653E6&color_border=0x3653E6&color_box=0x3653E6&color_songbg=0x6F9AC2&color_song_clicked=0x163554&color_Title=0xffffff&color_btns=0x4D6786&color_title=0xffffff" />
+                            <br />
+                            <a href="http://www.hypster.com/?src=player-text" style="font-weight:bold;font-size:12px">Get Your Own Free Hypster.com Playlist.</a>
+                        }
+
+                        @if (Model.CLASSIC_playerSkin == "3")
+                        {
+                            <embed quality="high" style="width:370px;visibility:visible; height:450px;" type="application/x-shockwave-flash" height="300" width="450"  pluginspage="http://www.macromedia.com/go/getflashplayer" border="0" src="http://www.hypster.com/flash/player.swf?id=@(Model.user_ID):@(Model.playlist_ID):@if(Model.CLASSIC_shufflePlayback.Value == true){<text>1</text>}else{<text>0</text>}&autoplay=@if(Model.CLASSIC_autostart.Value == true){<text>true</text>}else{<text>false</text>}" FlashVars="color_bg=0xC97B89&color_border=0xC97B89&color_box=0xC97B89&color_songbg=0xE62933&color_song_clicked=0x661217&color_Title=0xffffff&color_btns=0x663134&color_title=0xffffff" />
+                            <br />
+                            <a href="http://www.hypster.com/?src=player-text" style="font-weight:bold;font-size:12px">Get Your Own Free Hypster.com Playlist.</a>
+                        }
+
+                        @if (Model.CLASSIC_playerSkin == "4")
+                        {
+                            <embed quality="high" style="width:370px;visibility:visible; height:450px;" type="application/x-shockwave-flash" height="300" width="450"  pluginspage="http://www.macromedia.com/go/getflashplayer" border="0" src="http://www.hypster.com/flash/player.swf?id=@(Model.user_ID):@(Model.playlist_ID):@if(Model.CLASSIC_shufflePlayback.Value == true){<text>1</text>}else{<text>0</text>}&autoplay=@if(Model.CLASSIC_autostart.Value == true){<text>true</text>}else{<text>false</text>}" FlashVars="color_bg=0xB0FCC6&color_border=0xB0FCC6&color_box=0xB0FCC6&color_songbg=0x65FC91&color_song_clicked=0x42A45F&color_Title=0xffffff&color_btns=0x2D7141&color_title=0xffffff" />
+                            <br />
+                            <a href="http://www.hypster.com/?src=player-text" style="font-weight:bold;font-size:12px">Get Your Own Free Hypster.com Playlist.</a>
+                        }
+
+                        @if (Model.CLASSIC_playerSkin == "5")
+                        {
+                            <embed quality="high" style="width:370px;visibility:visible; height:450px;" type="application/x-shockwave-flash" height="300" width="450"  pluginspage="http://www.macromedia.com/go/getflashplayer" border="0" src="http://www.hypster.com/flash/player.swf?id=@(Model.user_ID):@(Model.playlist_ID):@if(Model.CLASSIC_shufflePlayback.Value == true){<text>1</text>}else{<text>0</text>}&autoplay=@if(Model.CLASSIC_autostart.Value == true){<text>true</text>}else{<text>false</text>}" FlashVars="color_bg=0xeedd82&color_border=0xeedd82&color_box=0xeedd82&color_songbg=0xffff00&color_song_clicked=0xffd700&color_Title=0x000000&color_btns=0xb8860b&color_title=0x000000" />
+                            <br />
+                            <a href="http://www.hypster.com/?src=player-text" style="font-weight:bold;font-size:12px">Get Your Own Free Hypster.com Playlist.</a>
+                        }
+                    </textarea>
+
+
+
+                    <div style=" float:left; width:100%; margin-bottom:10px;">
+                        <div onclick="window.location='/account/music';" style="float:left; width:190px; height:23px; line-height:23px; margin:5px 4px 3px 17px; padding-left:3px; background-color:#42606e; color:#FFFFFF; border-radius:2px; text-align:center; cursor:pointer; ">
+                            Go to my players
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+</div>
+</div>

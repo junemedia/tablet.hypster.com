@@ -1,0 +1,37 @@
+﻿@using Google.GData;
+@using Google.GData.Client;
+@using Google.GData.Extensions;
+@using Google.GData.YouTube;
+@using Google.YouTube;
+
+
+@model Video
+@{
+    Layout = null;
+}
+
+
+<div style=" float:left; width:100%; text-align:left; font-size:16px; line-height:24px;"> 
+    
+    @if (@Model.ViewCount != null)
+    {
+        <div>
+            ViewCount: <span style=" color:#FCF088;"> @Model.ViewCount</span>
+        </div>
+    }
+
+    @if(@Model.Uploader != null)
+    {
+        <div>
+            Uploader: <span style=" color:#FCF088;"> @Model.Uploader</span>
+        </div>
+    }
+    
+    @if (@Model.RatingAverage != null)
+    {
+        <div>
+            Rating: <span style=" color:#FCF088;"> @Model.RatingAverage</span>
+        </div>
+    }
+    
+</div>

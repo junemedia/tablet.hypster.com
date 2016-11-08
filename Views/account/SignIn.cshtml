@@ -1,0 +1,132 @@
+﻿@model hypster.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "";
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        RenderSignIn();
+    });
+    $(window).resize(function () {
+        RenderSignIn();
+    });
+</script>
+
+
+
+
+
+
+<div class="boxContRight boxContRightTop" >
+    <div id="listenSlide1" class="slideRight" style=" min-height:270px;">
+
+            
+
+                <div style=" float:left; width:350px; min-height:250px; margin:0px 0 0 0px; padding:10px; background-color:#292929; ">
+                
+                        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+         
+                            <div style=" font-size:27px;">
+                                Sign in to Hypster.com
+                            </div>
+            
+
+        
+                            <div style=" font-size:18px; margin-top:15px;">
+                                Username:
+                            </div>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "txtLogin" })<br />
+
+             
+                            <div style=" font-size:18px; margin-top:10px;">
+                                Password:
+                            </div>
+                            @Html.PasswordFor(m => m.Password, new { @class = "txtLogin" })<br />
+                
+                
+
+                            <div style=" float:left; margin:7px 0 0 0;">
+                                @Html.CheckBoxFor(m => m.RememberMe) 
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                            </div>
+                            
+                            <input type="submit" value="Log in" style=" float:right; width:180px; height:33px; margin:10px 2px 0 0; border-radius:3px;" />
+        
+                        
+                            <div style=" float:left; width:100%;">
+                                @Html.ValidationSummary(true, "", new { @class = "txtValidator" })
+
+                                @if (ViewBag.ForgotPassword != null && ViewBag.ForgotPassword == true)
+                                {
+                                    <a href="/account/ForgotPassword">Forgot your password?</a>
+                                }
+                                
+                                @if (ViewBag.ActivateAccount != null && ViewBag.ActivateAccount == true)
+                                {
+                                    <a href="/account/ActivateAccount">To activate click here</a>
+                                }
+                            </div>
+                        }
+                </div>
+
+
+                <div style=" float:left; width:280px; height:250px; margin:0px 0 0 15px; padding:10px; background-color:#292929; ">
+                
+                    <div style=" font-size:27px;">
+                        Don't Have An Account?
+                    </div>
+
+                    <div onclick="window.location='/account/register';" style=" float:left; width:260px; height:170px; line-height:150px; margin:30px 0 0 15px; background-color:#121212; border-radius:3px; font-size:35px; text-align:center; cursor:pointer;">
+                        Register
+                    </div>
+
+                </div>
+
+
+                <div style=" float:left; width:300px; height:250px; margin:0 0 0 15px; background-color:#292929; border:10px solid #292929;">
+                    <div id="SideAd2_d93847"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("SideAd2_d93847").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                        });
+                    </script>
+                </div>
+            
+
+
+
+
+    </div>
+</div>
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide2" class="slideLeft" style=" min-height:96px;">
+
+
+
+        <div class="connectHead">
+                    
+            <div class="ffHeader">
+                
+            </div>
+                    
+            <div style=" float:right; width:726px; height:90px; background-color:#59666c; border:3px solid #59666c; border-radius:2px;">
+                <div id="TopAdd1_d9d3847423"></div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        document.getElementById("TopAdd1_d9d3847423").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                    });
+                </script>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

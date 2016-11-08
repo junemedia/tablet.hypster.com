@@ -1,0 +1,102 @@
+﻿@model hypster.ViewModels.getAccountInfo_PrivateViewModel
+@{
+    ViewBag.Title = "Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        RenderAccountPics();
+    });
+    $(window).resize(function () {
+        RenderAccountPics();
+    });
+</script>
+
+
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight" style=" min-height:250px;">
+        
+
+
+                <div style=" float:left; width:1024px;">
+
+                        <div style=" float:left; width:100%; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;">
+                            My Photos
+                        </div>
+
+
+                        <div style=" float:left; width:100%; margin:5px 0 0 0px;">
+                            @foreach (hypster_tv_DAL.Photo item in Model.userPhotos_list)
+                            {
+                                <div style=" float:left; width:150px; height:150px; overflow:hidden; margin:9px; background-color:#555555; cursor:pointer;" onmouseover="$('#actions_@item.id').css('display','block');" onmouseout="$('#actions_@item.id').css('display','none');">
+                                    
+                                    
+                                    @if (item.id > Model.New_User_ID)
+                                    {
+                                        <img onclick="ShowImage('@Url.Content("/userpics/" + User.Identity.Name + "/" + @item.id + ".jpg")');" src="@Url.Content("/userpics/" + User.Identity.Name + "/" + @item.id + "_s.jpg")" alt="" style=" float:left; width:150px; height:150px; margin:0px; background-color:#333333; border-radius:2px;" onerror="this.src='/imgs/user_img_nf.png';" />
+                                    }
+                                    else
+                                    {
+                                        <img onclick="ShowImage('@Url.Content("/userpics/" + @item.id + ".jpg")');" src="@Url.Content("/userpics/" + @item.id + "_s.jpg")" alt="" style=" float:left; width:150px; height:150px; margin:0px; background-color:#333333; border-radius:2px;" onerror="this.src='/imgs/user_img_nf.png';" />
+                                    }
+
+                                    <div id="actions_@item.id" style=" display:none; float:left; width:100%; height:27px; background:url('/imgs/trans_back.png') repeat; margin-top:-27px;">
+                                        <div onclick="window.location='/account/SetAsProfileImage?image_id=@item.id';" style=" float:left; width:75px; height:22px; line-height:21px; margin:2px 0 0 2px; background-color:#454545; border-radius:2px; text-align:center;">Set Default</div>
+                                        <img alt="" onclick="window.location='/account/DeleteImage?image_id=@item.id';" src="/imgs/action_icons/delete_icon_s.png" style=" float:right; margin:4px 4px 0 0;" />
+                                    </div>
+                                </div>
+                            }
+
+
+                            <div onclick="turn_on_uploadTool();" style=" float:left; width:150px; height:150px; overflow:hidden; margin:9px; background:#333333; border:1px solid #4d4c4c; cursor:pointer;">
+                                <div style=" margin-top:15px; font-weight:bold; font-size:21px; line-height:25px; text-align:center;">
+                                    +<br /> Upload
+                                </div>
+                            </div>
+
+                            <div onclick="turn_on_webcamTool();" style=" float:left; width:150px; height:150px; overflow:hidden; margin:9px; background:#333333; border:1px solid #4d4c4c; cursor:pointer;">
+                                <div style=" margin-top:15px; font-weight:bold; font-size:21px; line-height:25px; text-align:center;">
+                                    +<br /> Webcam
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div id="addImages_ContHolder" style=" float:left; width:1024px;">
+                            @Html.Partial("~/Views/Account/pr_PicsManagement.cshtml")
+                        </div>
+
+                </div>
+            
+
+
+    </div>
+</div>
+
+<!-- **************SECTION*************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+﻿@model List<hypster_tv_DAL.newsPost>
+@{
+    Layout = null;
+}
+
+
+
+
+
+
+
+
+<div class="NewsInnrContHldr">
+
+    <div class="LatestNewsHeader">
+        <div class="ltstNInner"><div>Hypster News</div></div>
+    </div>
+
+
+    <div class="InnerNewsCont">
+        @for (var i = 0; i < Model.Count - 1; i += 2)
+        {
+        <div class="NewsSlide">
+     
+
+                    <div class="NewsItm1" id="newsItem_@Model[i].post_id">
+                        @if (Model[i].post_image != null && Model[i].post_image != "")
+                        {
+                            <a class="newsImage" href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]/post/@Model[i].post_guid" >
+                                <img alt="" src="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]/imgs/i_posts/thumb_@Model[i].post_image" />
+                            </a>
+                        }
+                            <div class="PostItm">
+                                <a class="PostItm-title" href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]/post/@Model[i].post_guid" >
+                                    <span>@Model[i].post_title</span>
+                                </a>
+                                @if (Model[i].post_short_content != null)
+                                {
+                                    string post_short_content = System.Text.RegularExpressions.Regex.Replace(Model[i].post_short_content, @"<(.|\n)*?>", string.Empty);
+                                    if (post_short_content.Length > 250)
+                                    {
+                                        @post_short_content.Substring(0, 250)<text>...<br /></text>
+                                    }
+                                    else
+                                    {
+                                        @post_short_content<text>...<br /></text>
+                                    }
+                                }
+                            </div>
+            
+                    </div>
+        
+
+        
+        
+                    <div class="NewsItm2" id="newsItem_@Model[i+1].post_id">
+            
+                        @if (Model[i+1].post_image != null && Model[i+1].post_image != "")
+                        {
+                            <a class="newsImage" href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]/post/@Model[i+1].post_guid" >
+                                <img alt="" src="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]/imgs/i_posts/thumb_@Model[i+1].post_image" />
+                            </a>
+                        }
+                            <div class="PostItm">
+                
+                                <a class="PostItm-title" href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]/post/@Model[i+1].post_guid" >
+                                    <span>@Model[i+1].post_title</span>
+                                </a>
+
+
+                                @if (Model[i+1].post_short_content != null)
+                                {
+                                    string post_short_content = System.Text.RegularExpressions.Regex.Replace(Model[i+1].post_short_content, @"<(.|\n)*?>", string.Empty);
+                                    if (post_short_content.Length > 250)
+                                    {
+                                        @post_short_content.Substring(0, 250)<text>...<br /></text>
+                                    }
+                                    else
+                                    {
+                                        @post_short_content<text>...<br /></text>
+                                    }
+                                }
+                            </div>
+
+                    </div>
+        
+        </div>
+        }
+    </div>
+
+
+    <div class="NewsReadMoreCont"><a href="http://@System.Configuration.ConfigurationManager.AppSettings["newsHostName"]">View All</a></div>
+
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.InnerNewsCont').cycle({
+                fx: 'fade',
+                delay: -4000
+            });
+        });
+    </script>
+
+</div>
+
+
+
+
+

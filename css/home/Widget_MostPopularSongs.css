@@ -1,0 +1,100 @@
+﻿
+
+.MostPopularSongsRootCont
+{
+	float:left; width:100%; height:220px; overflow:hidden;
+}
+	
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+.MostPopularSongsRootCont .LeftArrow
+{
+	float:left; width:2%; height:220px; overflow:hidden;
+}
+.MostPopularSongsRootCont .LeftArrow img
+{
+	width:16px; height:18px; margin-top:90px; cursor:pointer;
+}
+
+
+
+.RightArrow
+{
+	float:left; width:2%; height:220px; overflow:hidden;
+}
+.MostPopularSongsRootCont .RightArrow img
+{
+	width:16px; height:18px; margin-top:90px; cursor:pointer;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
+
+
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.MostPopularSongsRootCont .MiddleCont
+{
+	float:left; width:96%; height:220px; overflow:hidden;
+}
+
+#MostPopularSongInner
+{
+	float:left; margin:0px;
+}
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.MostPopularSongsRootCont .ItemSong
+{
+	float:left; width:140px; margin:25px 35px 25px 10px;
+}
+
+
+.MostPopularSongsRootCont .ItemSong .ItemImg
+{
+	float:left; width:140px; height:140px; background-size: Auto 188px; border:1px solid #676767; cursor:pointer;
+}
+
+.MostPopularSongsRootCont .ItemSong .ItemNav
+{
+	float:right; width:56px; height:27px; line-height:24px; background-color:#e0e0e0; margin:-32px 4px 0 0; cursor:pointer;
+}
+
+.MostPopularSongsRootCont .ItemSong .ItemTitle
+{
+	float:left; width:100%; height:40px; line-height:20px; overflow:hidden; padding:1px; margin:8px 0 0 2px; font:17px/1.2 Arial,sans-serif; color:#363636; text-align:left; cursor:pointer;
+}
+
+
+
+
+
+.MostPopularSongsRootCont .ItemSong .ItemNav .Play
+{
+	float:left; display:block; width:27px; height:27px; background:url('/imgs/items/play_btn.png');
+}
+
+.MostPopularSongsRootCont .ItemSong .ItemNav .AddPl
+{
+	float:left; display:block; width:27px; height:27px; background:url('/imgs/items/add_to_pls_btn.png');
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+

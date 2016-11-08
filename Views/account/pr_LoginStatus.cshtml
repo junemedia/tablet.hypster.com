@@ -1,0 +1,13 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    <div class="LoginCont">@Html.ActionLink("Log out", "LogOff", "account")</div>
+    <div onclick="window.location='/account';" class="LoginAcctCont">My Account</div>
+    <div class="LoginPlrCont" onclick="OpenExsPlayer();">My Player</div>
+}
+else
+{
+    <div class="LoginCont">
+       <a href="/account/Register">Register</a>&nbsp;|&nbsp;<a href="/account/SignIn">Login</a> 
+    </div>
+}

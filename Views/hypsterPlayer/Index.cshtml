@@ -1,0 +1,292 @@
+﻿@model hypster.ViewModels.videoPlayerViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="Hypster.TV includes Movies, Music, Radio, TV and Online entertainment stories and reporting from Hollywood and around the globe." />
+    <meta name="keywords" content="Hypster.TV, Music, Radio, TV and the Net, reporting, bands, tributes, groups, rock, headliners, rap, movies, classical, 80\'s, jams, actors, a-listers, the business, hollywood, gigs, big bands, swing, jazz, foreign, irish, standards, glamour" />
+
+
+
+    <script src="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css"  type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"  type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"  type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+
+
+    @Scripts.Render("~/scripts/hypScript.js?id=9231872")
+    @Scripts.Render("~/scripts/hypSlide.js?id=182763")
+    
+    <link href="/css/Site.css" rel="stylesheet" type="text/css" />
+
+
+
+
+    <!-- this is setting parent variable to current player -->
+    <script type="text/javascript">
+        function loaded() {
+            setTimeout("notifyParrent()", 1000);
+        }
+
+        function notifyParrent() {
+            window.opener.player_ins = this;
+            setTimeout("notifyParrent()", 1000);
+        }
+
+        function unloaded() {
+            window.opener.player_ins = null;
+        }
+    </script>
+
+</head>
+
+
+
+
+
+
+
+<body onload="loaded();" onunload="unloaded();" style=" overflow:hidden;">
+    <div id="MainContHolder">
+
+
+
+        <div class="MainTopCont">
+            <div class="MainTopInnr">
+            
+                <div style=" @if(User.Identity.IsAuthenticated == false){<text>display:none;</text>}">
+                        <div id="AddBtn" onclick="AddSong_CLICK()">
+                            + Add song to Playlist
+                        </div>
+                </div>
+
+                
+                <div id="SideAd1_d928372wvbnh" style=" float:right;"></div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        document.getElementById("SideAd1_d928372wvbnh").innerHTML = "<iframe  src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT00NTI0LHM9MjMweDMyLG49aWZyYW1lLGI9NDM5?subid=default\" width=\"230\" height=\"32\" scrolling=\"no\" marginwidth=\"0\" style=\"border:none;\" frameborder=\"0\"></iframe>";
+                    });
+                </script>
+            </div>
+        </div>
+
+    
+
+
+
+        <div class="MainMidCont">
+            <div class="MainMidInnr">
+            
+          
+                <div class="PlayerRoot">
+                
+                    <div id="HypsterOriginalPlayer"></div>
+                    <script type="text/javascript">
+                        @switch((string)ViewBag.MEDIA_TYPE)
+                        {
+
+                            //--------------------------------------------
+                            case "playlist":
+                            {
+                                <text>
+                                var vars = {
+                                    mediaType: "playlist",
+                                    userID: "@(ViewBag.UserID)",
+                                    playlistID: "@(ViewBag.PlaylistID)",
+                                    shuffle: "0",
+                                    autoplay: "true"
+                                };
+                                </text>
+                            }
+                            break;
+                        
+                            //--------------------------------------------
+                            case "radio":
+                            {
+                                <text>
+                                var vars = {
+                                    mediaType: "radio",
+                                    userID: "0",
+                                    radio_station: "@ViewBag.Genre",
+                                    search: "@ViewBag.search",
+                                    autoplay: "true"
+                                };
+                                </text>
+                            }
+                            break;
+                        
+                            //--------------------------------------------
+                            case "song":
+                            {
+                                <text>
+                                var vars = {
+                                    mediaType: "song",
+                                    userID: "0",
+                                    song_id: "@ViewBag.SongGuid",
+                                    song_title: "@ViewBag.SongTitle",
+                                    autoplay: "true"
+                                };
+                                </text>
+                            }
+                            break;
+                            //--------------------------------------------
+                            default:
+                                break;
+                        }
+                        
+
+                        var params = {
+                            allowFullScreen: "true"
+                        };
+                        var attributes = {
+                            id: "HypsterOriginalPlayer",
+                            name: "HypsterOriginalPlayer"
+                        };  
+                        swfobject.embedSWF("/Scripts/HypsterOriginalPlayer.swf", "HypsterOriginalPlayer", "475", "545", "10.3.0", "/Scripts/expressInstall.swf", vars, params, attributes);
+			        </script>
+                
+                </div>
+
+
+
+                <div class="SocialCont">
+                    @switch((string)ViewBag.MEDIA_TYPE)
+                    {
+                        case "playlist":
+                        {
+                            <text>
+                            <!-- AddThis Button BEGIN -->
+                            <div id="sharePlugin_cont" class="addthis_toolbox addthis_floating_style addthis_32x32_style" style=" background:#282828;">
+                                <a class="addthis_button_preferred_1"></a>
+                                <a class="addthis_button_preferred_2"></a>
+                                <a class="addthis_button_preferred_3"></a>
+                                <a class="addthis_button_preferred_4"></a>
+                                <a class="addthis_button_compact"></a>
+                            </div>
+                            <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5092fa6e25d2c0c8"></script>
+                            <!-- AddThis Button END -->
+                            </text>
+                        }
+                            break;
+                        
+                        default:
+                        {
+                            <text>
+                            <!-- AddThis Button BEGIN -->
+                            <div id="sharePlugin_cont" class="addthis_toolbox addthis_floating_style addthis_32x32_style" style=" background:#282828;">
+                                <a class="addthis_button_preferred_1"></a>
+                                <a class="addthis_button_preferred_2"></a>
+                                <a class="addthis_button_preferred_3"></a>
+                                <a class="addthis_button_preferred_4"></a>
+                                <a class="addthis_button_compact"></a>
+                            </div>
+                            <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5092fa6e25d2c0c8"></script>
+                            <!-- AddThis Button END -->
+                            </text>
+                        }
+                            break;
+                    }
+                </div>
+            
+            
+            </div>
+
+
+
+
+
+            <div class="AdsCont">
+                    <div class="Ad1">
+                        <div id="SideAd1_id2328971cvbc"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                document.getElementById("SideAd1_id2328971cvbc").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                            });
+                        </script>
+                    </div>
+
+
+                    <div class="Ad2">
+                        <div id="SideAd2_w8392791skc"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                document.getElementById("SideAd2_w8392791skc").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                            });
+                        </script>
+                    </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- hide back -->
+    <div class="Trans_BACK" id="HideBackDiv" onclick="Show_Content();"></div>
+    <div id="popupContainer"></div>
+    <!-- hide back -->
+
+
+    <script type="text/javascript">
+        var song_title = "";
+        var song_guid = "";
+    
+        //external interface
+        function SongChanged(params) {
+            var song_details = params.split("|");
+            song_title = song_details[0];
+            song_guid = song_details[1];
+
+            if (params == "") {
+                $("#AddBtn").css("display", "none");
+            } else {
+                $("#AddBtn").css("display", "block");
+            }
+        
+        }
+
+        function AddSong_CLICK() {
+            $("#MainContHolder").css("display","none");
+            ShowAddToMyPlaylistPopup("?song_guid=" + song_guid + "&song_title=" + song_title);
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-28695705-7']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</body>
+</html>

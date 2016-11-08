@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Hypster - free music online - player for tumblr";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        RenderContactUs();
+    });
+    $(window).resize(function () {
+        RenderContactUs();
+    });
+</script>
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight">
+
+
+            <div class="ContactUsCont">
+
+
+                <div style=" float:left; width:100%; margin:0 0 15px 0; font-size:24px;">
+                    &nbsp;Contact Us
+                </div>
+
+
+                <div style=" float:left; margin-bottom:20px; width:650px; ">
+                    @using (Html.BeginForm())
+                    {
+                            
+                        <div style=" float:right; width:100%;">
+            
+                            <div style=" float:right; width:640px; height:33px; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;">
+                                <div style=" float:left; width:75px; margin:3px 0 0 0; text-align:right; color:#2f5262;">Email:</div>
+                                <input type="text" name="YourEmail" id="YourEmail" value="" style=" float:left; outline: none; width:450px; height:22px; margin:2px 0 0 5px; background-color:#DEDEDE; border:none; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;"  />
+                            </div>
+
+                            <div style=" float:right; width:640px; height:33px; margin:5px 0 0 0; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;">
+                                <div style=" float:left; width:75px; margin:3px 0 0 0; text-align:right; color:#2f5262;">Subject:</div>
+                                <input type="text" name="Subject" id="Subject" value="" style=" float:left; outline: none; width:450px; height:22px; margin:2px 0 0 5px; background-color:#DEDEDE; border:none; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;"  />
+                            </div>
+
+                            <div style=" float:right; width:640px; height:230px; margin:5px 0 0 0; border:1px solid #DEDEDE; background-color:#DEDEDE; border-radius:2px; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;">
+                                <div style=" float:left; width:75px; margin:3px 0 0 0; text-align:right; color:#2f5262;">Message:</div>
+                                <textarea type="text" name="Message" id="Message" value="" style=" float:left; outline: none; width:540px; height:220px; margin:2px 0 0 5px; background-color:#DEDEDE; border:none; font-family:Hypster-Segoe; font-weight:lighter; font-size:18px;"  ></textarea>
+                            </div>
+
+                        </div>
+                            
+        
+                        <div style=" float:right; width:100%; text-align:right; margin-top:5px;">
+                            <input type="submit" value="Submit" style=" width:120px; height:30px; background-color:#42606e; border:2px solid #42606e; border-radius:3px; color:#FFFFFF; font-family:Hypster-Segoe; font-size:16px;" />    
+                        </div>
+                    }
+                </div>
+
+
+
+                <div style=" float:right; width:300px; height:250px; background-color:#424648; border:3px solid #424648; border-radius:2px; margin-right:20px;">
+                    <div id="SideAd2"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("SideAd2").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                        });
+                    </script>
+                </div>
+                
+
+            </div>
+
+
+
+    </div>  
+</div>

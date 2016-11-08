@@ -1,0 +1,81 @@
+﻿@model hypster.ViewModels.GetPlayerViewModel
+@{
+    ViewBag.Title = "Hypster - Radio player";
+    ViewBag.Desc = "";
+    Layout = null;
+}
+
+
+
+<div style=" float:left; width:1024px; margin:15px 0 15px 15px;" >
+
+
+    <div style=" float:left; width:100%; height:40px; overflow:hidden; background-color:#232323; border-radius:2px; margin-top:0px; ">
+        <h2 style=" float:left; margin:3px 0px 0px 15px; color:#FFFFFF; font:23px/1.5 Hypster-Font,Arial,sans-serif;">
+            Radio player
+        </h2>
+    </div>
+
+
+
+    <div style=" float:left; width:100%; border-radius:2px; margin-top:15px; ">
+    
+        @using (Html.BeginForm("getPlayer_radioPlayer", "player"))
+        {
+            <div style=" float:left; width:565px;">
+        
+                    <div style=" float:left; width:220px; height:220px; margin:0 0 0 0px; border:7px solid #232323; background-color:#232323; border-radius:2px; cursor:pointer;">
+                
+                        <img id="skinImgHolder1" alt="" src="/imgs/get_player/widget_radio.png"  />
+                
+                    </div>
+
+
+
+                    <div style=" float:left;  width:300px; height:220px; line-height:25px; margin:0 0 0 13px; border:7px solid #232323; background-color:#232323; border-radius:2px; text-align:right;">
+            
+                        Name: <input id="PlayerName" name="PlayerName" type="text" maxlength="50" style=" width:215px;" value="@Model.player.player_Name" />
+                        <br />
+            
+                        Genre: 
+                        <select id="Sel_Genre_ID" name="Sel_Genre_ID" style=" width:220px; height:22px; margin-top:2px;"> 
+                        @foreach (var item in Model.music_genres_list)
+                        {
+                            <option value="@item.Genre_ID" @if (Model.player.RADIO_Genre_ID == item.Genre_ID)
+                                                         {<text>selected="selected"</text>}>@item.GenreName</option>
+                        }
+                        </select>
+                        <br />
+
+
+                        Autostart: @Html.CheckBox("RADIO_autostart", (bool)Model.player.RADIO_autostart)
+                
+
+                        <input type="hidden" id="PlayerID" name="PlayerID" value="@Model.player.player_ID" />
+                    </div>
+
+
+                    <input type="submit" value="GET CODE" style=" float:left; width:425px; height:30px; line-height:25px; border-radius:2px; background-color:#42606e; color:#FCF088; margin:15px 0 0 0; cursor:pointer; font-weight:bold;" />
+                    <input type="button" value="CANCEL" onclick="window.location='/create/player';" style=" float:left; width:120px; height:30px; line-height:25px; border-radius:2px; background-color:#42606e; color:#FFFFFF; margin:15px 0 0 15px; cursor:pointer;" />
+
+            </div>
+
+
+            <div id="PlaylistSongsContainer" style=" float:left; width:430px; min-height:220px; line-height:25px; margin-left:13px; border:7px solid #232323; background-color:#232323; border-radius:2px; text-align:right;">
+            </div>
+
+
+         
+
+        
+            
+        
+        }
+
+    </div>
+
+</div>
+
+
+
+

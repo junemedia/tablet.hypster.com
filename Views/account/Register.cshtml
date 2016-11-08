@@ -1,0 +1,118 @@
+﻿@model hypster.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        RenderRegister();
+    });
+    $(window).resize(function () {
+        RenderRegister();
+    });
+</script>
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight">
+
+
+
+    
+                    <div style=" float:left; width:665px; min-height:250px; margin:0 0 0 0; padding:10px; text-align:left; background-color:#292929;">
+                         @using (Html.BeginForm("Register", "account", FormMethod.Post))
+                         {
+            
+                            <div style=" font-size:27px;">
+                                Become a memeber
+                            </div>
+            
+
+            
+                            <div style=" float:left; width:100%; font-size:18px; margin-top:10px;">
+                                Email:<br />
+                                <input type="text" id="email" name="email" value="@ViewBag.email" class="txtRegister" maxlength="50" style=" width:645px;" />
+                            </div>
+             
+                             
+                            <div style="float:left; width:50%; font-size:18px; margin-top:10px;">
+                                Username:<br />
+                                <input type="text" id="username" name="username" value="@ViewBag.username" class="txtRegister" maxlength="20" style=" width:312px;" />
+                            </div>
+
+                            
+                            <div style="float:right; width:50%; font-size:18px; margin-top:10px;">
+                                Password:<br />
+                                <input type="password" id="password" name="password" value="" class="txtRegister" maxlength="20" style=" width:312px;" />
+                            </div>
+             
+                            
+                            <div style=" float:left; width:100%; margin-top:10px;">
+
+                                <div style=" float:left; font-size:18px; margin-top:10px;">
+                                    <input type="checkbox" id="I_agree" name="I_agree" /> I agree to the <a href="/hypster/Terms_of_Service" target="_blank" style=" text-decoration:underline;">terms and conditions</a>
+                                </div>
+         
+                                <input type="submit" value="Register" style=" float:right; width:200px; height:35px; font-size:18px; margin-top:7px; margin-right:15px; border-radius:3px; " />
+                            </div>
+        
+             
+                            @Html.ValidationSummary(true, "", new { @class = "txtValidator" })
+                        }
+                    </div>
+
+
+
+                    <div style=" float:left; width:300px; height:250px; margin:0 0 0 15px; background-color:#292929; border:10px solid #292929;">
+                        <div id="SideAd2d9w8372sxc"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                document.getElementById("SideAd2d9w8372sxc").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                            });
+                        </script>
+                    </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide2" class="slideLeft" style=" min-height:96px;">
+
+
+
+        <div class="connectHead">
+                    
+            <div class="ffHeader">
+                
+            </div>
+                    
+            <div style=" float:right; width:726px; height:90px; background-color:#59666c; border:3px solid #59666c; border-radius:2px;">
+                <div id="TopAdd1_r93847"></div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        document.getElementById("TopAdd1_r93847").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                    });
+                </script>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+

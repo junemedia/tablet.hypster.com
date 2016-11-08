@@ -1,0 +1,78 @@
+﻿@model hypster_tv_DAL.Player
+@{
+    ViewBag.Title = "Hypster - Classic custom player";
+    ViewBag.Desc = "";
+}
+
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+
+            $("#listenSlide1").css("float", "right");
+            $("#listenSlide1").css("width", cont_width + "px");
+        }
+
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+
+            $("#listenSlide1").css("float", "right");
+            $("#listenSlide1").css("width", cont_width + "px");
+        }
+    });
+</script>
+
+
+
+
+
+<div class="boxContRight">
+    <div id="listenSlide1" style="width:1024px; min-height:400px; padding:15px 0 15px 15px; background-color:#313537; margin:0 auto 0 auto; border-radius:2px; ">
+
+
+
+            <div style=" float:left; width:950px; margin:15px 0 15px 15px;" >
+
+                <div style=" float:left; width:100%; min-height:300px; overflow:hidden; background:#555555 url('/imgs/box_back.png') repeat; border-radius:2px; margin-top:0px; ">
+
+
+                    <div style=" float:left; width:100%; text-align:left; margin-top:10px;">
+                        
+                        <h2 style=" float:left; width:98%; margin-left:2%; margin-bottom:0px; color:#FCF088; font:23px/1.5 Hypster-Font,Arial,sans-serif;">
+                            Copy and Paste code on your website
+                        </h2>
+
+                        <div style=" float:left; width:98%; margin-left:2%; color:#FCF088; font-size:16px;">
+                            Please paste the following code between &lt;body&gt; &lt;/body&gt; tags <br />
+                        </div>
+
+                    </div>
+
+
+                    <textarea id="PlayerCodeArea" style=" width:96%; margin:2%; height:300px;">
+            
+                            <embed quality="high" style="width:@(ViewBag.Custom_Size_Sel_W)px; visibility:visible; height:@(ViewBag.Custom_Size_Sel_H)px;" type="application/x-shockwave-flash" height="@(ViewBag.Custom_Size_Sel_W)" width="@(ViewBag.Custom_Size_Sel_H)"  pluginspage="http://www.macromedia.com/go/getflashplayer" border="0" src="http://www.hypster.com/flash/player.swf?id=@(Model.user_ID):@(Model.playlist_ID):@if (Model.CLASSIC_shufflePlayback.Value == true){<text>1</text>}else{<text>0</text>}&autoplay=@if (Model.CLASSIC_autostart.Value == true){<text>true</text>}else{<text>false</text>}" FlashVars="color_bg=0x@(ViewBag.hf_BackgroundColor)&color_border=0x9A0000&color_box=0x9A0000&color_songbg=0x@(ViewBag.hf_SongBackground)&color_song_clicked=0x@(ViewBag.hf_SongClicked)&color_Title=0x000000&color_btns=0x@(ViewBag.hf_Buttons)&color_title=0x000000" />
+                            <br />
+                            <a href="http://www.hypster.com/?src=player-text" style="font-weight:bold;font-size:12px">Get Your Own Free Hypster.com Playlist.</a>
+                        
+                    </textarea>
+
+                </div>
+
+            </div>
+
+
+
+</div>
+</div>

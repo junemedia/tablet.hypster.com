@@ -1,0 +1,370 @@
+﻿@model hypster.ViewModels.getAccountInfo_PrivateViewModel
+
+@{
+    ViewBag.Title = "Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        RenderAccountMusic();
+    });
+    $(window).resize(function () {
+        RenderAccountMusic();
+    });
+</script>
+
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide0" class="slideRight" style=" min-height:130px;">
+            
+
+            <div id="SectionMenu1" onclick="window.location='/account/info';" style=" float:left; width:335px; height:150px; overflow:hidden; margin:0px; background-color:#292929; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;">
+            
+                <div style=" float:left; width:100%; line-height:14px; text-align:center;">
+                    <img alt="" src="/imgs/account/create_player_icon_sm.png" style=" margin:20px 0 10px 0;" /><br />
+                    Info
+                </div>
+            
+            </div>
+
+
+
+
+            <div id="SectionMenu2" onclick="window.location='/account/music';" style=" float:left; width:335px; height:150px; overflow:hidden; margin-left:5px; background-color:#181818; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;">
+            
+                <div style=" float:left; width:100%; line-height:14px; text-align:center;">
+                    <img alt="" src="/imgs/account/create_playlist_icon_sm.png" style=" margin:20px 0 10px 0;" /><br />
+                    Music
+                </div>
+
+            </div>
+
+
+
+
+
+            <div id="SectionMenu3" onclick="window.location='/account/friends';" style=" float:left; width:335px; height:150px; overflow:hidden; margin-left:5px; background-color:#292929; text-align:center; font-family:Hypster-Segoe; font-weight:lighter; font-size:29px; color:#CDCDCD; cursor:pointer;">
+                
+                <div style=" float:left; width:100%; line-height:14px; text-align:center;">
+                    <img alt="" src="/imgs/account/create_station_icon_sm.png" style=" margin:20px 0 10px 0;" /><br />
+                    Friends
+                </div>
+            
+            </div>
+
+
+     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@using (Html.BeginForm("MusicPost", "account", FormMethod.Post))
+{ 
+
+<!-- **************SECTION 2*************************** -->
+<div id="Section2" style=" display:block;">
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide1" class="slideLeft">
+        
+            
+                <div style=" float:right; width:1024px; margin:1%; text-align:left; ">
+                    <div style=" float:left; width:100%; color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;">
+                        &nbsp;My Favorite Genres
+                    </div>
+
+
+                    <div style=" float:left; width:100%; color:#2e3335;">
+                            @for (int i = 0; i < Model.musicGenres_list.Count; i++)
+                            {
+                                <div style=" float:left; width:220px; margin:7px 0 0 10px; font-size:16px;">
+                                    <input type="checkbox" name="musicGenres_list" value="@Model.musicGenres_list[i].Genre_ID" @if (@Model.musicGenres_list[i].selected == true) { <text> checked="checked" </text>} /> @Model.musicGenres_list[i].GenreName
+                                </div>
+                            }
+                    </div>
+                </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+<div class="boxContRight">
+    <div id="listenSlide2" class="slideRight">
+        
+
+            <div style=" float:left; width:1024px;">
+                
+
+                <div style=" float:left; width:720px;">
+                        <div style=" float:left; width:100%; height:30px; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;">
+                            My Playlists
+                        </div>
+                
+
+                        <div style=" float:left; width:100%;">
+                            @{ int counter_userPlaylists_list = 0; }
+                            @foreach (var item in @Model.userPlaylists_list)
+                            {
+                                if (counter_userPlaylists_list > 6)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    counter_userPlaylists_list++;
+                                }
+
+
+                                if (item.id == Model.curr_user.active_playlist)
+                                {
+                                    <div style=" float:left; width:720px; height:30px; margin-bottom:1px; margin-top:3px; ">
+                                
+                                        <div onclick="OpenPlayer('media_type=playlist&playlist_id=@item.id&us_id=@Model.curr_user.id');" style=" float:left; height:30px; line-height:30px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#505050;  cursor:pointer;">
+                                            <img alt="" src="/imgs/play_icon_lte.png" style=" margin:7px 7px 0 7px;" />
+                                        </div>
+
+                                        <div onclick="OpenPlayer('media_type=playlist&playlist_id=@item.id&us_id=@Model.curr_user.id');" style="float:left; width:630px; height:30px; line-height:30px; margin:0px 4px 0 4px; padding-left:3px; background-color:#505050;  text-align:left; color:#FCF088; cursor:pointer; ">
+                                            @item.name
+                                        </div>
+                                        <div onclick="window.location='/create/playlist?playlist_id=@item.id&us_id=@Model.curr_user.id';" style=" float:left; width:35px; height:30px; line-height:30px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#505050;  cursor:pointer;">
+                                            <img alt="" src="/imgs/action_icons/edit_icon_s.png" style=" margin:5px 7px 0 10px;" />
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style=" float:left; width:720px; height:30px; margin-bottom:1px; margin-top:3px; ">
+                                
+                                        <div onclick="OpenPlayer('media_type=playlist&playlist_id=@item.id&us_id=@Model.curr_user.id');" style=" float:left; height:30px; line-height:30px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#505050;  cursor:pointer;">
+                                            <img alt="" src="/imgs/play_icon_lte.png" style=" margin:7px 7px 0 7px;" />
+                                        </div>
+
+                                        <div onclick="OpenPlayer('media_type=playlist&playlist_id=@item.id&us_id=@Model.curr_user.id');" style="float:left; width:630px; height:30px; line-height:30px; margin:0px 4px 0 4px; padding-left:3px; background-color:#505050;  text-align:left; cursor:pointer; ">
+                                            @item.name
+                                        </div>
+                                        <div onclick="window.location='/create/playlist?playlist_id=@item.id&us_id=@Model.curr_user.id';" style=" float:left; width:35px; height:30px; line-height:30px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#505050;  cursor:pointer;">
+                                            <img alt="" src="/imgs/action_icons/edit_icon_s.png" style=" margin:5px 7px 0 10px;" />
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            <a href="/create/playlist" style=" display:block; float:left; width:180px; height:27px; line-height:27px; text-align:left; background-color:#42606e; color:#FFFFFF; border-radius:3px; margin-top:5px; padding-left:7px; cursor:pointer;">
+                                + Create Playlist
+                            </a>
+
+                        </div>
+                </div>
+
+
+                <div style=" float:left; width:300px; height:250px; margin-top:52px; ">
+                    <div id="SideAd98403712dejk"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("SideAd98403712dejk").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                        });
+                    </script>
+                </div>
+
+                
+            </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+<div class="boxContLeft" >
+    <div id="listenSlide3" class="slideLeft">
+            
+
+             <div style=" float:right; width:1024px; margin:1%; text-align:left; ">
+                    
+                    <div style=" float:left; width:100%; color:#2e3335; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;">
+                        My Players
+                    </div>
+
+
+                    <div style=" float:left; width:100%;">
+    
+                        @{
+                    int back_id = 1;
+                        }                       
+                        @foreach (var item in Model.userPlayers_list)
+                        {
+                            <div style=" float:left; width:100%; text-align:left;">
+                                
+
+                                <div style=" @if (back_id == 1)
+                                             { <text>background-color:#858c90;</text>}
+                                             else
+                                             {<text>background-color:#747e83;</text>} float:left; width:89%; height:35px; line-height:30px; overflow:hidden; margin-top:3px; cursor:pointer; ">
+                                    <div style=" float:left; margin:3px 0 0 5px; font-size:16px;">
+                                        @item.player_Name
+                                    </div>
+                                </div>
+
+                                <div onclick="window.location='/create/player/@item.Player_Type?Pl_ID=@item.player_ID';" style=" @if (back_id == 1)
+                                                                                                                                 { <text>background-color:#858c90;</text>}
+                                                                                                                                 else
+                                                                                                                                 {<text>background-color:#747e83;</text>} float:left; height:35px; line-height:35px; text-align:left; color:#FFFFFF; font-size:11px; margin-top:3px; margin-left:4px; cursor:pointer;">
+                                    <img alt="" src="/imgs/action_icons/edit_icon_s.png" style=" margin:10px 10px 0 10px;" />
+                                </div>
+
+                                <div onclick="if(confirm('Are you sure you want to delete?') == true ){window.location='/player/getPlayer?ACT=DeletePlayer&Pl_ID=@item.player_ID';}" style=" @if (back_id == 1)
+                                                                                                                                                                          { <text>background-color:#858c90;</text>}
+                                                                                                                                                                          else
+                                                                                                                                                                          {<text>background-color:#747e83;</text>} float:left; height:35px; line-height:35px; text-align:left; color:#FFFFFF; font-size:11px; margin-top:3px; margin-left:4px; cursor:pointer;">
+                                    <img alt="" src="/imgs/action_icons/delete_icon_s.png" style=" margin:10px 10px 0 10px;" />
+                                </div>
+                            </div>
+                            
+                                                                                                                                                                          back_id = back_id * -1;
+                        }
+                        <a href="/create/player" style="display:block; float:left; width:180px; height:27px; line-height:27px; text-align:left; background-color:#42606e; color:#FFFFFF; border-radius:3px; margin-top:5px; padding-left:7px; cursor:pointer;">
+                            + Create Player
+                        </a>
+
+                    </div>
+
+
+            </div>
+        
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="boxContRight" >
+    <div id="listenSlide4" class="slideRight">
+        
+
+           <div style=" float:left; width:1024px; margin-bottom:10px;">
+            
+                
+
+                <div style=" float:left; width:720px;">
+                        <div style=" float:left; width:100%; height:30px; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:24px; margin:10px 0 10px 0;">
+                            My Stations
+                        </div>
+                
+
+                        <div style=" float:left; width:100%;">
+                            @foreach (var item in @Model.radioStation_list)
+                            {
+                                <div style=" float:left; width:100%; margin-bottom:4px;">
+                            
+                                    <div onclick="OpenPlayer('media_type=Radio&Genre=@item.RadioStationQuery.Replace(" ", "+")')" style=" float:left; height:30px; line-height:30px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#505050;  cursor:pointer;">
+                                        <img alt="" src="/imgs/play_icon_lte.png" style=" margin:7px 7px 0 7px;" />
+                                    </div>
+
+
+                                    <div onclick="OpenPlayer('media_type=Radio&Genre=@item.RadioStationQuery.Replace(" ", "+")')" style=" float:left; width:620px; height:26px; line-height:25px; background-color:#505050; padding:2px 2px 2px 10px;  margin-left:4px; cursor:pointer;">
+                                        @item.RadioStationName
+                                    </div>
+
+                        
+                                    <div onclick="if(confirm('Are you sure you want to delete?') == true){window.location='/account/deleteStation?station=@item.RadioStation_ID';}" style=" float:left; height:30px; line-height:30px; text-align:left; color:#FFFFFF; font-size:11px; background-color:#505050; margin-left:4px; cursor:pointer;">
+                                        <img alt="" src="/imgs/action_icons/delete_icon_s.png" style=" margin:7px 7px 0 7px;" />
+                                    </div>
+                                </div>
+                            }
+                            <a href="/create/station" style=" display:block; float:left; width:180px; height:27px; line-height:27px; text-align:left; background-color:#42606e; color:#FFFFFF; border-radius:3px; margin-top:5px; padding-left:7px; cursor:pointer;">
+                                + Create Station
+                            </a>
+                        </div>
+                </div>
+
+
+                <div style=" float:left; width:300px; height:250px; margin-top:50px; ">
+                    <div id="SideAdiw8o302e3791"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("SideAdiw8o302e3791").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                        });
+                    </script>
+                </div>
+
+                
+            </div> 
+
+
+    </div>
+</div>
+
+
+
+</div>
+<!-- **************SECTION 2*************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style=" float:left; width:100%; height:auto; background:url('/imgs/stripe-bg2.png') repeat-y center;  margin:15px 0 0 0;">
+    <div id="listenSlide5" style="width:1024px; min-height:50px; padding:15px 15px 15px 15px; background-color:#9da2a4; margin:0 auto 0 auto; border-radius:2px;">
+            
+
+
+            <div style=" float:right; width:1024px;">
+                 <input type="submit" value="Save Changes" style=" float:right; width:280px; height:48px; line-height:48px; background-color:#42606e; border-radius:3px; color:#FFFFFF; font-family:Hypster-Segoe; font-weight:lighter; font-size:30px; text-align:center; cursor:pointer; " />
+            </div>
+
+
+    </div>
+</div>
+
+
+
+}
+
+

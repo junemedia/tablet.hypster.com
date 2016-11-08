@@ -1,0 +1,118 @@
+﻿@model List<hypster_tv_DAL.Playlist>
+@{
+    Layout = null; 
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+            //===================================================================
+            $("#PopularPlaylistsSlide2_header").css("width", (cont_width - 750 - 20) + "px");
+            //===================================================================
+        }
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 1024) {
+            var margin_left = $(window).width() - 1024 - 30;
+            var cont_width = 1024 + 30 + (margin_left / 2) - 15;
+            //===================================================================
+            $("#PopularPlaylistsSlide2_header").css("width", (cont_width - 750 - 20) + "px");
+            //===================================================================
+        }
+    });
+</script>
+
+
+<div id="listenSlideContHolder" style=" float:right; width:100%; min-height:470px; ">
+<div class="PopularPlaylists">
+
+
+
+        <div class="PopularHeaderCont">
+
+            <!--div class="PopularHeader">
+                Popular Playlists
+            </div-->
+
+            <div id="PopularPlaylistsSlide2_header">
+                
+                <div class="FeaturedHeaderBack">
+                    <div>Popular Playlists</div>
+                </div>
+
+                <div class="FeaturedSubHeader">
+                </div>
+
+            </div>
+
+
+            <div class="PopularAdCont">
+                <div id="TopAdd1_i29381s"></div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        document.getElementById("TopAdd1_i29381s").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                    });
+                </script>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        @{
+            int back_id = 1;
+        }
+        <div style="float:right; width:1024px; margin-top:15px; ">
+
+
+            <div class="PopularPlstsCont">
+            @for (int i = 0; i < 7; i++)
+            {
+                if (i < Model.Count)
+                {
+                    <div @if (back_id == 1){ <text>class="PlstItm"</text>}else{<text>class="PlstItmB"</text>} onclick="OpenPlayer('media_type=playlist&playlist_id=@(Model[i].id)&us_id=@(Model[i].userid)');" >
+                        <div class="PlstTitle">@Model[i].name</div>
+                        <a class="PlstLstn" title="play"></a>
+                    </div>
+                }
+
+                back_id = back_id * -1;
+            }
+            </div>
+
+
+
+            <div class="PopularPlstsCont" style="margin-left:23px;">
+            @for (int i = 7; i < 14; i++)
+            {
+                if (i < Model.Count)
+                {
+                    <div @if (back_id == 1){ <text>class="PlstItm"</text>}else{<text>class="PlstItmB"</text>} onclick="OpenPlayer('media_type=playlist&playlist_id=@(Model[i].id)&us_id=@(Model[i].userid)');">
+                        <div class="PlstTitle">@Model[i].name</div>
+                        <a class="PlstLstn" title="play"></a>
+                    </div>
+                }
+
+                back_id = back_id * -1;
+            }
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+</div>
+</div> 

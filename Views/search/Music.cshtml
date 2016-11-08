@@ -1,0 +1,180 @@
+﻿@using Google.GData;
+@using Google.GData.Client;
+@using Google.GData.Extensions;
+@using Google.GData.YouTube;
+@using Google.YouTube;
+
+
+@model Feed<Video>
+@{
+    ViewBag.Title = "Music Search";
+    Layout = null;
+}
+
+
+
+<div style="float:right; width:1024px;">
+
+
+<div class="SearchPageRoot">
+    
+    @{ int curr_index = 1; }
+    @{ int back_id = 1; }
+    @if (Model != null)
+    {
+        
+        foreach (var item in Model.Entries)
+        {
+            <div @if(back_id == 1){ <text>class="SongItm"</text>}else{<text>class="SongItmB"</text>} >
+                
+
+                <div class="lfCont">
+                    
+                    <img alt="" class="imgThumb" src="@item.Thumbnails[0].Url" onclick="OpenPlayer('song_guid=@item.VideoId&song_title=@HttpUtility.UrlEncode(item.Title)');" />
+                    
+                    <div class="songCont" onclick="OpenPlayer('song_guid=@item.VideoId&song_title=@HttpUtility.UrlEncode(item.Title)');">
+                        <span class="style_23">@item.Title</span> <br />
+                        Views: <span class="style_24">@item.ViewCount</span><br />
+                        Author: <span class="style_24">@item.Author</span><br />
+                        Duration: <span class="style_24">@(Int32.Parse(item.Media.Duration.Seconds)/60)<text>:</text>@(Int32.Parse(item.Media.Duration.Seconds) % 60)</span><br />
+
+
+                        @if (@item.RatingAverage != null)
+                        {
+                            <div>Rating: <span style=" color:#FCF088;"> @item.RatingAverage</span></div>
+                        }
+
+                        @if (item.Media != null && item.Media.Restriction != null)
+                        {
+                            @item.Media.Restriction.Attributes["relationship"]<text> in:</text>
+                            <span onclick="$('#RST_@item.VideoId').css('display','block');" style=" width:80px; height:20px; line-height:20px; color:#FCF088; font-size:11px;">More Details</span>
+                            <div id="RST_@item.VideoId" style=" display:none;">
+                                <span style=" color:#FCF088;">@item.Media.Restriction.Value.ToString()</span><br />
+                            </div>
+                        }
+                    </div>
+                    
+                </div>
+
+
+
+                <div class="rtCont">
+                    
+                    <div class="AddPl_btn" onclick="ShowAddToMyPlaylist('?song_guid=@item.VideoId&song_title=@System.Web.HttpUtility.UrlEncode(item.Title)');">
+                       + Add to Playlist
+                    </div>
+                    
+                    <div class="GetRing_btn">
+                        <a href="http://www.funtonia.com/mp3ringtones/search.asp?sw=@ViewBag.search_string&affid=120674" target="_blank">Get Ringtone</a>
+                    </div>
+
+                    <div class="SearchSimilar_btn" onclick="SearchMusicStr('@System.Web.HttpUtility.UrlEncode(item.Title)');">
+                       Search for this title
+                    </div>
+
+                </div>
+
+
+                @if (@item.AppControl != null)
+                {
+                    <div class="SyndicationBtn">
+                        <text>"Syndication of this video was restricted". This song might be blocked by publisher for playing from external players.</text>
+                    </div>
+                }
+            </div>
+        
+            if (curr_index == 12)
+            {
+                <div class="SearchSongsAdCont">
+                    <div id="TopAdd1_dj938274f"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            document.getElementById("TopAdd1_dj938274f").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+                        });
+                    </script>
+                </div>
+            }
+        
+        
+            back_id = back_id * -1;
+            curr_index = curr_index + 1;
+        }
+
+
+
+
+
+
+        if (Model.Entries.ToList().Count() == 0)
+        {
+            <div class="NFMessageCont">
+                <div>No video results for “@ViewBag.search_string.Replace("+", " ")”</div>
+            </div>
+        }
+
+
+    }
+    
+
+
+
+
+
+
+
+
+@if (Model != null)
+{
+    <div class="SongSearchPagingRoot">
+        
+        <div class="PagingInner">
+        @{ int total_pages = 20; }
+        @{ total_pages = Model.TotalResults / Model.PageSize; }
+
+
+        @if ((Model.TotalResults % Model.PageSize) > 0)
+        {
+            total_pages += 1;
+        }
+
+        @if (total_pages > 20)
+        {
+            total_pages = 20;
+        }
+        
+
+
+        @for (int i = 1; i <= total_pages; i++)
+        {
+            if (ViewBag.CurrPage == i)
+            {
+                <a class="searchPagingBtn_Sel" onclick="SearchMusicStrPage('@ViewBag.search_string', '@i')" >@i.ToString()</a>
+            }
+            else
+            {   
+                <a class="searchPagingBtn" onclick="SearchMusicStrPage('@ViewBag.search_string', '@i')" >@i.ToString()</a>
+            }
+        }
+        </div>
+       
+    </div>
+}
+
+
+<div class="SearchSongsAdCont">
+    <div id="TopAdd1_u9e32847"></div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            document.getElementById("TopAdd1_u9e32847").innerHTML = "<iframe width=\"728\" scrolling=\"no\" height=\"90\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9NzI4eDkwLG49aWZyYW1l?subid=default\"></iframe>";
+        });
+    </script>
+</div>
+
+
+
+</div>
+
+
+
+
+</div>

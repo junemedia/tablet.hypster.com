@@ -1,0 +1,24 @@
+﻿@model List<hypster_tv_DAL.VisualSearch>
+@{
+    Layout = null;
+}
+
+
+
+
+@for (int i = 0; i < 50; i++)
+{
+    if (i < Model.Count)
+    {
+        <img class="VisSearchItm" title="click to search for @Model[i].Artist_Name.Replace("_"," ")" alt="@Model[i].Artist_Name.Replace("_"," ")" src="/imgs/visualSearch/@(Model[i].Artist_Name).jpg" onclick="window.location='/listen?ss=@Model[i].Artist_Name.Replace("_","+")';" />
+    }
+}
+                        
+                        
+@for (int i = 50; i > 0; i--)
+{
+    if (i < Model.Count)
+    {
+        <img class="VisSearchItm" title="click to search for @Model[i].Artist_Name.Replace("_"," ")" alt="@Model[i].Artist_Name.Replace("_"," ")" src="/imgs/visualSearch/@(Model[i].Artist_Name).jpg" onclick="window.location='/listen?ss=@Model[i].Artist_Name.Replace("_","+")';" />
+    }
+}

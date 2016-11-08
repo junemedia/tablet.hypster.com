@@ -1,0 +1,16 @@
+﻿@model hypster.ViewModels.listenViewModel
+
+@{
+    Layout = null;
+}
+
+
+
+
+@foreach (var item in Model.genres_list)
+{
+    <div class="RadioSt" onclick="OpenPlayer('media_type=Radio&Genre=@item.GenreName')" onmouseover="this.style.backgroundColor='#303030';" onmouseout="this.style.backgroundColor='';">
+        <img alt="@item.GenreName" src="/imgs/listen/radio_icon.png" /> @item.GenreName
+    </div>
+}
+

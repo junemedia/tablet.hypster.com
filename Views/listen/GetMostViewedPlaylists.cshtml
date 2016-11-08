@@ -1,0 +1,18 @@
+﻿@model hypster.ViewModels.listenViewModel
+
+@{
+    Layout = null;
+}
+
+
+
+@for (int i = 0; i <= 12; i++)
+{
+    if (i < Model.most_viewed_playlists.Count)
+    {
+        <div class="plItem">
+            <div class="plName">@Model.most_viewed_playlists[i].name</div>
+            <a class="plPlay" title="play" onclick="OpenPlayer('media_type=playlist&playlist_id=@(Model.most_viewed_playlists[i].id)&us_id=@(Model.most_viewed_playlists[i].userid)');"></a>
+        </div>
+    }
+}

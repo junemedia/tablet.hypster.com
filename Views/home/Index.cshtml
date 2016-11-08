@@ -1,0 +1,193 @@
+﻿@{
+    ViewBag.Title = "Free music online - Playlist and player for tumblr | Hypster ";
+    ViewBag.Desc = "Search songs, make a playlist online for free, create player for tumblr or blogger, listen to youtube music, create your own playlist online for free.";
+    ViewBag.ActivePage = "hypster";
+}
+@Scripts.Render("~/scripts/jquery.cycle.all.latest.js")
+
+
+<script type="text/javascript">
+    active_menu = ".mHypster";
+    $(".mHypster").css("background-color", "#191919");
+
+    $(document).ready(function () {
+        RenderHome();
+    });
+    $(window).resize(function () {
+        RenderHome();
+    });
+    $(document).ready(function () {
+        setTimeout('StartSlideshow()', 2000);
+    });
+</script>
+
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight" style=" min-height:480px;">
+
+
+            <div class="sld1_topCont">
+        
+                    <div class="topLeft">
+
+                        <div class="mainSlideshow">
+                            
+                            <!--div id="HomeSlide1">
+                                <img alt="" src="/imgs/home/main_slide_4.jpg" onclick="window.location='/hypster/New_Player_For_Tumblr';" />
+                                <div class="SlideshowBultesCont">
+                                    <div class="slideBuletSel" onclick="opnSlide('1');"></div>
+                                    <div class="slideBulet" onclick="opnSlide('2');"></div>
+                                    <div class="slideBulet" onclick="opnSlide('3');"></div>
+                                </div>
+                            </div-->
+
+
+                            <div id="HomeSlide2">
+                                <img alt="" src="/imgs/home/main_slide_3.jpg" onclick="window.location='/hypster/Hypster_On_Mobile';" />
+                                <div class="SlideshowBultesCont">
+                                    <!--div class="slideBulet" onclick="opnSlide('1');"></div-->
+                                    <div class="slideBuletSel" onclick="opnSlide('2');"></div>
+                                    <div class="slideBulet" onclick="opnSlide('3');"></div>
+                                </div>
+                            </div>
+
+
+                            <div id="HomeSlide3">
+                                <img alt="" src="/imgs/home/main_slide_1.jpg" onclick="window.location='/hypster/How_To_Use';" />
+                                <div class="SlideshowBultesCont">
+                                    <!--div class="slideBulet" onclick="opnSlide('1');"></div-->
+                                    <div class="slideBulet" onclick="opnSlide('2');"></div>
+                                    <div class="slideBuletSel" onclick="opnSlide('3');"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+
+                    </div>
+
+
+                    <div class="topRight">
+                        <!-- BEGIN TAG - DO NOT MODIFY -->
+                        <script type="text/javascript">
+                        <!--
+                            epom_key = "fb09543b2a19872f1a4246b5ee450dda";
+                            epom_code_format = "ads-api-sync.js";
+                            epom_click = "";
+                            epom_custom_params = {};
+
+                            document.write("<script type='text\/javascript' src='" + (location.protocol == 'https:' ? 'https:' : 'http:') + "//www.adshost2.com\/js/show_ads.js'><\/script>");
+                        //-->
+                        </script>
+
+                    </div>
+
+            </div>
+
+
+
+            <div id="listenSlide1_textBoxes" class="sld1_middleCont">
+        
+                    <div class="middleC1">
+                        <div class="head11">Music for Free</div>
+                        <div class="cont21">Listen to millions of songs available to you for free. Uncover a great range of songs from our vast library of music.</div>
+                    </div>
+
+                    <div class="middleC2">
+                        <div class="head11">Your Music on Your Site</div>
+                        <div class="cont21">Your playlist and post your songs on any site with your customizable player.</div>
+                    </div>
+
+                    <div class="middleC3">
+                        <div class="head11">Social Experience</div>
+                        <div class="cont21">Connect wtih friends, share songs and generate a community of followers.</div>
+                    </div>
+
+            </div>
+
+
+
+            <div class="sld1_bottomCont">
+                <div class="sld1_bottomContInnr">
+                    
+                        <input type="text" id="txtSearchString" name="txtSearchString" onKeyUp="SearchString_KeyUp(event)" value=" Enter Artist, Song or Genre"  onfocus="if(this.value == ' Enter Artist, Song or Genre') this.value = '';" onblur="if(this.value == '') this.value = ' Enter Artist, Song or Genre';" />
+                        <div id="btnSearch" onclick="StartMusicSearch()"></div>
+                        @Html.Action("visualSearchBar", "home")
+
+                </div>
+            </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide2" class="slideLeft" style=" min-height:450px;">
+            @Html.Action("PopularVideos", "popular")
+    </div>
+</div>
+
+
+
+
+
+
+<div class="boxContRight">
+    <div id="listenSlide3" class="slideRight" style=" min-height:600px;">
+        
+            <div class="popularHomeContHolder" style=" width:300px; overflow:hidden;">
+                <div class="popularHomeInner">
+                        <div class="headerCont"><div>Popular on Hypster</div></div>
+                        @Html.Action("Get_MostPopularSong_Random", "home")
+                </div>
+            </div>
+
+
+            <div class="popularHomeAdCont" style=" width:300px; margin-left:6px;">
+                <!-- BEGIN TAG - DO NOT MODIFY -->
+                <script type="text/javascript">
+                <!--
+                    epom_key = "4c26cbe0a244cec198cfdf5827652955";
+                    epom_code_format = "ads-api-sync.js";
+                    epom_click = "";
+                    epom_custom_params = {};
+
+                    document.write("<script type='text\/javascript' src='" + (location.protocol == 'https:' ? 'https:' : 'http:') + "//www.adshost2.com\/js/show_ads.js'><\/script>");
+                //-->
+                </script>
+                <!-- END TAG -->
+            </div>
+
+
+            <div id="listenSlide3_cont">
+                @Html.Action("GetLatestNews", "news")
+            </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

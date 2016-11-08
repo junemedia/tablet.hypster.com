@@ -1,0 +1,153 @@
+﻿@model hypster.ViewModels.createStation_ViewModel
+@{
+    ViewBag.Title = "Create Free Station | Hypster - free music online - player for tumblr";
+    ViewBag.Desc = "Create free playlists, and listen commercial free music.";
+}
+
+
+
+
+<script type="text/javascript">
+    active_menu = ".mCreate";
+    $(".mCreate").css("background-color", "#191919");
+
+    $(document).ready(function () {
+        RenderCreateStation();
+    });
+    $(window).resize(function () {
+        RenderCreateStation();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+<div class="boxContRight boxContRightTop">
+    <div id="listenSlide1" class="slideRight" style=" min-height:540px;">
+
+
+
+            <div id="CreateStationSection1" onclick="window.location='/create/player';">
+                <img alt="" src="/imgs/create/create_player_icon_sm.png" /><br />
+                Create Player
+            </div>
+
+
+            <div id="CreateStationSection2" onclick="window.location='/create/playlist';">
+                <img alt="" src="/imgs/create/create_playlist_icon_sm.png" /><br />
+                Create Playlist
+            </div>
+
+
+            <div id="CreateStationSection3" onclick="window.location='/create/station';">
+                <img alt="" src="/imgs/create/create_station_icon_sm.png" /><br />
+                Create Station
+            </div>
+
+
+
+
+
+
+
+            <div class="CreateRadioContHolder" style="margin-top:-1px;">
+            
+            
+                            @using (Html.BeginForm("pr_CreateRadioStation_POST", "radio", FormMethod.Post))
+                            {
+
+                                <div class="StatNameCont">
+                                    
+                                    <div style=" float:left; width:100%; height:30px; margin:6px 0 0 0; font-size:18px; color:#FCF088; text-align:left;">
+                                        <span style=" margin:0 0 0 20px;">Please enter name and search term for your station.</span>
+                                    </div>
+
+                                    <input type="text" id="RadioStationName" name="RadioStationName" value=" Station Name" onfocus="if(this.value == ' Station Name') this.value = '';" onblur="if(this.value == '') this.value = ' Station Name';" />
+
+                                    <input type="text" id="RadioStationSearchTerm" name="RadioStationSearchTerm" value=" Enter Artist, Song or Genre"onfocus="if(this.value == ' Enter Artist, Song or Genre') this.value = '';" onblur="if(this.value == '') this.value = ' Enter Artist, Song or Genre';" />
+
+                                     <input id="RadioStationSave" type="submit" value="Create Radio Station" />
+                                </div>
+                            
+                                <!--div class="StatSearchCont"></div-->
+
+                                <div class="StatSaveCont">
+                                </div>
+                            
+                                if (ViewBag.ErrorMessage != null)
+                                {
+                                    <div style=" float:left; width:100%; ">
+                                        <div class="errMsg1" >@ViewBag.ErrorMessage</div>
+                                    </div>
+                                }
+                            }
+
+
+
+
+
+                            <div class="VisSearchCont">
+                        
+
+                                    <div class="AdCont">
+                                        <div id="SideAd2d30942cbibhi0"></div>
+                                        <script type="text/javascript">
+                                            $(document).ready(function () {
+                                                document.getElementById("SideAd2d30942cbibhi0").innerHTML = "<iframe allowTransparency=\"true\" width=\"300\" scrolling=\"no\" height=\"250\" frameborder=\"0\" style=\"border:none;\" marginwidth=\"0\" src=\"http://feed-rt.baronsoffers.com/offer/feed/q/aT0zNTQ4LHM9MzAweDI1MCxuPWlmcmFtZQ==?subid=default\"></iframe>";
+                                            });
+                                        </script>
+                                    </div>
+
+                        
+
+                                    @for (int i = 0; i < 50; i++)
+                                    {
+                                        if (i < Model.visualSearchList.Count)
+                                        {
+                                            <img class="VisSerItm" alt="@Model.visualSearchList[i].Artist_Name.Replace("_", " ");" src="/imgs/visualSearch/@(Model.visualSearchList[i].Artist_Name).jpg" onclick="PopulateRadioStationF('@Model.visualSearchList[i].Artist_Name.Replace("_", " ")');"  />
+                                        }
+                                    }
+                        
+                                    @for (int i = 50; i > 0; i--)
+                                    {
+                                        if (i < Model.visualSearchList.Count)
+                                        {
+                                            <img class="VisSerItm" alt="@Model.visualSearchList[i].Artist_Name.Replace("_", " ");" src="/imgs/visualSearch/@(Model.visualSearchList[i].Artist_Name).jpg" onclick="PopulateRadioStationF('@Model.visualSearchList[i].Artist_Name.Replace("_", " ")');" />
+                                        }
+                                    }               
+
+                            </div>
+
+
+            </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="boxContLeft">
+    <div id="listenSlide2" class="slideLeft" style=" min-height:460px;">
+        
+           
+           @Html.Action("PopularPlaylists", "popular")
+           
+
+    </div>
+</div>
